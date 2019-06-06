@@ -31,25 +31,17 @@ As described in https://arxiv.org/abs/1804.07573.
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
-import os
 
-os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
-import tensorflow as tf
-from keras.models import Model
-from keras.layers import Input, Conv2D, GlobalAveragePooling2D, Dropout, PReLU, Layer
-from keras.layers import Activation, BatchNormalization, add, Reshape, DepthwiseConv2D
-from keras.utils import plot_model
-from keras.activations import relu
-from keras.initializers import Constant
-from keras import regularizers
+# os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
+
 import keras
-
-from keras.regularizers import l2
-
+import tensorflow as tf
 from keras import backend as K
-
-from collections import namedtuple
-import functools
+from keras.initializers import Constant
+from keras.layers import BatchNormalization, add, Reshape, DepthwiseConv2D
+from keras.layers import Input, Conv2D
+from keras.models import Model
+from keras.regularizers import l2
 
 
 # Conv and InvResBlock namedtuple define layers of the MobileNet architecture
@@ -82,22 +74,6 @@ class prelu(keras.layers.Layer):
     #         return pos + neg
 
 class MobileFaceNet(object):
-    Conv = namedtuple('Conv', ['kernel', 'stride', 'depth', 'ratio'])
-    DepthwiseConv = namedtuple('DepthwiseConv', ['kernel', 'stride', 'depth', 'ratio'])
-    InvResBlock = namedtuple('InvResBlock', ['kernel', 'stride', 'depth', 'ratio', 'repeate'])
-
-    _CONV_DEFS = [
-        Conv(kernel=[3, 3], stride=2, depth=64, ratio=1),
-        DepthwiseConv(kernel=[3, 3], stride=1, depth=64, ratio=1),
-
-        InvResBlock(kernel=[3, 3], stride=2, depth=64, ratio=2, repeate=5),
-        InvResBlock(kernel=[3, 3], stride=2, depth=128, ratio=4, repeate=1),
-        InvResBlock(kernel=[3, 3], stride=1, depth=128, ratio=2, repeate=6),
-        InvResBlock(kernel=[3, 3], stride=2, depth=128, ratio=4, repeate=1),
-        InvResBlock(kernel=[3, 3], stride=1, depth=128, ratio=2, repeate=2),
-
-        Conv(kernel=[1, 1], stride=1, depth=512, ratio=1),
-    ]
 
     def __init__(self):
         # self._Conv_count = 0
