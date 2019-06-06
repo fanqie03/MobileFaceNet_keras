@@ -1,0 +1,30 @@
+TensorFlow 2.0 Upgrade Script
+-----------------------------
+Converted 1 files
+Detected 1 issues that require attention
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+File: arcface.py
+--------------------------------------------------------------------------------
+arcface.py:142:15: WARNING: Changing dataset.make_initializable_iterator() to tf.compat.v1.data.make_initializable_iterator(dataset). Please check this transformation.
+
+================================================================================
+Detailed log follows:
+
+================================================================================
+--------------------------------------------------------------------------------
+Processing file 'arcface.py'
+ outputting to 'arcface-upgrade.py'
+--------------------------------------------------------------------------------
+
+115:33: INFO: Renamed 'tf.FixedLenFeature' to 'tf.io.FixedLenFeature'
+116:29: INFO: Renamed 'tf.FixedLenFeature' to 'tf.io.FixedLenFeature'
+117:19: INFO: Added keywords to args of function 'tf.parse_single_example'
+117:19: INFO: Renamed 'tf.parse_single_example' to 'tf.io.parse_single_example'
+133:13: INFO: Renamed 'tf.ConfigProto' to 'tf.compat.v1.ConfigProto'
+134:11: INFO: Renamed 'tf.Session' to 'tf.compat.v1.Session'
+142:15: WARNING: Changing dataset.make_initializable_iterator() to tf.compat.v1.data.make_initializable_iterator(dataset). Please check this transformation.
+
+482:11: INFO: Added keywords to args of function 'tf.reduce_mean'
+--------------------------------------------------------------------------------
+
