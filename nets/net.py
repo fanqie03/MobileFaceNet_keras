@@ -283,6 +283,7 @@ class MobileFaceNet(object):
                 #     x = Dropout(0.3, name='Dropout')(x)
                 with tf.name_scope('LinearConv1x1'):
                     x = self._conv(x, k, (1, 1), strides=(1, 1), kernel_regularizer=l2(1e-10), activation=False)
+                    x = Reshape((k,))(x)
 
         return x
 
