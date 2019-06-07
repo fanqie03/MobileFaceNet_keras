@@ -1,0 +1,1700 @@
+2019-06-06 18:03:16.286016: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
+2019-06-06 18:03:16.309791: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 3499605000 Hz
+2019-06-06 18:03:16.311530: I tensorflow/compiler/xla/service/service.cc:150] XLA service 0x562c53f1d7d0 executing computations on platform Host. Devices:
+2019-06-06 18:03:16.311592: I tensorflow/compiler/xla/service/service.cc:158]   StreamExecutor device (0): <undefined>, <undefined>
+2019-06-06 18:03:16.439556: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:998] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2019-06-06 18:03:16.440305: I tensorflow/compiler/xla/service/service.cc:150] XLA service 0x562c53f16ba0 executing computations on platform CUDA. Devices:
+2019-06-06 18:03:16.440388: I tensorflow/compiler/xla/service/service.cc:158]   StreamExecutor device (0): GeForce GTX 1080 Ti, Compute Capability 6.1
+2019-06-06 18:03:16.440982: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1433] Found device 0 with properties: 
+name: GeForce GTX 1080 Ti major: 6 minor: 1 memoryClockRate(GHz): 1.6575
+pciBusID: 0000:42:00.0
+totalMemory: 10.91GiB freeMemory: 9.34GiB
+2019-06-06 18:03:16.441007: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1512] Adding visible gpu devices: 0
+2019-06-06 18:03:16.442298: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-06-06 18:03:16.442319: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990]      0 
+2019-06-06 18:03:16.442330: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1003] 0:   N 
+2019-06-06 18:03:16.442691: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 9089 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:42:00.0, compute capability: 6.1)
+Using TensorFlow backend.
+WARNING:tensorflow:From /home/cmf/anaconda3/lib/python3.7/site-packages/tensorflow/python/ops/control_flow_ops.py:3632: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Colocations handled automatically by placer.
+2019-06-06 18:03:16.494375: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1512] Adding visible gpu devices: 0
+2019-06-06 18:03:16.494455: I tensorflow/core/common_runtime/gpu/gpu_device.cc:984] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-06-06 18:03:16.494462: I tensorflow/core/common_runtime/gpu/gpu_device.cc:990]      0 
+2019-06-06 18:03:16.494467: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1003] 0:   N 
+2019-06-06 18:03:16.494700: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1115] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 9089 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1080 Ti, pci bus id: 0000:42:00.0, compute capability: 6.1)
+WARNING:tensorflow:From train_nets_keras.py:190: div (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Deprecated in favor of operator or tf.math.divide.
+WARNING:tensorflow:From /home/cmf/anaconda3/lib/python3.7/site-packages/tensorflow/python/ops/math_ops.py:3066: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+2019-06-06 18:03:51.867352: I tensorflow/stream_executor/dso_loader.cc:152] successfully opened CUDA library libcublas.so.10.0 locally
+begin db lfw convert.
+loading bin 1000
+loading bin 2000
+loading bin 3000
+loading bin 4000
+loading bin 5000
+loading bin 6000
+loading bin 7000
+loading bin 8000
+loading bin 9000
+loading bin 10000
+loading bin 11000
+loading bin 12000
+(12000, 112, 112, 3)
+labels: Tensor("arc_face_1/Reshape:0", shape=(?,), dtype=int32)
+[<tf.Tensor 'input_1:0' shape=(?, 112, 112, 3) dtype=float32>, <tf.Tensor 'input_2:0' shape=(?, 1) dtype=int32>] Tensor("arc_face_1/arcface_loss/SparseSoftmaxCrossEntropyWithLogits/SparseSoftmaxCrossEntropyWithLogits:0", shape=(?,), dtype=float32)
+epoch:0, lr:0.1
+epoch 0, total_step 50, loss is 60.827850, training accuracy is 0.000000, time 344.203 samples/sec
+epoch 0, total_step 100, loss is 64.445503, training accuracy is 0.000000, time 333.954 samples/sec
+epoch 0, total_step 150, loss is 65.299301, training accuracy is 0.000000, time 331.656 samples/sec
+epoch 0, total_step 200, loss is 62.769863, training accuracy is 0.000000, time 339.968 samples/sec
+epoch 0, total_step 250, loss is 58.530174, training accuracy is 0.000000, time 333.748 samples/sec
+epoch 0, total_step 300, loss is 57.273281, training accuracy is 0.000000, time 336.260 samples/sec
+epoch 0, total_step 350, loss is 59.086636, training accuracy is 0.000000, time 335.774 samples/sec
+epoch 0, total_step 400, loss is 54.705917, training accuracy is 0.000000, time 334.721 samples/sec
+epoch 0, total_step 450, loss is 51.617931, training accuracy is 0.000000, time 338.173 samples/sec
+epoch 0, total_step 500, loss is 52.798710, training accuracy is 0.000000, time 333.711 samples/sec
+epoch 0, total_step 550, loss is 52.156437, training accuracy is 0.000000, time 337.987 samples/sec
+epoch 0, total_step 600, loss is 51.813137, training accuracy is 0.000000, time 327.060 samples/sec
+epoch 0, total_step 650, loss is 50.177349, training accuracy is 0.000000, time 334.588 samples/sec
+epoch 0, total_step 700, loss is 52.061081, training accuracy is 0.000000, time 337.589 samples/sec
+epoch 0, total_step 750, loss is 47.136765, training accuracy is 0.000000, time 333.845 samples/sec
+epoch 0, total_step 800, loss is 48.235523, training accuracy is 0.000000, time 338.304 samples/sec
+epoch 0, total_step 850, loss is 48.015644, training accuracy is 0.000000, time 344.779 samples/sec
+epoch 0, total_step 900, loss is 47.886707, training accuracy is 0.000000, time 342.634 samples/sec
+epoch 0, total_step 950, loss is 50.299519, training accuracy is 0.000000, time 340.240 samples/sec
+epoch 0, total_step 1000, loss is 45.666145, training accuracy is 0.000000, time 336.464 samples/sec
+epoch 0, total_step 1050, loss is 46.973145, training accuracy is 0.000000, time 338.897 samples/sec
+epoch 0, total_step 1100, loss is 45.509583, training accuracy is 0.000000, time 338.598 samples/sec
+epoch 0, total_step 1150, loss is 45.605320, training accuracy is 0.000000, time 334.061 samples/sec
+epoch 0, total_step 1200, loss is 45.041161, training accuracy is 0.000000, time 331.489 samples/sec
+epoch 0, total_step 1250, loss is 43.363110, training accuracy is 0.000000, time 331.336 samples/sec
+epoch 0, total_step 1300, loss is 46.527779, training accuracy is 0.000000, time 341.446 samples/sec
+epoch 0, total_step 1350, loss is 43.473751, training accuracy is 0.000000, time 333.759 samples/sec
+epoch 0, total_step 1400, loss is 43.204311, training accuracy is 0.000000, time 340.331 samples/sec
+epoch 0, total_step 1450, loss is 43.061432, training accuracy is 0.000000, time 341.633 samples/sec
+epoch 0, total_step 1500, loss is 43.248302, training accuracy is 0.000000, time 339.075 samples/sec
+epoch 0, total_step 1550, loss is 43.754169, training accuracy is 0.000000, time 336.647 samples/sec
+epoch 0, total_step 1600, loss is 42.417057, training accuracy is 0.000000, time 335.010 samples/sec
+epoch 0, total_step 1650, loss is 42.947445, training accuracy is 0.000000, time 342.209 samples/sec
+epoch 0, total_step 1700, loss is 41.671513, training accuracy is 0.000000, time 338.225 samples/sec
+epoch 0, total_step 1750, loss is 41.755447, training accuracy is 0.000000, time 338.937 samples/sec
+epoch 0, total_step 1800, loss is 41.980968, training accuracy is 0.000000, time 340.900 samples/sec
+epoch 0, total_step 1850, loss is 41.556114, training accuracy is 0.000000, time 341.315 samples/sec
+epoch 0, total_step 1900, loss is 42.097595, training accuracy is 0.000000, time 339.410 samples/sec
+epoch 0, total_step 1950, loss is 40.726063, training accuracy is 0.000000, time 340.152 samples/sec
+epoch 0, total_step 2000, loss is 41.090176, training accuracy is 0.000000, time 336.073 samples/sec
+
+Iteration 2000 testing...
+thresholds max: 0.79 <=> min: 0.74
+total time 16.377s to evaluate 12000 images of lfw
+Accuracy: 0.687+-0.020
+Validation rate: 0.01100+-0.00448 @ FAR=0.00133
+fpr and tpr: 0.706 0.832
+Area Under Curve (AUC): 0.755
+Equal Error Rate (EER): 0.310
+
+epoch 0, total_step 2050, loss is 41.437721, training accuracy is 0.000000, time 340.987 samples/sec
+epoch 0, total_step 2100, loss is 41.348988, training accuracy is 0.000000, time 335.153 samples/sec
+epoch 0, total_step 2150, loss is 40.808327, training accuracy is 0.000000, time 337.540 samples/sec
+epoch 0, total_step 2200, loss is 41.461311, training accuracy is 0.000000, time 341.971 samples/sec
+epoch 0, total_step 2250, loss is 41.039021, training accuracy is 0.000000, time 336.410 samples/sec
+epoch 0, total_step 2300, loss is 40.355751, training accuracy is 0.000000, time 337.912 samples/sec
+epoch 0, total_step 2350, loss is 40.641113, training accuracy is 0.000000, time 340.605 samples/sec
+epoch 0, total_step 2400, loss is 40.392242, training accuracy is 0.000000, time 337.530 samples/sec
+epoch 0, total_step 2450, loss is 40.045822, training accuracy is 0.000000, time 337.660 samples/sec
+epoch 0, total_step 2500, loss is 40.523003, training accuracy is 0.000000, time 338.187 samples/sec
+epoch 0, total_step 2550, loss is 40.923351, training accuracy is 0.000000, time 334.522 samples/sec
+epoch 0, total_step 2600, loss is 40.680756, training accuracy is 0.000000, time 343.497 samples/sec
+epoch 0, total_step 2650, loss is 39.572788, training accuracy is 0.000000, time 341.331 samples/sec
+epoch 0, total_step 2700, loss is 40.143627, training accuracy is 0.000000, time 333.456 samples/sec
+epoch 0, total_step 2750, loss is 39.841103, training accuracy is 0.000000, time 340.322 samples/sec
+epoch 0, total_step 2800, loss is 39.804111, training accuracy is 0.000000, time 331.148 samples/sec
+epoch 0, total_step 2850, loss is 39.254398, training accuracy is 0.000000, time 337.816 samples/sec
+epoch 0, total_step 2900, loss is 39.568687, training accuracy is 0.000000, time 341.344 samples/sec
+epoch 0, total_step 2950, loss is 39.362747, training accuracy is 0.000000, time 330.745 samples/sec
+epoch 0, total_step 3000, loss is 39.498814, training accuracy is 0.000000, time 340.446 samples/sec
+epoch 0, total_step 3050, loss is 39.263279, training accuracy is 0.000000, time 340.588 samples/sec
+epoch 0, total_step 3100, loss is 39.598125, training accuracy is 0.000000, time 338.400 samples/sec
+epoch 0, total_step 3150, loss is 39.141064, training accuracy is 0.000000, time 341.314 samples/sec
+epoch 0, total_step 3200, loss is 38.978127, training accuracy is 0.000000, time 342.078 samples/sec
+epoch 0, total_step 3250, loss is 38.744560, training accuracy is 0.000000, time 341.887 samples/sec
+epoch 0, total_step 3300, loss is 38.952057, training accuracy is 0.000000, time 333.561 samples/sec
+epoch 0, total_step 3350, loss is 38.542980, training accuracy is 0.000000, time 328.851 samples/sec
+epoch 0, total_step 3400, loss is 38.605911, training accuracy is 0.000000, time 336.251 samples/sec
+epoch 0, total_step 3450, loss is 38.471642, training accuracy is 0.000000, time 338.332 samples/sec
+epoch 0, total_step 3500, loss is 38.872753, training accuracy is 0.000000, time 334.807 samples/sec
+epoch 0, total_step 3550, loss is 38.447884, training accuracy is 0.000000, time 338.875 samples/sec
+epoch 0, total_step 3600, loss is 38.060753, training accuracy is 0.000000, time 329.721 samples/sec
+epoch 0, total_step 3650, loss is 37.736652, training accuracy is 0.000000, time 338.434 samples/sec
+epoch 0, total_step 3700, loss is 37.735054, training accuracy is 0.000000, time 340.400 samples/sec
+epoch 0, total_step 3750, loss is 37.635750, training accuracy is 0.000000, time 336.621 samples/sec
+epoch 0, total_step 3800, loss is 37.531509, training accuracy is 0.000000, time 333.515 samples/sec
+epoch 0, total_step 3850, loss is 37.397846, training accuracy is 0.000000, time 342.096 samples/sec
+epoch 0, total_step 3900, loss is 37.221165, training accuracy is 0.000000, time 342.156 samples/sec
+epoch 0, total_step 3950, loss is 37.247211, training accuracy is 0.000000, time 337.116 samples/sec
+epoch 0, total_step 4000, loss is 36.973793, training accuracy is 0.000000, time 335.940 samples/sec
+
+Iteration 4000 testing...
+thresholds max: 0.79 <=> min: 0.29
+total time 13.814s to evaluate 12000 images of lfw
+Accuracy: 0.708+-0.016
+Validation rate: 0.02533+-0.01002 @ FAR=0.00067
+fpr and tpr: 0.866 0.936
+Area Under Curve (AUC): 0.778
+Equal Error Rate (EER): 0.290
+
+epoch 0, total_step 4050, loss is 37.148449, training accuracy is 0.000000, time 343.068 samples/sec
+epoch 0, total_step 4100, loss is 37.162849, training accuracy is 0.000000, time 337.958 samples/sec
+epoch 0, total_step 4150, loss is 36.754372, training accuracy is 0.000000, time 336.051 samples/sec
+epoch 0, total_step 4200, loss is 36.562004, training accuracy is 0.000000, time 337.693 samples/sec
+epoch 0, total_step 4250, loss is 36.583637, training accuracy is 0.000000, time 340.652 samples/sec
+epoch 0, total_step 4300, loss is 36.538105, training accuracy is 0.000000, time 328.937 samples/sec
+epoch 0, total_step 4350, loss is 36.566628, training accuracy is 0.000000, time 333.180 samples/sec
+epoch 0, total_step 4400, loss is 35.918636, training accuracy is 0.000000, time 339.090 samples/sec
+epoch 0, total_step 4450, loss is 36.035213, training accuracy is 0.000000, time 336.010 samples/sec
+epoch 0, total_step 4500, loss is 35.752987, training accuracy is 0.000000, time 338.683 samples/sec
+epoch 0, total_step 4550, loss is 35.628712, training accuracy is 0.000000, time 340.342 samples/sec
+epoch 0, total_step 4600, loss is 35.802872, training accuracy is 0.000000, time 337.236 samples/sec
+epoch 0, total_step 4650, loss is 35.535622, training accuracy is 0.000000, time 336.820 samples/sec
+epoch 0, total_step 4700, loss is 35.527267, training accuracy is 1.000000, time 339.782 samples/sec
+epoch 0, total_step 4750, loss is 35.218231, training accuracy is 0.000000, time 340.371 samples/sec
+epoch 0, total_step 4800, loss is 35.237892, training accuracy is 0.000000, time 336.875 samples/sec
+epoch 0, total_step 4850, loss is 34.929634, training accuracy is 0.000000, time 331.735 samples/sec
+epoch 0, total_step 4900, loss is 35.101822, training accuracy is 0.000000, time 331.316 samples/sec
+epoch 0, total_step 4950, loss is 34.784458, training accuracy is 0.000000, time 337.494 samples/sec
+epoch 0, total_step 5000, loss is 34.376984, training accuracy is 0.000000, time 337.137 samples/sec
+epoch 0, total_step 5050, loss is 34.203655, training accuracy is 0.000000, time 337.274 samples/sec
+epoch 0, total_step 5100, loss is 34.409477, training accuracy is 0.000000, time 332.539 samples/sec
+epoch 0, total_step 5150, loss is 33.878071, training accuracy is 0.000000, time 342.097 samples/sec
+epoch 0, total_step 5200, loss is 33.583443, training accuracy is 0.000000, time 345.509 samples/sec
+epoch 0, total_step 5250, loss is 33.819420, training accuracy is 0.000000, time 341.055 samples/sec
+epoch 0, total_step 5300, loss is 33.378021, training accuracy is 0.000000, time 335.884 samples/sec
+epoch 0, total_step 5350, loss is 33.011047, training accuracy is 0.000000, time 333.197 samples/sec
+epoch 0, total_step 5400, loss is 33.075253, training accuracy is 0.000000, time 340.703 samples/sec
+epoch 0, total_step 5450, loss is 33.020809, training accuracy is 0.000000, time 336.341 samples/sec
+End of epoch 0
+epoch:1, lr:0.1
+epoch 1, total_step 5500, loss is 32.856339, training accuracy is 0.000000, time 340.317 samples/sec
+epoch 1, total_step 5550, loss is 32.651024, training accuracy is 0.000000, time 342.673 samples/sec
+epoch 1, total_step 5600, loss is 32.526478, training accuracy is 0.000000, time 342.013 samples/sec
+epoch 1, total_step 5650, loss is 32.239704, training accuracy is 0.000000, time 338.910 samples/sec
+epoch 1, total_step 5700, loss is 32.104057, training accuracy is 0.000000, time 326.372 samples/sec
+epoch 1, total_step 5750, loss is 31.527266, training accuracy is 0.000000, time 337.378 samples/sec
+epoch 1, total_step 5800, loss is 31.629868, training accuracy is 0.000000, time 334.927 samples/sec
+epoch 1, total_step 5850, loss is 31.331095, training accuracy is 0.000000, time 332.609 samples/sec
+epoch 1, total_step 5900, loss is 31.249193, training accuracy is 0.000000, time 338.730 samples/sec
+epoch 1, total_step 5950, loss is 31.205940, training accuracy is 0.000000, time 345.127 samples/sec
+epoch 1, total_step 6000, loss is 30.807533, training accuracy is 0.000000, time 335.755 samples/sec
+
+Iteration 6000 testing...
+thresholds max: 0.79 <=> min: 0.13
+total time 14.679s to evaluate 12000 images of lfw
+Accuracy: 0.730+-0.017
+Validation rate: 0.03700+-0.01479 @ FAR=0.00100
+fpr and tpr: 0.945 0.974
+Area Under Curve (AUC): 0.802
+Equal Error Rate (EER): 0.273
+
+epoch 1, total_step 6050, loss is 30.426785, training accuracy is 0.000000, time 346.339 samples/sec
+epoch 1, total_step 6100, loss is 30.304281, training accuracy is 0.000000, time 340.146 samples/sec
+epoch 1, total_step 6150, loss is 30.085098, training accuracy is 0.000000, time 337.432 samples/sec
+epoch 1, total_step 6200, loss is 29.911909, training accuracy is 0.000000, time 334.772 samples/sec
+epoch 1, total_step 6250, loss is 29.501530, training accuracy is 0.000000, time 340.513 samples/sec
+epoch 1, total_step 6300, loss is 29.277657, training accuracy is 0.000000, time 333.507 samples/sec
+epoch 1, total_step 6350, loss is 29.079618, training accuracy is 0.000000, time 337.223 samples/sec
+epoch 1, total_step 6400, loss is 28.975904, training accuracy is 0.000000, time 337.661 samples/sec
+epoch 1, total_step 6450, loss is 28.588213, training accuracy is 0.000000, time 337.227 samples/sec
+epoch 1, total_step 6500, loss is 28.368851, training accuracy is 0.000000, time 343.003 samples/sec
+epoch 1, total_step 6550, loss is 28.122507, training accuracy is 0.000000, time 332.423 samples/sec
+epoch 1, total_step 6600, loss is 27.740700, training accuracy is 0.000000, time 335.818 samples/sec
+epoch 1, total_step 6650, loss is 27.613554, training accuracy is 0.000000, time 335.755 samples/sec
+epoch 1, total_step 6700, loss is 27.352177, training accuracy is 0.000000, time 334.858 samples/sec
+epoch 1, total_step 6750, loss is 27.159235, training accuracy is 0.000000, time 335.600 samples/sec
+epoch 1, total_step 6800, loss is 26.915173, training accuracy is 0.000000, time 339.352 samples/sec
+epoch 1, total_step 6850, loss is 26.645020, training accuracy is 0.000000, time 342.615 samples/sec
+epoch 1, total_step 6900, loss is 26.229136, training accuracy is 0.000000, time 332.675 samples/sec
+epoch 1, total_step 6950, loss is 25.958506, training accuracy is 0.000000, time 338.385 samples/sec
+epoch 1, total_step 7000, loss is 25.681383, training accuracy is 0.000000, time 341.250 samples/sec
+epoch 1, total_step 7050, loss is 25.410328, training accuracy is 0.000000, time 332.905 samples/sec
+epoch 1, total_step 7100, loss is 25.093559, training accuracy is 0.000000, time 334.321 samples/sec
+epoch 1, total_step 7150, loss is 24.836151, training accuracy is 0.000000, time 340.811 samples/sec
+epoch 1, total_step 7200, loss is 24.515898, training accuracy is 0.000000, time 336.506 samples/sec
+epoch 1, total_step 7250, loss is 24.121136, training accuracy is 0.000000, time 336.987 samples/sec
+epoch 1, total_step 7300, loss is 23.891052, training accuracy is 0.000000, time 341.537 samples/sec
+epoch 1, total_step 7350, loss is 23.611427, training accuracy is 0.000000, time 343.950 samples/sec
+epoch 1, total_step 7400, loss is 23.164082, training accuracy is 0.000000, time 337.412 samples/sec
+epoch 1, total_step 7450, loss is 22.814150, training accuracy is 0.000000, time 336.941 samples/sec
+epoch 1, total_step 7500, loss is 22.528063, training accuracy is 0.000000, time 343.157 samples/sec
+epoch 1, total_step 7550, loss is 22.155718, training accuracy is 0.000000, time 336.064 samples/sec
+epoch 1, total_step 7600, loss is 21.771034, training accuracy is 0.000000, time 337.764 samples/sec
+epoch 1, total_step 7650, loss is 21.466146, training accuracy is 0.000000, time 339.339 samples/sec
+epoch 1, total_step 7700, loss is 21.072496, training accuracy is 0.000000, time 335.248 samples/sec
+epoch 1, total_step 7750, loss is 20.703171, training accuracy is 0.000000, time 328.316 samples/sec
+epoch 1, total_step 7800, loss is 20.306959, training accuracy is 0.000000, time 336.969 samples/sec
+epoch 1, total_step 7850, loss is 19.946129, training accuracy is 0.000000, time 339.278 samples/sec
+epoch 1, total_step 7900, loss is 19.523750, training accuracy is 0.000000, time 337.290 samples/sec
+epoch 1, total_step 7950, loss is 19.124414, training accuracy is 0.000000, time 335.769 samples/sec
+epoch 1, total_step 8000, loss is 18.732685, training accuracy is 0.000000, time 342.360 samples/sec
+
+Iteration 8000 testing...
+thresholds max: 0.79 <=> min: 0.05
+total time 14.922s to evaluate 12000 images of lfw
+Accuracy: 0.747+-0.019
+Validation rate: 0.04500+-0.01688 @ FAR=0.00100
+fpr and tpr: 0.977 0.989
+Area Under Curve (AUC): 0.819
+Equal Error Rate (EER): 0.255
+
+epoch 1, total_step 8050, loss is 18.316362, training accuracy is 0.000000, time 339.500 samples/sec
+epoch 1, total_step 8100, loss is 19.050163, training accuracy is 0.000000, time 339.445 samples/sec
+epoch 1, total_step 8150, loss is 19.026306, training accuracy is 0.000000, time 336.910 samples/sec
+epoch 1, total_step 8200, loss is 19.935022, training accuracy is 0.000000, time 341.706 samples/sec
+epoch 1, total_step 8250, loss is 20.289375, training accuracy is 0.000000, time 338.121 samples/sec
+epoch 1, total_step 8300, loss is 19.929144, training accuracy is 0.000000, time 337.252 samples/sec
+epoch 1, total_step 8350, loss is 21.242510, training accuracy is 0.000000, time 337.721 samples/sec
+epoch 1, total_step 8400, loss is 20.467779, training accuracy is 0.000000, time 335.898 samples/sec
+epoch 1, total_step 8450, loss is 20.568619, training accuracy is 0.000000, time 336.415 samples/sec
+epoch 1, total_step 8500, loss is 21.130764, training accuracy is 0.000000, time 342.566 samples/sec
+epoch 1, total_step 8550, loss is 21.261078, training accuracy is 0.000000, time 346.062 samples/sec
+epoch 1, total_step 8600, loss is 21.559824, training accuracy is 0.000000, time 339.576 samples/sec
+epoch 1, total_step 8650, loss is 21.247835, training accuracy is 0.000000, time 337.444 samples/sec
+epoch 1, total_step 8700, loss is 21.873070, training accuracy is 0.000000, time 338.205 samples/sec
+epoch 1, total_step 8750, loss is 21.849880, training accuracy is 0.000000, time 341.114 samples/sec
+epoch 1, total_step 8800, loss is 21.817030, training accuracy is 0.000000, time 338.641 samples/sec
+epoch 1, total_step 8850, loss is 20.666292, training accuracy is 0.000000, time 340.266 samples/sec
+epoch 1, total_step 8900, loss is 21.415960, training accuracy is 0.000000, time 338.449 samples/sec
+epoch 1, total_step 8950, loss is 21.652285, training accuracy is 0.000000, time 333.700 samples/sec
+epoch 1, total_step 9000, loss is 22.248190, training accuracy is 0.000000, time 336.259 samples/sec
+epoch 1, total_step 9050, loss is 22.344612, training accuracy is 0.000000, time 336.914 samples/sec
+epoch 1, total_step 9100, loss is 22.044872, training accuracy is 0.000000, time 341.623 samples/sec
+epoch 1, total_step 9150, loss is 21.899572, training accuracy is 0.000000, time 339.226 samples/sec
+epoch 1, total_step 9200, loss is 21.875368, training accuracy is 0.000000, time 334.859 samples/sec
+epoch 1, total_step 9250, loss is 22.125126, training accuracy is 0.000000, time 341.641 samples/sec
+epoch 1, total_step 9300, loss is 21.533802, training accuracy is 0.000000, time 340.111 samples/sec
+epoch 1, total_step 9350, loss is 22.570084, training accuracy is 0.000000, time 336.202 samples/sec
+epoch 1, total_step 9400, loss is 22.019665, training accuracy is 0.000000, time 337.632 samples/sec
+epoch 1, total_step 9450, loss is 21.644192, training accuracy is 0.000000, time 338.295 samples/sec
+epoch 1, total_step 9500, loss is 21.327145, training accuracy is 0.000000, time 331.143 samples/sec
+epoch 1, total_step 9550, loss is 21.829762, training accuracy is 0.000000, time 336.993 samples/sec
+epoch 1, total_step 9600, loss is 21.639034, training accuracy is 0.000000, time 338.583 samples/sec
+epoch 1, total_step 9650, loss is 21.584684, training accuracy is 0.000000, time 340.586 samples/sec
+epoch 1, total_step 9700, loss is 22.355171, training accuracy is 0.000000, time 335.056 samples/sec
+epoch 1, total_step 9750, loss is 21.921646, training accuracy is 0.000000, time 335.717 samples/sec
+epoch 1, total_step 9800, loss is 22.025925, training accuracy is 0.000000, time 340.130 samples/sec
+epoch 1, total_step 9850, loss is 21.823978, training accuracy is 0.000000, time 332.123 samples/sec
+epoch 1, total_step 9900, loss is 22.047731, training accuracy is 0.000000, time 340.646 samples/sec
+epoch 1, total_step 9950, loss is 21.056768, training accuracy is 0.000000, time 341.088 samples/sec
+epoch 1, total_step 10000, loss is 21.882401, training accuracy is 0.000000, time 339.439 samples/sec
+
+Iteration 10000 testing...
+thresholds max: 0.79 <=> min: 0.02
+total time 14.863s to evaluate 12000 images of lfw
+Accuracy: 0.753+-0.012
+Validation rate: 0.04933+-0.01685 @ FAR=0.00100
+fpr and tpr: 0.988 0.994
+Area Under Curve (AUC): 0.829
+Equal Error Rate (EER): 0.250
+
+epoch 1, total_step 10050, loss is 21.591469, training accuracy is 0.000000, time 330.966 samples/sec
+epoch 1, total_step 10100, loss is 22.073526, training accuracy is 0.000000, time 338.171 samples/sec
+epoch 1, total_step 10150, loss is 22.202271, training accuracy is 0.000000, time 339.893 samples/sec
+epoch 1, total_step 10200, loss is 21.639614, training accuracy is 0.000000, time 333.087 samples/sec
+epoch 1, total_step 10250, loss is 22.261091, training accuracy is 0.000000, time 335.853 samples/sec
+epoch 1, total_step 10300, loss is 22.053530, training accuracy is 0.000000, time 342.533 samples/sec
+epoch 1, total_step 10350, loss is 22.280804, training accuracy is 0.000000, time 336.589 samples/sec
+epoch 1, total_step 10400, loss is 21.717138, training accuracy is 0.000000, time 334.161 samples/sec
+epoch 1, total_step 10450, loss is 21.446499, training accuracy is 0.000000, time 332.932 samples/sec
+epoch 1, total_step 10500, loss is 22.167189, training accuracy is 0.000000, time 339.898 samples/sec
+epoch 1, total_step 10550, loss is 21.211449, training accuracy is 0.000000, time 334.255 samples/sec
+epoch 1, total_step 10600, loss is 21.868088, training accuracy is 0.000000, time 335.489 samples/sec
+epoch 1, total_step 10650, loss is 22.140833, training accuracy is 0.000000, time 341.915 samples/sec
+epoch 1, total_step 10700, loss is 21.102724, training accuracy is 0.000000, time 332.037 samples/sec
+epoch 1, total_step 10750, loss is 21.907852, training accuracy is 0.000000, time 339.322 samples/sec
+epoch 1, total_step 10800, loss is 21.563387, training accuracy is 0.000000, time 340.940 samples/sec
+epoch 1, total_step 10850, loss is 21.577269, training accuracy is 0.000000, time 331.238 samples/sec
+epoch 1, total_step 10900, loss is 20.852264, training accuracy is 0.000000, time 332.122 samples/sec
+End of epoch 1
+epoch:2, lr:0.1
+epoch 2, total_step 10950, loss is 22.024115, training accuracy is 0.000000, time 337.205 samples/sec
+epoch 2, total_step 11000, loss is 21.356205, training accuracy is 0.000000, time 334.212 samples/sec
+epoch 2, total_step 11050, loss is 21.386227, training accuracy is 0.000000, time 335.068 samples/sec
+epoch 2, total_step 11100, loss is 20.826492, training accuracy is 0.000000, time 339.707 samples/sec
+epoch 2, total_step 11150, loss is 21.854727, training accuracy is 0.000000, time 336.711 samples/sec
+epoch 2, total_step 11200, loss is 21.266464, training accuracy is 0.000000, time 339.613 samples/sec
+epoch 2, total_step 11250, loss is 22.095608, training accuracy is 0.000000, time 336.878 samples/sec
+epoch 2, total_step 11300, loss is 21.520475, training accuracy is 0.000000, time 340.260 samples/sec
+epoch 2, total_step 11350, loss is 21.331905, training accuracy is 0.000000, time 334.495 samples/sec
+epoch 2, total_step 11400, loss is 22.171526, training accuracy is 0.000000, time 333.758 samples/sec
+epoch 2, total_step 11450, loss is 21.124819, training accuracy is 0.000000, time 341.511 samples/sec
+epoch 2, total_step 11500, loss is 21.750137, training accuracy is 0.000000, time 335.674 samples/sec
+epoch 2, total_step 11550, loss is 21.464264, training accuracy is 0.000000, time 333.876 samples/sec
+epoch 2, total_step 11600, loss is 21.724060, training accuracy is 0.000000, time 344.849 samples/sec
+epoch 2, total_step 11650, loss is 21.523853, training accuracy is 0.000000, time 334.754 samples/sec
+epoch 2, total_step 11700, loss is 21.780972, training accuracy is 0.000000, time 336.513 samples/sec
+epoch 2, total_step 11750, loss is 21.739544, training accuracy is 0.000000, time 334.360 samples/sec
+epoch 2, total_step 11800, loss is 21.202499, training accuracy is 0.000000, time 339.307 samples/sec
+epoch 2, total_step 11850, loss is 22.427057, training accuracy is 0.000000, time 333.676 samples/sec
+epoch 2, total_step 11900, loss is 21.666922, training accuracy is 0.000000, time 336.148 samples/sec
+epoch 2, total_step 11950, loss is 21.905230, training accuracy is 0.000000, time 339.344 samples/sec
+epoch 2, total_step 12000, loss is 21.984194, training accuracy is 0.000000, time 343.136 samples/sec
+
+Iteration 12000 testing...
+thresholds max: 0.79 <=> min: 0.02
+total time 14.098s to evaluate 12000 images of lfw
+Accuracy: 0.767+-0.018
+Validation rate: 0.05700+-0.01545 @ FAR=0.00100
+fpr and tpr: 0.991 0.996
+Area Under Curve (AUC): 0.836
+Equal Error Rate (EER): 0.246
+
+epoch 2, total_step 12050, loss is 21.495630, training accuracy is 0.000000, time 337.934 samples/sec
+epoch 2, total_step 12100, loss is 21.742414, training accuracy is 0.000000, time 337.496 samples/sec
+epoch 2, total_step 12150, loss is 22.116608, training accuracy is 0.000000, time 331.614 samples/sec
+epoch 2, total_step 12200, loss is 21.862083, training accuracy is 0.000000, time 339.884 samples/sec
+epoch 2, total_step 12250, loss is 21.690355, training accuracy is 0.000000, time 338.132 samples/sec
+epoch 2, total_step 12300, loss is 21.269161, training accuracy is 1.000000, time 339.055 samples/sec
+epoch 2, total_step 12350, loss is 22.060482, training accuracy is 0.000000, time 337.328 samples/sec
+epoch 2, total_step 12400, loss is 20.891756, training accuracy is 0.000000, time 343.507 samples/sec
+epoch 2, total_step 12450, loss is 21.307507, training accuracy is 0.000000, time 336.164 samples/sec
+epoch 2, total_step 12500, loss is 21.253693, training accuracy is 0.000000, time 332.821 samples/sec
+epoch 2, total_step 12550, loss is 21.680401, training accuracy is 0.000000, time 340.800 samples/sec
+epoch 2, total_step 12600, loss is 21.733458, training accuracy is 0.000000, time 337.523 samples/sec
+epoch 2, total_step 12650, loss is 21.259224, training accuracy is 0.000000, time 336.441 samples/sec
+epoch 2, total_step 12700, loss is 21.689648, training accuracy is 0.000000, time 329.026 samples/sec
+epoch 2, total_step 12750, loss is 21.205595, training accuracy is 0.000000, time 341.394 samples/sec
+epoch 2, total_step 12800, loss is 21.864925, training accuracy is 0.000000, time 336.825 samples/sec
+epoch 2, total_step 12850, loss is 22.043865, training accuracy is 0.000000, time 342.123 samples/sec
+epoch 2, total_step 12900, loss is 21.776476, training accuracy is 0.000000, time 336.981 samples/sec
+epoch 2, total_step 12950, loss is 21.132467, training accuracy is 0.000000, time 342.224 samples/sec
+epoch 2, total_step 13000, loss is 21.372387, training accuracy is 0.000000, time 332.028 samples/sec
+epoch 2, total_step 13050, loss is 21.311939, training accuracy is 0.000000, time 337.352 samples/sec
+epoch 2, total_step 13100, loss is 21.903772, training accuracy is 0.000000, time 332.895 samples/sec
+epoch 2, total_step 13150, loss is 21.335169, training accuracy is 0.000000, time 337.438 samples/sec
+epoch 2, total_step 13200, loss is 21.205656, training accuracy is 0.000000, time 335.602 samples/sec
+epoch 2, total_step 13250, loss is 22.442970, training accuracy is 0.000000, time 334.207 samples/sec
+epoch 2, total_step 13300, loss is 21.571026, training accuracy is 0.000000, time 335.058 samples/sec
+epoch 2, total_step 13350, loss is 21.724724, training accuracy is 0.000000, time 339.591 samples/sec
+epoch 2, total_step 13400, loss is 21.831553, training accuracy is 0.000000, time 338.210 samples/sec
+epoch 2, total_step 13450, loss is 22.029526, training accuracy is 0.000000, time 335.819 samples/sec
+epoch 2, total_step 13500, loss is 21.069464, training accuracy is 0.000000, time 330.835 samples/sec
+epoch 2, total_step 13550, loss is 21.397093, training accuracy is 0.000000, time 335.342 samples/sec
+epoch 2, total_step 13600, loss is 21.284742, training accuracy is 0.000000, time 330.961 samples/sec
+epoch 2, total_step 13650, loss is 21.787167, training accuracy is 0.000000, time 338.838 samples/sec
+epoch 2, total_step 13700, loss is 21.681269, training accuracy is 0.000000, time 341.810 samples/sec
+epoch 2, total_step 13750, loss is 21.934669, training accuracy is 0.000000, time 338.007 samples/sec
+epoch 2, total_step 13800, loss is 21.840841, training accuracy is 0.000000, time 338.298 samples/sec
+epoch 2, total_step 13850, loss is 21.690672, training accuracy is 0.000000, time 335.061 samples/sec
+epoch 2, total_step 13900, loss is 21.379827, training accuracy is 0.000000, time 338.179 samples/sec
+epoch 2, total_step 13950, loss is 21.637680, training accuracy is 0.000000, time 334.414 samples/sec
+epoch 2, total_step 14000, loss is 21.748793, training accuracy is 0.000000, time 337.468 samples/sec
+
+Iteration 14000 testing...
+thresholds max: 0.79 <=> min: 0.01
+total time 14.050s to evaluate 12000 images of lfw
+Accuracy: 0.769+-0.015
+Validation rate: 0.06333+-0.01886 @ FAR=0.00100
+fpr and tpr: 0.992 0.996
+Area Under Curve (AUC): 0.842
+Equal Error Rate (EER): 0.240
+
+epoch 2, total_step 14050, loss is 21.928120, training accuracy is 0.000000, time 336.871 samples/sec
+epoch 2, total_step 14100, loss is 22.025005, training accuracy is 0.000000, time 343.471 samples/sec
+epoch 2, total_step 14150, loss is 21.858261, training accuracy is 0.000000, time 339.927 samples/sec
+epoch 2, total_step 14200, loss is 21.399208, training accuracy is 0.000000, time 336.219 samples/sec
+epoch 2, total_step 14250, loss is 21.387321, training accuracy is 0.000000, time 336.690 samples/sec
+epoch 2, total_step 14300, loss is 21.303171, training accuracy is 0.000000, time 340.076 samples/sec
+epoch 2, total_step 14350, loss is 21.441317, training accuracy is 0.000000, time 337.403 samples/sec
+epoch 2, total_step 14400, loss is 20.797134, training accuracy is 0.000000, time 337.486 samples/sec
+epoch 2, total_step 14450, loss is 20.163675, training accuracy is 0.000000, time 336.744 samples/sec
+epoch 2, total_step 14500, loss is 21.615412, training accuracy is 0.000000, time 339.751 samples/sec
+epoch 2, total_step 14550, loss is 21.149303, training accuracy is 0.000000, time 342.006 samples/sec
+epoch 2, total_step 14600, loss is 21.648027, training accuracy is 0.000000, time 341.234 samples/sec
+epoch 2, total_step 14650, loss is 21.003307, training accuracy is 0.000000, time 336.947 samples/sec
+epoch 2, total_step 14700, loss is 21.427555, training accuracy is 0.000000, time 341.199 samples/sec
+epoch 2, total_step 14750, loss is 21.582678, training accuracy is 0.000000, time 338.895 samples/sec
+epoch 2, total_step 14800, loss is 21.258057, training accuracy is 0.000000, time 333.540 samples/sec
+epoch 2, total_step 14850, loss is 21.348827, training accuracy is 0.000000, time 337.381 samples/sec
+epoch 2, total_step 14900, loss is 21.295488, training accuracy is 0.000000, time 332.743 samples/sec
+epoch 2, total_step 14950, loss is 21.360027, training accuracy is 0.000000, time 334.399 samples/sec
+epoch 2, total_step 15000, loss is 20.800936, training accuracy is 0.000000, time 333.881 samples/sec
+epoch 2, total_step 15050, loss is 21.380997, training accuracy is 0.000000, time 338.439 samples/sec
+epoch 2, total_step 15100, loss is 21.499342, training accuracy is 0.000000, time 332.737 samples/sec
+epoch 2, total_step 15150, loss is 20.768192, training accuracy is 0.000000, time 338.831 samples/sec
+epoch 2, total_step 15200, loss is 21.569647, training accuracy is 0.000000, time 341.973 samples/sec
+epoch 2, total_step 15250, loss is 22.017342, training accuracy is 0.000000, time 330.116 samples/sec
+epoch 2, total_step 15300, loss is 21.226095, training accuracy is 0.000000, time 336.600 samples/sec
+epoch 2, total_step 15350, loss is 21.026138, training accuracy is 0.000000, time 339.576 samples/sec
+epoch 2, total_step 15400, loss is 21.155081, training accuracy is 0.000000, time 337.963 samples/sec
+epoch 2, total_step 15450, loss is 21.265909, training accuracy is 0.000000, time 336.721 samples/sec
+epoch 2, total_step 15500, loss is 21.324383, training accuracy is 0.000000, time 340.809 samples/sec
+epoch 2, total_step 15550, loss is 22.257069, training accuracy is 0.000000, time 332.718 samples/sec
+epoch 2, total_step 15600, loss is 21.512136, training accuracy is 0.000000, time 338.222 samples/sec
+epoch 2, total_step 15650, loss is 20.762880, training accuracy is 0.000000, time 338.246 samples/sec
+epoch 2, total_step 15700, loss is 21.201548, training accuracy is 0.000000, time 340.328 samples/sec
+epoch 2, total_step 15750, loss is 21.520121, training accuracy is 0.000000, time 332.865 samples/sec
+epoch 2, total_step 15800, loss is 22.087555, training accuracy is 0.000000, time 341.297 samples/sec
+epoch 2, total_step 15850, loss is 21.371977, training accuracy is 0.000000, time 342.714 samples/sec
+epoch 2, total_step 15900, loss is 20.983959, training accuracy is 0.000000, time 334.179 samples/sec
+epoch 2, total_step 15950, loss is 21.255148, training accuracy is 0.000000, time 337.997 samples/sec
+epoch 2, total_step 16000, loss is 21.273508, training accuracy is 0.000000, time 338.292 samples/sec
+
+Iteration 16000 testing...
+thresholds max: 0.79 <=> min: 0.01
+total time 14.155s to evaluate 12000 images of lfw
+Accuracy: 0.793+-0.016
+Validation rate: 0.07733+-0.01943 @ FAR=0.00067
+fpr and tpr: 0.993 0.997
+Area Under Curve (AUC): 0.849
+Equal Error Rate (EER): 0.224
+
+epoch 2, total_step 16050, loss is 20.851694, training accuracy is 0.000000, time 338.095 samples/sec
+epoch 2, total_step 16100, loss is 21.886539, training accuracy is 0.000000, time 335.492 samples/sec
+epoch 2, total_step 16150, loss is 21.610584, training accuracy is 0.000000, time 335.015 samples/sec
+epoch 2, total_step 16200, loss is 21.654602, training accuracy is 0.000000, time 338.607 samples/sec
+epoch 2, total_step 16250, loss is 21.335794, training accuracy is 1.000000, time 335.884 samples/sec
+epoch 2, total_step 16300, loss is 20.502285, training accuracy is 0.000000, time 342.415 samples/sec
+epoch 2, total_step 16350, loss is 20.910503, training accuracy is 0.000000, time 340.364 samples/sec
+End of epoch 2
+epoch:3, lr:0.1
+epoch 3, total_step 16400, loss is 21.603125, training accuracy is 0.000000, time 340.738 samples/sec
+epoch 3, total_step 16450, loss is 20.689053, training accuracy is 0.000000, time 337.399 samples/sec
+epoch 3, total_step 16500, loss is 21.225548, training accuracy is 0.000000, time 338.871 samples/sec
+epoch 3, total_step 16550, loss is 20.900114, training accuracy is 0.000000, time 336.336 samples/sec
+epoch 3, total_step 16600, loss is 20.785816, training accuracy is 0.000000, time 337.188 samples/sec
+epoch 3, total_step 16650, loss is 21.413507, training accuracy is 0.000000, time 335.833 samples/sec
+epoch 3, total_step 16700, loss is 21.984362, training accuracy is 0.000000, time 338.975 samples/sec
+epoch 3, total_step 16750, loss is 20.743807, training accuracy is 0.000000, time 333.244 samples/sec
+epoch 3, total_step 16800, loss is 21.271629, training accuracy is 0.000000, time 333.747 samples/sec
+epoch 3, total_step 16850, loss is 21.381729, training accuracy is 0.000000, time 339.461 samples/sec
+epoch 3, total_step 16900, loss is 20.829403, training accuracy is 0.000000, time 329.273 samples/sec
+epoch 3, total_step 16950, loss is 21.044744, training accuracy is 0.000000, time 338.351 samples/sec
+epoch 3, total_step 17000, loss is 20.621326, training accuracy is 0.000000, time 337.555 samples/sec
+epoch 3, total_step 17050, loss is 21.809128, training accuracy is 0.000000, time 334.683 samples/sec
+epoch 3, total_step 17100, loss is 20.734495, training accuracy is 0.000000, time 331.921 samples/sec
+epoch 3, total_step 17150, loss is 21.283398, training accuracy is 0.000000, time 339.456 samples/sec
+epoch 3, total_step 17200, loss is 21.096228, training accuracy is 0.000000, time 338.559 samples/sec
+epoch 3, total_step 17250, loss is 20.921146, training accuracy is 0.000000, time 335.537 samples/sec
+epoch 3, total_step 17300, loss is 22.130831, training accuracy is 0.000000, time 342.015 samples/sec
+epoch 3, total_step 17350, loss is 20.605116, training accuracy is 0.000000, time 336.767 samples/sec
+epoch 3, total_step 17400, loss is 21.156750, training accuracy is 0.000000, time 337.398 samples/sec
+epoch 3, total_step 17450, loss is 21.559374, training accuracy is 0.000000, time 333.640 samples/sec
+epoch 3, total_step 17500, loss is 21.529285, training accuracy is 0.000000, time 335.685 samples/sec
+epoch 3, total_step 17550, loss is 21.724142, training accuracy is 0.000000, time 331.613 samples/sec
+epoch 3, total_step 17600, loss is 21.182980, training accuracy is 0.000000, time 341.345 samples/sec
+epoch 3, total_step 17650, loss is 21.488255, training accuracy is 0.000000, time 335.785 samples/sec
+epoch 3, total_step 17700, loss is 21.149952, training accuracy is 0.000000, time 330.996 samples/sec
+epoch 3, total_step 17750, loss is 21.357233, training accuracy is 0.000000, time 341.410 samples/sec
+epoch 3, total_step 17800, loss is 20.385450, training accuracy is 0.000000, time 336.671 samples/sec
+epoch 3, total_step 17850, loss is 21.438812, training accuracy is 0.000000, time 336.219 samples/sec
+epoch 3, total_step 17900, loss is 21.473347, training accuracy is 0.000000, time 342.420 samples/sec
+epoch 3, total_step 17950, loss is 21.188950, training accuracy is 0.000000, time 334.199 samples/sec
+epoch 3, total_step 18000, loss is 20.576643, training accuracy is 0.000000, time 339.347 samples/sec
+
+Iteration 18000 testing...
+thresholds max: 0.79 <=> min: 0.01
+total time 14.449s to evaluate 12000 images of lfw
+Accuracy: 0.810+-0.015
+Validation rate: 0.09167+-0.02583 @ FAR=0.00100
+fpr and tpr: 0.993 0.997
+Area Under Curve (AUC): 0.861
+Equal Error Rate (EER): 0.208
+
+epoch 3, total_step 18050, loss is 21.331644, training accuracy is 0.000000, time 334.576 samples/sec
+epoch 3, total_step 18100, loss is 21.662504, training accuracy is 0.000000, time 333.372 samples/sec
+epoch 3, total_step 18150, loss is 21.426111, training accuracy is 0.000000, time 336.419 samples/sec
+epoch 3, total_step 18200, loss is 20.916063, training accuracy is 0.000000, time 331.949 samples/sec
+epoch 3, total_step 18250, loss is 21.977045, training accuracy is 0.000000, time 330.587 samples/sec
+epoch 3, total_step 18300, loss is 21.374056, training accuracy is 0.000000, time 331.354 samples/sec
+epoch 3, total_step 18350, loss is 21.275923, training accuracy is 0.000000, time 338.481 samples/sec
+epoch 3, total_step 18400, loss is 20.724070, training accuracy is 1.000000, time 344.352 samples/sec
+epoch 3, total_step 18450, loss is 21.447659, training accuracy is 0.000000, time 339.085 samples/sec
+epoch 3, total_step 18500, loss is 20.643663, training accuracy is 0.000000, time 340.177 samples/sec
+epoch 3, total_step 18550, loss is 21.100361, training accuracy is 0.000000, time 338.150 samples/sec
+epoch 3, total_step 18600, loss is 20.623825, training accuracy is 0.000000, time 330.544 samples/sec
+epoch 3, total_step 18650, loss is 21.112703, training accuracy is 0.000000, time 338.962 samples/sec
+epoch 3, total_step 18700, loss is 21.618937, training accuracy is 0.000000, time 332.826 samples/sec
+epoch 3, total_step 18750, loss is 21.054068, training accuracy is 0.000000, time 336.948 samples/sec
+epoch 3, total_step 18800, loss is 21.839743, training accuracy is 0.000000, time 337.082 samples/sec
+epoch 3, total_step 18850, loss is 21.300854, training accuracy is 0.000000, time 341.297 samples/sec
+epoch 3, total_step 18900, loss is 21.641760, training accuracy is 0.000000, time 337.487 samples/sec
+epoch 3, total_step 18950, loss is 21.083311, training accuracy is 0.000000, time 336.504 samples/sec
+epoch 3, total_step 19000, loss is 20.818596, training accuracy is 0.000000, time 339.574 samples/sec
+epoch 3, total_step 19050, loss is 22.015570, training accuracy is 0.000000, time 329.101 samples/sec
+epoch 3, total_step 19100, loss is 20.716311, training accuracy is 0.000000, time 341.690 samples/sec
+epoch 3, total_step 19150, loss is 21.152903, training accuracy is 0.000000, time 342.005 samples/sec
+epoch 3, total_step 19200, loss is 20.481079, training accuracy is 0.000000, time 338.969 samples/sec
+epoch 3, total_step 19250, loss is 20.517374, training accuracy is 0.000000, time 332.087 samples/sec
+epoch 3, total_step 19300, loss is 21.627411, training accuracy is 0.000000, time 334.971 samples/sec
+epoch 3, total_step 19350, loss is 19.833490, training accuracy is 0.000000, time 336.750 samples/sec
+epoch 3, total_step 19400, loss is 21.268044, training accuracy is 0.000000, time 330.006 samples/sec
+epoch 3, total_step 19450, loss is 21.090668, training accuracy is 0.000000, time 340.873 samples/sec
+epoch 3, total_step 19500, loss is 21.060562, training accuracy is 0.000000, time 331.932 samples/sec
+epoch 3, total_step 19550, loss is 20.606871, training accuracy is 0.000000, time 341.052 samples/sec
+epoch 3, total_step 19600, loss is 20.323008, training accuracy is 0.000000, time 338.271 samples/sec
+epoch 3, total_step 19650, loss is 21.669527, training accuracy is 0.000000, time 334.395 samples/sec
+epoch 3, total_step 19700, loss is 20.799629, training accuracy is 0.000000, time 335.382 samples/sec
+epoch 3, total_step 19750, loss is 21.172457, training accuracy is 0.000000, time 339.366 samples/sec
+epoch 3, total_step 19800, loss is 20.279573, training accuracy is 0.000000, time 341.698 samples/sec
+epoch 3, total_step 19850, loss is 20.968355, training accuracy is 0.000000, time 338.079 samples/sec
+epoch 3, total_step 19900, loss is 21.586821, training accuracy is 0.000000, time 336.334 samples/sec
+epoch 3, total_step 19950, loss is 21.007359, training accuracy is 0.000000, time 338.617 samples/sec
+epoch 3, total_step 20000, loss is 21.475327, training accuracy is 0.000000, time 324.653 samples/sec
+
+Iteration 20000 testing...
+thresholds max: 0.79 <=> min: 0.01
+total time 14.532s to evaluate 12000 images of lfw
+Accuracy: 0.817+-0.016
+Validation rate: 0.10567+-0.03270 @ FAR=0.00100
+fpr and tpr: 0.992 0.997
+Area Under Curve (AUC): 0.877
+Equal Error Rate (EER): 0.198
+
+epoch 3, total_step 20050, loss is 20.194578, training accuracy is 0.000000, time 334.342 samples/sec
+epoch 3, total_step 20100, loss is 20.885412, training accuracy is 0.000000, time 337.384 samples/sec
+epoch 3, total_step 20150, loss is 20.136402, training accuracy is 0.000000, time 335.996 samples/sec
+epoch 3, total_step 20200, loss is 21.077690, training accuracy is 0.000000, time 344.130 samples/sec
+epoch 3, total_step 20250, loss is 20.680130, training accuracy is 0.000000, time 330.782 samples/sec
+epoch 3, total_step 20300, loss is 21.231173, training accuracy is 0.000000, time 329.676 samples/sec
+epoch 3, total_step 20350, loss is 21.185553, training accuracy is 0.000000, time 332.063 samples/sec
+epoch 3, total_step 20400, loss is 21.017866, training accuracy is 0.000000, time 337.467 samples/sec
+epoch 3, total_step 20450, loss is 20.365435, training accuracy is 0.000000, time 330.365 samples/sec
+epoch 3, total_step 20500, loss is 20.627230, training accuracy is 0.000000, time 338.862 samples/sec
+epoch 3, total_step 20550, loss is 20.870209, training accuracy is 0.000000, time 341.808 samples/sec
+epoch 3, total_step 20600, loss is 21.363235, training accuracy is 0.000000, time 339.583 samples/sec
+epoch 3, total_step 20650, loss is 21.617914, training accuracy is 0.000000, time 334.240 samples/sec
+epoch 3, total_step 20700, loss is 19.993935, training accuracy is 0.000000, time 336.702 samples/sec
+epoch 3, total_step 20750, loss is 20.868441, training accuracy is 0.000000, time 334.465 samples/sec
+epoch 3, total_step 20800, loss is 21.195223, training accuracy is 0.000000, time 336.579 samples/sec
+epoch 3, total_step 20850, loss is 21.575682, training accuracy is 0.000000, time 336.761 samples/sec
+epoch 3, total_step 20900, loss is 20.745642, training accuracy is 0.000000, time 335.421 samples/sec
+epoch 3, total_step 20950, loss is 20.845091, training accuracy is 0.000000, time 340.331 samples/sec
+epoch 3, total_step 21000, loss is 20.383110, training accuracy is 0.000000, time 337.483 samples/sec
+epoch 3, total_step 21050, loss is 21.129585, training accuracy is 0.000000, time 341.394 samples/sec
+epoch 3, total_step 21100, loss is 21.105988, training accuracy is 0.000000, time 337.500 samples/sec
+epoch 3, total_step 21150, loss is 20.729183, training accuracy is 0.000000, time 338.953 samples/sec
+epoch 3, total_step 21200, loss is 20.355951, training accuracy is 0.000000, time 340.645 samples/sec
+epoch 3, total_step 21250, loss is 19.903154, training accuracy is 0.000000, time 336.719 samples/sec
+epoch 3, total_step 21300, loss is 21.291689, training accuracy is 0.000000, time 342.667 samples/sec
+epoch 3, total_step 21350, loss is 21.142525, training accuracy is 0.000000, time 334.987 samples/sec
+epoch 3, total_step 21400, loss is 20.030769, training accuracy is 0.000000, time 333.953 samples/sec
+epoch 3, total_step 21450, loss is 21.048727, training accuracy is 0.000000, time 336.916 samples/sec
+epoch 3, total_step 21500, loss is 20.216070, training accuracy is 0.000000, time 336.713 samples/sec
+epoch 3, total_step 21550, loss is 20.922739, training accuracy is 0.000000, time 337.394 samples/sec
+epoch 3, total_step 21600, loss is 20.535410, training accuracy is 0.000000, time 337.618 samples/sec
+epoch 3, total_step 21650, loss is 20.926159, training accuracy is 1.000000, time 335.592 samples/sec
+epoch 3, total_step 21700, loss is 21.032217, training accuracy is 0.000000, time 333.034 samples/sec
+epoch 3, total_step 21750, loss is 20.939560, training accuracy is 0.000000, time 339.512 samples/sec
+epoch 3, total_step 21800, loss is 20.806330, training accuracy is 0.000000, time 335.831 samples/sec
+End of epoch 3
+epoch:4, lr:0.1
+epoch 4, total_step 21850, loss is 20.668039, training accuracy is 0.000000, time 327.638 samples/sec
+epoch 4, total_step 21900, loss is 19.964739, training accuracy is 0.000000, time 333.669 samples/sec
+epoch 4, total_step 21950, loss is 20.449696, training accuracy is 0.000000, time 337.641 samples/sec
+epoch 4, total_step 22000, loss is 20.480963, training accuracy is 0.000000, time 340.547 samples/sec
+
+Iteration 22000 testing...
+thresholds max: 0.79 <=> min: 0.01
+total time 13.949s to evaluate 12000 images of lfw
+Accuracy: 0.814+-0.014
+Validation rate: 0.15233+-0.03208 @ FAR=0.00133
+fpr and tpr: 0.991 0.996
+Area Under Curve (AUC): 0.897
+Equal Error Rate (EER): 0.188
+
+epoch 4, total_step 22050, loss is 21.475842, training accuracy is 0.000000, time 338.793 samples/sec
+epoch 4, total_step 22100, loss is 20.424858, training accuracy is 0.000000, time 335.583 samples/sec
+epoch 4, total_step 22150, loss is 21.228661, training accuracy is 0.000000, time 343.615 samples/sec
+epoch 4, total_step 22200, loss is 20.881630, training accuracy is 0.000000, time 329.632 samples/sec
+epoch 4, total_step 22250, loss is 21.400091, training accuracy is 0.000000, time 335.479 samples/sec
+epoch 4, total_step 22300, loss is 21.164280, training accuracy is 0.000000, time 335.560 samples/sec
+epoch 4, total_step 22350, loss is 20.872084, training accuracy is 0.000000, time 332.423 samples/sec
+epoch 4, total_step 22400, loss is 21.349482, training accuracy is 0.000000, time 335.433 samples/sec
+epoch 4, total_step 22450, loss is 20.973816, training accuracy is 0.000000, time 339.596 samples/sec
+epoch 4, total_step 22500, loss is 20.367495, training accuracy is 0.000000, time 339.692 samples/sec
+epoch 4, total_step 22550, loss is 21.717438, training accuracy is 0.000000, time 340.466 samples/sec
+epoch 4, total_step 22600, loss is 21.126793, training accuracy is 0.000000, time 340.433 samples/sec
+epoch 4, total_step 22650, loss is 20.606266, training accuracy is 0.000000, time 337.972 samples/sec
+epoch 4, total_step 22700, loss is 20.881235, training accuracy is 0.000000, time 331.695 samples/sec
+epoch 4, total_step 22750, loss is 21.221195, training accuracy is 1.000000, time 335.187 samples/sec
+epoch 4, total_step 22800, loss is 20.629290, training accuracy is 0.000000, time 334.215 samples/sec
+epoch 4, total_step 22850, loss is 19.974297, training accuracy is 0.000000, time 339.505 samples/sec
+epoch 4, total_step 22900, loss is 20.747305, training accuracy is 0.000000, time 332.592 samples/sec
+epoch 4, total_step 22950, loss is 21.035374, training accuracy is 0.000000, time 338.825 samples/sec
+epoch 4, total_step 23000, loss is 20.931293, training accuracy is 0.000000, time 334.851 samples/sec
+epoch 4, total_step 23050, loss is 20.793833, training accuracy is 0.000000, time 330.856 samples/sec
+epoch 4, total_step 23100, loss is 20.644737, training accuracy is 0.000000, time 331.440 samples/sec
+epoch 4, total_step 23150, loss is 20.683693, training accuracy is 0.000000, time 338.015 samples/sec
+epoch 4, total_step 23200, loss is 21.764622, training accuracy is 0.000000, time 334.130 samples/sec
+epoch 4, total_step 23250, loss is 20.752523, training accuracy is 0.000000, time 330.345 samples/sec
+epoch 4, total_step 23300, loss is 21.109196, training accuracy is 0.000000, time 337.993 samples/sec
+epoch 4, total_step 23350, loss is 20.638311, training accuracy is 0.000000, time 345.557 samples/sec
+epoch 4, total_step 23400, loss is 20.211197, training accuracy is 0.000000, time 339.106 samples/sec
+epoch 4, total_step 23450, loss is 20.266775, training accuracy is 0.000000, time 331.712 samples/sec
+epoch 4, total_step 23500, loss is 20.884562, training accuracy is 0.000000, time 341.491 samples/sec
+epoch 4, total_step 23550, loss is 20.495924, training accuracy is 0.000000, time 331.641 samples/sec
+epoch 4, total_step 23600, loss is 20.734797, training accuracy is 0.000000, time 338.387 samples/sec
+epoch 4, total_step 23650, loss is 21.304838, training accuracy is 0.000000, time 338.066 samples/sec
+epoch 4, total_step 23700, loss is 20.811985, training accuracy is 0.000000, time 342.820 samples/sec
+epoch 4, total_step 23750, loss is 21.414078, training accuracy is 0.000000, time 338.035 samples/sec
+epoch 4, total_step 23800, loss is 21.365246, training accuracy is 0.000000, time 337.302 samples/sec
+epoch 4, total_step 23850, loss is 20.623831, training accuracy is 0.000000, time 334.337 samples/sec
+epoch 4, total_step 23900, loss is 20.264791, training accuracy is 0.000000, time 338.116 samples/sec
+epoch 4, total_step 23950, loss is 21.192545, training accuracy is 0.000000, time 331.955 samples/sec
+epoch 4, total_step 24000, loss is 20.603804, training accuracy is 0.000000, time 337.932 samples/sec
+
+Iteration 24000 testing...
+thresholds max: 0.79 <=> min: 0.01
+total time 13.824s to evaluate 12000 images of lfw
+Accuracy: 0.844+-0.014
+Validation rate: 0.15400+-0.03675 @ FAR=0.00067
+fpr and tpr: 0.990 0.996
+Area Under Curve (AUC): 0.914
+Equal Error Rate (EER): 0.168
+
+epoch 4, total_step 24050, loss is 20.613415, training accuracy is 0.000000, time 333.878 samples/sec
+epoch 4, total_step 24100, loss is 20.581949, training accuracy is 0.000000, time 342.156 samples/sec
+epoch 4, total_step 24150, loss is 22.083155, training accuracy is 0.000000, time 339.535 samples/sec
+epoch 4, total_step 24200, loss is 20.693518, training accuracy is 0.000000, time 330.712 samples/sec
+epoch 4, total_step 24250, loss is 20.389252, training accuracy is 0.000000, time 332.448 samples/sec
+epoch 4, total_step 24300, loss is 20.437536, training accuracy is 0.000000, time 337.263 samples/sec
+epoch 4, total_step 24350, loss is 21.047001, training accuracy is 0.000000, time 338.007 samples/sec
+epoch 4, total_step 24400, loss is 20.366234, training accuracy is 0.000000, time 338.606 samples/sec
+epoch 4, total_step 24450, loss is 20.130100, training accuracy is 0.000000, time 339.197 samples/sec
+epoch 4, total_step 24500, loss is 21.382950, training accuracy is 0.000000, time 340.202 samples/sec
+epoch 4, total_step 24550, loss is 20.956278, training accuracy is 0.000000, time 335.613 samples/sec
+epoch 4, total_step 24600, loss is 21.002674, training accuracy is 0.000000, time 338.254 samples/sec
+epoch 4, total_step 24650, loss is 20.306017, training accuracy is 0.000000, time 337.835 samples/sec
+epoch 4, total_step 24700, loss is 20.619711, training accuracy is 0.000000, time 335.113 samples/sec
+epoch 4, total_step 24750, loss is 20.975470, training accuracy is 0.000000, time 334.221 samples/sec
+epoch 4, total_step 24800, loss is 21.398895, training accuracy is 0.000000, time 335.366 samples/sec
+epoch 4, total_step 24850, loss is 20.289829, training accuracy is 0.000000, time 328.853 samples/sec
+epoch 4, total_step 24900, loss is 21.036798, training accuracy is 0.000000, time 336.670 samples/sec
+epoch 4, total_step 24950, loss is 20.575378, training accuracy is 0.000000, time 342.721 samples/sec
+epoch 4, total_step 25000, loss is 20.703726, training accuracy is 0.000000, time 333.455 samples/sec
+epoch 4, total_step 25050, loss is 19.577122, training accuracy is 0.000000, time 342.412 samples/sec
+epoch 4, total_step 25100, loss is 21.217899, training accuracy is 0.000000, time 338.863 samples/sec
+epoch 4, total_step 25150, loss is 21.248875, training accuracy is 0.000000, time 337.576 samples/sec
+epoch 4, total_step 25200, loss is 21.161484, training accuracy is 0.000000, time 343.575 samples/sec
+epoch 4, total_step 25250, loss is 20.644678, training accuracy is 0.000000, time 319.947 samples/sec
+epoch 4, total_step 25300, loss is 20.238260, training accuracy is 0.000000, time 336.699 samples/sec
+epoch 4, total_step 25350, loss is 20.967628, training accuracy is 0.000000, time 340.553 samples/sec
+epoch 4, total_step 25400, loss is 20.790854, training accuracy is 0.000000, time 338.422 samples/sec
+epoch 4, total_step 25450, loss is 20.939339, training accuracy is 0.000000, time 338.895 samples/sec
+epoch 4, total_step 25500, loss is 20.437410, training accuracy is 0.000000, time 338.284 samples/sec
+epoch 4, total_step 25550, loss is 20.491522, training accuracy is 0.000000, time 329.708 samples/sec
+epoch 4, total_step 25600, loss is 20.670317, training accuracy is 0.000000, time 339.460 samples/sec
+epoch 4, total_step 25650, loss is 20.519583, training accuracy is 0.000000, time 339.367 samples/sec
+epoch 4, total_step 25700, loss is 21.392193, training accuracy is 0.000000, time 337.006 samples/sec
+epoch 4, total_step 25750, loss is 20.045984, training accuracy is 0.000000, time 340.501 samples/sec
+epoch 4, total_step 25800, loss is 20.603380, training accuracy is 0.000000, time 335.037 samples/sec
+epoch 4, total_step 25850, loss is 20.354340, training accuracy is 0.000000, time 339.110 samples/sec
+epoch 4, total_step 25900, loss is 21.045444, training accuracy is 0.000000, time 339.486 samples/sec
+epoch 4, total_step 25950, loss is 20.277279, training accuracy is 0.000000, time 334.768 samples/sec
+epoch 4, total_step 26000, loss is 20.852011, training accuracy is 0.000000, time 328.322 samples/sec
+
+Iteration 26000 testing...
+thresholds max: 0.79 <=> min: 0.01
+total time 13.961s to evaluate 12000 images of lfw
+Accuracy: 0.871+-0.010
+Validation rate: 0.21933+-0.02909 @ FAR=0.00100
+fpr and tpr: 0.989 0.996
+Area Under Curve (AUC): 0.931
+Equal Error Rate (EER): 0.134
+
+epoch 4, total_step 26050, loss is 20.436590, training accuracy is 0.000000, time 341.336 samples/sec
+epoch 4, total_step 26100, loss is 20.494467, training accuracy is 0.000000, time 340.168 samples/sec
+epoch 4, total_step 26150, loss is 20.583101, training accuracy is 0.000000, time 337.515 samples/sec
+epoch 4, total_step 26200, loss is 19.996962, training accuracy is 0.000000, time 340.482 samples/sec
+epoch 4, total_step 26250, loss is 20.932537, training accuracy is 0.000000, time 338.632 samples/sec
+epoch 4, total_step 26300, loss is 20.164608, training accuracy is 0.000000, time 335.202 samples/sec
+epoch 4, total_step 26350, loss is 20.244089, training accuracy is 0.000000, time 341.565 samples/sec
+epoch 4, total_step 26400, loss is 20.591097, training accuracy is 0.000000, time 336.868 samples/sec
+epoch 4, total_step 26450, loss is 20.347387, training accuracy is 0.000000, time 327.144 samples/sec
+epoch 4, total_step 26500, loss is 19.951412, training accuracy is 0.000000, time 341.431 samples/sec
+epoch 4, total_step 26550, loss is 20.618120, training accuracy is 0.000000, time 340.358 samples/sec
+epoch 4, total_step 26600, loss is 20.480358, training accuracy is 1.000000, time 342.348 samples/sec
+epoch 4, total_step 26650, loss is 21.000118, training accuracy is 0.000000, time 336.038 samples/sec
+epoch 4, total_step 26700, loss is 20.620831, training accuracy is 0.000000, time 339.071 samples/sec
+epoch 4, total_step 26750, loss is 20.570627, training accuracy is 0.000000, time 332.341 samples/sec
+epoch 4, total_step 26800, loss is 20.558805, training accuracy is 0.000000, time 335.806 samples/sec
+epoch 4, total_step 26850, loss is 20.548559, training accuracy is 0.000000, time 330.021 samples/sec
+epoch 4, total_step 26900, loss is 21.919352, training accuracy is 0.000000, time 338.527 samples/sec
+epoch 4, total_step 26950, loss is 20.724741, training accuracy is 0.000000, time 334.510 samples/sec
+epoch 4, total_step 27000, loss is 20.464674, training accuracy is 0.000000, time 335.295 samples/sec
+epoch 4, total_step 27050, loss is 20.675705, training accuracy is 0.000000, time 335.617 samples/sec
+epoch 4, total_step 27100, loss is 20.283316, training accuracy is 0.000000, time 337.783 samples/sec
+epoch 4, total_step 27150, loss is 20.171871, training accuracy is 0.000000, time 338.907 samples/sec
+epoch 4, total_step 27200, loss is 20.586781, training accuracy is 0.000000, time 330.104 samples/sec
+epoch 4, total_step 27250, loss is 20.278866, training accuracy is 0.000000, time 333.863 samples/sec
+End of epoch 4
+epoch:5, lr:0.01
+epoch 5, total_step 27300, loss is 20.214226, training accuracy is 0.000000, time 341.169 samples/sec
+epoch 5, total_step 27350, loss is 20.646530, training accuracy is 0.000000, time 331.781 samples/sec
+epoch 5, total_step 27400, loss is 21.108841, training accuracy is 0.000000, time 335.498 samples/sec
+epoch 5, total_step 27450, loss is 20.097477, training accuracy is 0.000000, time 341.061 samples/sec
+epoch 5, total_step 27500, loss is 19.954689, training accuracy is 0.000000, time 332.615 samples/sec
+epoch 5, total_step 27550, loss is 20.912004, training accuracy is 0.000000, time 337.317 samples/sec
+epoch 5, total_step 27600, loss is 20.325106, training accuracy is 0.000000, time 337.184 samples/sec
+epoch 5, total_step 27650, loss is 20.260458, training accuracy is 0.000000, time 338.610 samples/sec
+epoch 5, total_step 27700, loss is 20.167936, training accuracy is 0.000000, time 335.326 samples/sec
+epoch 5, total_step 27750, loss is 19.753538, training accuracy is 0.000000, time 339.605 samples/sec
+epoch 5, total_step 27800, loss is 20.115940, training accuracy is 0.000000, time 333.869 samples/sec
+epoch 5, total_step 27850, loss is 20.742994, training accuracy is 0.000000, time 333.550 samples/sec
+epoch 5, total_step 27900, loss is 20.388996, training accuracy is 0.000000, time 336.935 samples/sec
+epoch 5, total_step 27950, loss is 20.670681, training accuracy is 0.000000, time 339.757 samples/sec
+epoch 5, total_step 28000, loss is 19.841555, training accuracy is 0.000000, time 335.402 samples/sec
+
+Iteration 28000 testing...
+thresholds max: 0.79 <=> min: 0.01
+total time 13.839s to evaluate 12000 images of lfw
+Accuracy: 0.879+-0.007
+Validation rate: 0.24033+-0.03020 @ FAR=0.00100
+fpr and tpr: 0.986 0.996
+Area Under Curve (AUC): 0.944
+Equal Error Rate (EER): 0.128
+
+epoch 5, total_step 28050, loss is 20.873447, training accuracy is 0.000000, time 333.684 samples/sec
+epoch 5, total_step 28100, loss is 19.654980, training accuracy is 0.000000, time 335.032 samples/sec
+epoch 5, total_step 28150, loss is 20.321449, training accuracy is 0.000000, time 339.440 samples/sec
+epoch 5, total_step 28200, loss is 19.745527, training accuracy is 0.000000, time 334.772 samples/sec
+epoch 5, total_step 28250, loss is 20.761152, training accuracy is 0.000000, time 339.386 samples/sec
+epoch 5, total_step 28300, loss is 20.517412, training accuracy is 0.000000, time 339.879 samples/sec
+epoch 5, total_step 28350, loss is 19.550529, training accuracy is 0.000000, time 336.971 samples/sec
+epoch 5, total_step 28400, loss is 19.559305, training accuracy is 0.000000, time 333.450 samples/sec
+epoch 5, total_step 28450, loss is 20.909868, training accuracy is 0.000000, time 341.186 samples/sec
+epoch 5, total_step 28500, loss is 19.946383, training accuracy is 0.000000, time 333.018 samples/sec
+epoch 5, total_step 28550, loss is 19.693468, training accuracy is 0.000000, time 343.215 samples/sec
+epoch 5, total_step 28600, loss is 20.035141, training accuracy is 0.000000, time 330.736 samples/sec
+epoch 5, total_step 28650, loss is 20.280191, training accuracy is 0.000000, time 332.394 samples/sec
+epoch 5, total_step 28700, loss is 20.183714, training accuracy is 0.000000, time 333.062 samples/sec
+epoch 5, total_step 28750, loss is 19.118492, training accuracy is 0.000000, time 336.536 samples/sec
+epoch 5, total_step 28800, loss is 20.270048, training accuracy is 0.000000, time 336.966 samples/sec
+epoch 5, total_step 28850, loss is 19.414707, training accuracy is 0.000000, time 336.955 samples/sec
+epoch 5, total_step 28900, loss is 20.674038, training accuracy is 0.000000, time 329.675 samples/sec
+epoch 5, total_step 28950, loss is 20.250111, training accuracy is 0.000000, time 335.196 samples/sec
+epoch 5, total_step 29000, loss is 20.982555, training accuracy is 0.000000, time 337.987 samples/sec
+epoch 5, total_step 29050, loss is 20.192068, training accuracy is 0.000000, time 332.205 samples/sec
+epoch 5, total_step 29100, loss is 19.561483, training accuracy is 0.000000, time 336.343 samples/sec
+epoch 5, total_step 29150, loss is 19.592886, training accuracy is 0.000000, time 334.961 samples/sec
+epoch 5, total_step 29200, loss is 19.819023, training accuracy is 0.000000, time 335.366 samples/sec
+epoch 5, total_step 29250, loss is 20.357830, training accuracy is 0.000000, time 341.395 samples/sec
+epoch 5, total_step 29300, loss is 20.235603, training accuracy is 0.000000, time 338.835 samples/sec
+epoch 5, total_step 29350, loss is 20.837421, training accuracy is 0.000000, time 335.970 samples/sec
+epoch 5, total_step 29400, loss is 21.134371, training accuracy is 0.000000, time 336.124 samples/sec
+epoch 5, total_step 29450, loss is 20.776077, training accuracy is 0.000000, time 332.362 samples/sec
+epoch 5, total_step 29500, loss is 19.352365, training accuracy is 0.000000, time 337.055 samples/sec
+epoch 5, total_step 29550, loss is 21.368361, training accuracy is 0.000000, time 335.204 samples/sec
+epoch 5, total_step 29600, loss is 19.582712, training accuracy is 0.000000, time 339.068 samples/sec
+epoch 5, total_step 29650, loss is 19.342878, training accuracy is 0.000000, time 338.918 samples/sec
+epoch 5, total_step 29700, loss is 20.554800, training accuracy is 0.000000, time 336.583 samples/sec
+epoch 5, total_step 29750, loss is 20.727455, training accuracy is 0.000000, time 336.658 samples/sec
+epoch 5, total_step 29800, loss is 19.531338, training accuracy is 0.000000, time 333.874 samples/sec
+epoch 5, total_step 29850, loss is 19.619471, training accuracy is 0.000000, time 327.938 samples/sec
+epoch 5, total_step 29900, loss is 19.540529, training accuracy is 0.000000, time 338.848 samples/sec
+epoch 5, total_step 29950, loss is 20.195061, training accuracy is 0.000000, time 337.017 samples/sec
+epoch 5, total_step 30000, loss is 20.363987, training accuracy is 0.000000, time 324.527 samples/sec
+
+Iteration 30000 testing...
+thresholds max: 0.79 <=> min: 0.01
+total time 13.954s to evaluate 12000 images of lfw
+Accuracy: 0.884+-0.015
+Validation rate: 0.24067+-0.03861 @ FAR=0.00133
+fpr and tpr: 0.984 0.995
+Area Under Curve (AUC): 0.954
+Equal Error Rate (EER): 0.120
+
+epoch 5, total_step 30050, loss is 19.575748, training accuracy is 0.000000, time 335.393 samples/sec
+epoch 5, total_step 30100, loss is 19.762991, training accuracy is 0.000000, time 340.862 samples/sec
+epoch 5, total_step 30150, loss is 20.462978, training accuracy is 0.000000, time 339.274 samples/sec
+epoch 5, total_step 30200, loss is 19.723818, training accuracy is 0.000000, time 335.613 samples/sec
+epoch 5, total_step 30250, loss is 19.181229, training accuracy is 0.000000, time 336.370 samples/sec
+epoch 5, total_step 30300, loss is 19.647852, training accuracy is 0.000000, time 338.731 samples/sec
+epoch 5, total_step 30350, loss is 19.812824, training accuracy is 0.000000, time 341.264 samples/sec
+epoch 5, total_step 30400, loss is 19.782526, training accuracy is 0.000000, time 339.940 samples/sec
+epoch 5, total_step 30450, loss is 20.562294, training accuracy is 0.000000, time 339.333 samples/sec
+epoch 5, total_step 30500, loss is 20.426479, training accuracy is 0.000000, time 337.469 samples/sec
+epoch 5, total_step 30550, loss is 20.666866, training accuracy is 0.000000, time 331.531 samples/sec
+epoch 5, total_step 30600, loss is 20.523273, training accuracy is 0.000000, time 338.681 samples/sec
+epoch 5, total_step 30650, loss is 20.187120, training accuracy is 0.000000, time 338.005 samples/sec
+epoch 5, total_step 30700, loss is 19.996752, training accuracy is 0.000000, time 337.755 samples/sec
+epoch 5, total_step 30750, loss is 18.840431, training accuracy is 0.000000, time 330.787 samples/sec
+epoch 5, total_step 30800, loss is 20.489206, training accuracy is 0.000000, time 330.370 samples/sec
+epoch 5, total_step 30850, loss is 19.648804, training accuracy is 0.000000, time 333.095 samples/sec
+epoch 5, total_step 30900, loss is 20.167030, training accuracy is 0.000000, time 337.013 samples/sec
+epoch 5, total_step 30950, loss is 20.044706, training accuracy is 0.000000, time 338.197 samples/sec
+epoch 5, total_step 31000, loss is 20.253675, training accuracy is 0.000000, time 332.675 samples/sec
+epoch 5, total_step 31050, loss is 20.279325, training accuracy is 0.000000, time 339.958 samples/sec
+epoch 5, total_step 31100, loss is 20.865107, training accuracy is 0.000000, time 337.025 samples/sec
+epoch 5, total_step 31150, loss is 20.688898, training accuracy is 0.000000, time 334.776 samples/sec
+epoch 5, total_step 31200, loss is 19.932446, training accuracy is 0.000000, time 340.000 samples/sec
+epoch 5, total_step 31250, loss is 19.257454, training accuracy is 0.000000, time 339.793 samples/sec
+epoch 5, total_step 31300, loss is 19.678137, training accuracy is 0.000000, time 340.870 samples/sec
+epoch 5, total_step 31350, loss is 20.395275, training accuracy is 0.000000, time 332.708 samples/sec
+epoch 5, total_step 31400, loss is 19.728935, training accuracy is 0.000000, time 336.346 samples/sec
+epoch 5, total_step 31450, loss is 20.228342, training accuracy is 0.000000, time 341.657 samples/sec
+epoch 5, total_step 31500, loss is 20.136856, training accuracy is 0.000000, time 338.529 samples/sec
+epoch 5, total_step 31550, loss is 20.448013, training accuracy is 0.000000, time 338.475 samples/sec
+epoch 5, total_step 31600, loss is 20.491627, training accuracy is 0.000000, time 336.878 samples/sec
+epoch 5, total_step 31650, loss is 20.851574, training accuracy is 0.000000, time 337.958 samples/sec
+epoch 5, total_step 31700, loss is 19.648571, training accuracy is 0.000000, time 332.594 samples/sec
+epoch 5, total_step 31750, loss is 20.221792, training accuracy is 0.000000, time 339.046 samples/sec
+epoch 5, total_step 31800, loss is 19.495419, training accuracy is 0.000000, time 334.382 samples/sec
+epoch 5, total_step 31850, loss is 19.377632, training accuracy is 0.000000, time 337.580 samples/sec
+epoch 5, total_step 31900, loss is 19.963041, training accuracy is 0.000000, time 339.024 samples/sec
+epoch 5, total_step 31950, loss is 19.634012, training accuracy is 0.000000, time 339.707 samples/sec
+epoch 5, total_step 32000, loss is 20.447987, training accuracy is 0.000000, time 336.770 samples/sec
+
+Iteration 32000 testing...
+thresholds max: 0.79 <=> min: 0.01
+total time 14.025s to evaluate 12000 images of lfw
+Accuracy: 0.903+-0.008
+Validation rate: 0.21367+-0.04334 @ FAR=0.00100
+fpr and tpr: 0.981 0.995
+Area Under Curve (AUC): 0.962
+Equal Error Rate (EER): 0.100
+
+epoch 5, total_step 32050, loss is 18.979282, training accuracy is 0.000000, time 338.265 samples/sec
+epoch 5, total_step 32100, loss is 20.287766, training accuracy is 0.000000, time 338.188 samples/sec
+epoch 5, total_step 32150, loss is 19.974392, training accuracy is 0.000000, time 337.561 samples/sec
+epoch 5, total_step 32200, loss is 19.893978, training accuracy is 0.000000, time 336.302 samples/sec
+epoch 5, total_step 32250, loss is 19.669365, training accuracy is 0.000000, time 337.159 samples/sec
+epoch 5, total_step 32300, loss is 19.713472, training accuracy is 0.000000, time 339.606 samples/sec
+epoch 5, total_step 32350, loss is 19.099092, training accuracy is 0.000000, time 332.028 samples/sec
+epoch 5, total_step 32400, loss is 19.721851, training accuracy is 0.000000, time 330.698 samples/sec
+epoch 5, total_step 32450, loss is 20.051243, training accuracy is 0.000000, time 341.965 samples/sec
+epoch 5, total_step 32500, loss is 20.318968, training accuracy is 0.000000, time 333.010 samples/sec
+epoch 5, total_step 32550, loss is 18.869244, training accuracy is 0.000000, time 335.185 samples/sec
+epoch 5, total_step 32600, loss is 20.396799, training accuracy is 0.000000, time 329.453 samples/sec
+epoch 5, total_step 32650, loss is 19.791203, training accuracy is 0.000000, time 338.079 samples/sec
+epoch 5, total_step 32700, loss is 20.782835, training accuracy is 0.000000, time 339.609 samples/sec
+End of epoch 5
+epoch:6, lr:0.01
+epoch 6, total_step 32750, loss is 19.234596, training accuracy is 0.000000, time 336.558 samples/sec
+epoch 6, total_step 32800, loss is 20.183001, training accuracy is 0.000000, time 334.454 samples/sec
+epoch 6, total_step 32850, loss is 20.411108, training accuracy is 0.000000, time 331.835 samples/sec
+epoch 6, total_step 32900, loss is 19.051054, training accuracy is 0.000000, time 334.459 samples/sec
+epoch 6, total_step 32950, loss is 19.587896, training accuracy is 0.000000, time 340.645 samples/sec
+epoch 6, total_step 33000, loss is 18.802771, training accuracy is 0.000000, time 333.491 samples/sec
+epoch 6, total_step 33050, loss is 19.829515, training accuracy is 1.000000, time 331.154 samples/sec
+epoch 6, total_step 33100, loss is 20.452951, training accuracy is 0.000000, time 336.334 samples/sec
+epoch 6, total_step 33150, loss is 20.267443, training accuracy is 0.000000, time 334.598 samples/sec
+epoch 6, total_step 33200, loss is 19.527088, training accuracy is 0.000000, time 341.611 samples/sec
+epoch 6, total_step 33250, loss is 20.273588, training accuracy is 0.000000, time 333.357 samples/sec
+epoch 6, total_step 33300, loss is 21.379795, training accuracy is 0.000000, time 338.784 samples/sec
+epoch 6, total_step 33350, loss is 18.533873, training accuracy is 0.000000, time 336.405 samples/sec
+epoch 6, total_step 33400, loss is 19.885485, training accuracy is 0.000000, time 334.906 samples/sec
+epoch 6, total_step 33450, loss is 20.057552, training accuracy is 0.000000, time 339.967 samples/sec
+epoch 6, total_step 33500, loss is 20.199038, training accuracy is 0.000000, time 335.102 samples/sec
+epoch 6, total_step 33550, loss is 19.829021, training accuracy is 0.000000, time 331.253 samples/sec
+epoch 6, total_step 33600, loss is 20.833735, training accuracy is 0.000000, time 342.984 samples/sec
+epoch 6, total_step 33650, loss is 20.509371, training accuracy is 0.000000, time 332.056 samples/sec
+epoch 6, total_step 33700, loss is 19.875629, training accuracy is 0.000000, time 339.259 samples/sec
+epoch 6, total_step 33750, loss is 20.648966, training accuracy is 0.000000, time 338.259 samples/sec
+epoch 6, total_step 33800, loss is 19.924791, training accuracy is 0.000000, time 339.998 samples/sec
+epoch 6, total_step 33850, loss is 19.951353, training accuracy is 0.000000, time 329.665 samples/sec
+epoch 6, total_step 33900, loss is 20.920067, training accuracy is 0.000000, time 338.666 samples/sec
+epoch 6, total_step 33950, loss is 19.902580, training accuracy is 0.000000, time 335.570 samples/sec
+epoch 6, total_step 34000, loss is 20.060703, training accuracy is 0.000000, time 336.712 samples/sec
+
+Iteration 34000 testing...
+thresholds max: 0.79 <=> min: 0.01
+total time 14.165s to evaluate 12000 images of lfw
+Accuracy: 0.898+-0.011
+Validation rate: 0.22767+-0.04849 @ FAR=0.00133
+fpr and tpr: 0.979 0.994
+Area Under Curve (AUC): 0.968
+Equal Error Rate (EER): 0.096
+
+epoch 6, total_step 34050, loss is 20.402451, training accuracy is 0.000000, time 335.358 samples/sec
+epoch 6, total_step 34100, loss is 18.915833, training accuracy is 0.000000, time 340.789 samples/sec
+epoch 6, total_step 34150, loss is 20.285379, training accuracy is 0.000000, time 330.063 samples/sec
+epoch 6, total_step 34200, loss is 20.155569, training accuracy is 0.000000, time 330.789 samples/sec
+epoch 6, total_step 34250, loss is 20.041756, training accuracy is 0.000000, time 345.421 samples/sec
+epoch 6, total_step 34300, loss is 19.483730, training accuracy is 0.000000, time 338.969 samples/sec
+epoch 6, total_step 34350, loss is 19.463465, training accuracy is 0.000000, time 332.140 samples/sec
+epoch 6, total_step 34400, loss is 19.809916, training accuracy is 0.000000, time 342.241 samples/sec
+epoch 6, total_step 34450, loss is 20.950325, training accuracy is 0.000000, time 335.645 samples/sec
+epoch 6, total_step 34500, loss is 20.669523, training accuracy is 0.000000, time 327.239 samples/sec
+epoch 6, total_step 34550, loss is 20.736414, training accuracy is 0.000000, time 341.530 samples/sec
+epoch 6, total_step 34600, loss is 20.149931, training accuracy is 0.000000, time 337.957 samples/sec
+epoch 6, total_step 34650, loss is 19.538273, training accuracy is 0.000000, time 334.280 samples/sec
+epoch 6, total_step 34700, loss is 21.042091, training accuracy is 0.000000, time 337.834 samples/sec
+epoch 6, total_step 34750, loss is 20.220217, training accuracy is 0.000000, time 336.070 samples/sec
+epoch 6, total_step 34800, loss is 19.586170, training accuracy is 0.000000, time 333.327 samples/sec
+epoch 6, total_step 34850, loss is 20.357702, training accuracy is 0.000000, time 337.910 samples/sec
+epoch 6, total_step 34900, loss is 19.468313, training accuracy is 0.000000, time 340.678 samples/sec
+epoch 6, total_step 34950, loss is 19.314720, training accuracy is 0.000000, time 338.400 samples/sec
+epoch 6, total_step 35000, loss is 20.009476, training accuracy is 0.000000, time 333.522 samples/sec
+epoch 6, total_step 35050, loss is 20.164272, training accuracy is 0.000000, time 339.242 samples/sec
+epoch 6, total_step 35100, loss is 19.778219, training accuracy is 0.000000, time 340.455 samples/sec
+epoch 6, total_step 35150, loss is 20.207228, training accuracy is 0.000000, time 334.573 samples/sec
+epoch 6, total_step 35200, loss is 19.521164, training accuracy is 0.000000, time 335.046 samples/sec
+epoch 6, total_step 35250, loss is 19.577852, training accuracy is 0.000000, time 337.800 samples/sec
+epoch 6, total_step 35300, loss is 19.909929, training accuracy is 0.000000, time 333.842 samples/sec
+epoch 6, total_step 35350, loss is 20.099941, training accuracy is 0.000000, time 336.609 samples/sec
+epoch 6, total_step 35400, loss is 20.441799, training accuracy is 0.000000, time 338.748 samples/sec
+epoch 6, total_step 35450, loss is 21.281446, training accuracy is 0.000000, time 338.792 samples/sec
+epoch 6, total_step 35500, loss is 20.197298, training accuracy is 0.000000, time 334.043 samples/sec
+epoch 6, total_step 35550, loss is 19.177380, training accuracy is 0.000000, time 339.670 samples/sec
+epoch 6, total_step 35600, loss is 19.650482, training accuracy is 0.000000, time 333.697 samples/sec
+epoch 6, total_step 35650, loss is 19.466459, training accuracy is 0.000000, time 338.119 samples/sec
+epoch 6, total_step 35700, loss is 20.489779, training accuracy is 0.000000, time 342.541 samples/sec
+epoch 6, total_step 35750, loss is 19.976109, training accuracy is 0.000000, time 338.679 samples/sec
+epoch 6, total_step 35800, loss is 20.391230, training accuracy is 0.000000, time 332.721 samples/sec
+epoch 6, total_step 35850, loss is 19.829237, training accuracy is 0.000000, time 335.087 samples/sec
+epoch 6, total_step 35900, loss is 21.051701, training accuracy is 0.000000, time 332.878 samples/sec
+epoch 6, total_step 35950, loss is 20.077137, training accuracy is 0.000000, time 341.032 samples/sec
+epoch 6, total_step 36000, loss is 20.898209, training accuracy is 0.000000, time 336.403 samples/sec
+
+Iteration 36000 testing...
+thresholds max: 0.79 <=> min: 0.01
+total time 14.031s to evaluate 12000 images of lfw
+Accuracy: 0.916+-0.011
+Validation rate: 0.22400+-0.03892 @ FAR=0.00133
+fpr and tpr: 0.976 0.994
+Area Under Curve (AUC): 0.973
+Equal Error Rate (EER): 0.084
+
+epoch 6, total_step 36050, loss is 20.267448, training accuracy is 0.000000, time 335.638 samples/sec
+epoch 6, total_step 36100, loss is 19.626352, training accuracy is 0.000000, time 338.190 samples/sec
+epoch 6, total_step 36150, loss is 19.974684, training accuracy is 0.000000, time 334.633 samples/sec
+epoch 6, total_step 36200, loss is 19.351337, training accuracy is 0.000000, time 335.705 samples/sec
+epoch 6, total_step 36250, loss is 19.108324, training accuracy is 0.000000, time 331.686 samples/sec
+epoch 6, total_step 36300, loss is 20.432964, training accuracy is 0.000000, time 336.705 samples/sec
+epoch 6, total_step 36350, loss is 19.483805, training accuracy is 0.000000, time 339.601 samples/sec
+epoch 6, total_step 36400, loss is 19.708281, training accuracy is 0.000000, time 331.565 samples/sec
+epoch 6, total_step 36450, loss is 20.551477, training accuracy is 0.000000, time 336.807 samples/sec
+epoch 6, total_step 36500, loss is 19.668173, training accuracy is 0.000000, time 332.940 samples/sec
+epoch 6, total_step 36550, loss is 20.105042, training accuracy is 0.000000, time 335.352 samples/sec
+epoch 6, total_step 36600, loss is 18.977547, training accuracy is 0.000000, time 338.379 samples/sec
+epoch 6, total_step 36650, loss is 20.229118, training accuracy is 0.000000, time 334.361 samples/sec
+epoch 6, total_step 36700, loss is 21.172403, training accuracy is 0.000000, time 338.338 samples/sec
+epoch 6, total_step 36750, loss is 19.979042, training accuracy is 0.000000, time 332.234 samples/sec
+epoch 6, total_step 36800, loss is 20.751860, training accuracy is 0.000000, time 336.258 samples/sec
+epoch 6, total_step 36850, loss is 19.357388, training accuracy is 0.000000, time 332.281 samples/sec
+epoch 6, total_step 36900, loss is 19.749104, training accuracy is 0.000000, time 333.456 samples/sec
+epoch 6, total_step 36950, loss is 20.222757, training accuracy is 0.000000, time 334.015 samples/sec
+epoch 6, total_step 37000, loss is 20.531916, training accuracy is 1.000000, time 333.683 samples/sec
+epoch 6, total_step 37050, loss is 20.449085, training accuracy is 0.000000, time 333.426 samples/sec
+epoch 6, total_step 37100, loss is 20.134996, training accuracy is 0.000000, time 338.710 samples/sec
+epoch 6, total_step 37150, loss is 20.792395, training accuracy is 0.000000, time 338.170 samples/sec
+epoch 6, total_step 37200, loss is 19.454386, training accuracy is 0.000000, time 332.289 samples/sec
+epoch 6, total_step 37250, loss is 19.886242, training accuracy is 0.000000, time 338.388 samples/sec
+epoch 6, total_step 37300, loss is 19.567961, training accuracy is 0.000000, time 333.991 samples/sec
+epoch 6, total_step 37350, loss is 19.432787, training accuracy is 0.000000, time 337.922 samples/sec
+epoch 6, total_step 37400, loss is 19.344271, training accuracy is 0.000000, time 337.595 samples/sec
+epoch 6, total_step 37450, loss is 19.955395, training accuracy is 0.000000, time 336.955 samples/sec
+epoch 6, total_step 37500, loss is 20.981544, training accuracy is 0.000000, time 330.832 samples/sec
+epoch 6, total_step 37550, loss is 19.251480, training accuracy is 0.000000, time 333.334 samples/sec
+epoch 6, total_step 37600, loss is 19.928226, training accuracy is 0.000000, time 334.710 samples/sec
+epoch 6, total_step 37650, loss is 20.218945, training accuracy is 0.000000, time 331.350 samples/sec
+epoch 6, total_step 37700, loss is 19.529545, training accuracy is 0.000000, time 335.265 samples/sec
+epoch 6, total_step 37750, loss is 19.873293, training accuracy is 0.000000, time 330.290 samples/sec
+epoch 6, total_step 37800, loss is 20.012398, training accuracy is 0.000000, time 339.129 samples/sec
+epoch 6, total_step 37850, loss is 20.185461, training accuracy is 0.000000, time 332.893 samples/sec
+epoch 6, total_step 37900, loss is 19.224705, training accuracy is 0.000000, time 335.580 samples/sec
+epoch 6, total_step 37950, loss is 19.508953, training accuracy is 0.000000, time 327.720 samples/sec
+epoch 6, total_step 38000, loss is 19.586201, training accuracy is 0.000000, time 337.765 samples/sec
+
+Iteration 38000 testing...
+thresholds max: 0.79 <=> min: 0.01
+total time 13.984s to evaluate 12000 images of lfw
+Accuracy: 0.915+-0.012
+Validation rate: 0.23933+-0.03887 @ FAR=0.00100
+fpr and tpr: 0.974 0.994
+Area Under Curve (AUC): 0.977
+Equal Error Rate (EER): 0.081
+
+epoch 6, total_step 38050, loss is 20.660307, training accuracy is 0.000000, time 331.709 samples/sec
+epoch 6, total_step 38100, loss is 19.843153, training accuracy is 0.000000, time 331.446 samples/sec
+epoch 6, total_step 38150, loss is 19.068008, training accuracy is 0.000000, time 337.601 samples/sec
+End of epoch 6
+epoch:7, lr:0.01
+epoch 7, total_step 38200, loss is 19.542297, training accuracy is 0.000000, time 332.255 samples/sec
+epoch 7, total_step 38250, loss is 19.710825, training accuracy is 0.000000, time 330.909 samples/sec
+epoch 7, total_step 38300, loss is 19.842455, training accuracy is 0.000000, time 331.171 samples/sec
+epoch 7, total_step 38350, loss is 19.625893, training accuracy is 0.000000, time 333.428 samples/sec
+epoch 7, total_step 38400, loss is 19.695063, training accuracy is 0.000000, time 333.599 samples/sec
+epoch 7, total_step 38450, loss is 19.944828, training accuracy is 0.000000, time 338.815 samples/sec
+epoch 7, total_step 38500, loss is 20.276403, training accuracy is 0.000000, time 332.802 samples/sec
+epoch 7, total_step 38550, loss is 20.139336, training accuracy is 0.000000, time 337.814 samples/sec
+epoch 7, total_step 38600, loss is 20.015219, training accuracy is 0.000000, time 336.856 samples/sec
+epoch 7, total_step 38650, loss is 20.413561, training accuracy is 0.000000, time 338.237 samples/sec
+epoch 7, total_step 38700, loss is 19.641914, training accuracy is 0.000000, time 336.960 samples/sec
+epoch 7, total_step 38750, loss is 19.241318, training accuracy is 0.000000, time 337.865 samples/sec
+epoch 7, total_step 38800, loss is 19.847548, training accuracy is 0.000000, time 335.335 samples/sec
+epoch 7, total_step 38850, loss is 20.516180, training accuracy is 1.000000, time 328.397 samples/sec
+epoch 7, total_step 38900, loss is 20.126860, training accuracy is 0.000000, time 334.871 samples/sec
+epoch 7, total_step 38950, loss is 20.401688, training accuracy is 0.000000, time 336.649 samples/sec
+epoch 7, total_step 39000, loss is 20.213408, training accuracy is 0.000000, time 337.499 samples/sec
+epoch 7, total_step 39050, loss is 19.204121, training accuracy is 0.000000, time 336.200 samples/sec
+epoch 7, total_step 39100, loss is 20.479872, training accuracy is 0.000000, time 330.308 samples/sec
+epoch 7, total_step 39150, loss is 19.986101, training accuracy is 0.000000, time 333.123 samples/sec
+epoch 7, total_step 39200, loss is 20.696127, training accuracy is 0.000000, time 324.739 samples/sec
+epoch 7, total_step 39250, loss is 19.437492, training accuracy is 0.000000, time 333.925 samples/sec
+epoch 7, total_step 39300, loss is 19.446428, training accuracy is 0.000000, time 339.747 samples/sec
+epoch 7, total_step 39350, loss is 19.526869, training accuracy is 0.000000, time 334.622 samples/sec
+epoch 7, total_step 39400, loss is 20.713934, training accuracy is 0.000000, time 341.023 samples/sec
+epoch 7, total_step 39450, loss is 20.258411, training accuracy is 0.000000, time 330.208 samples/sec
+epoch 7, total_step 39500, loss is 19.592077, training accuracy is 0.000000, time 340.480 samples/sec
+epoch 7, total_step 39550, loss is 19.369308, training accuracy is 0.000000, time 334.499 samples/sec
+epoch 7, total_step 39600, loss is 20.237114, training accuracy is 0.000000, time 334.469 samples/sec
+epoch 7, total_step 39650, loss is 19.369614, training accuracy is 0.000000, time 330.206 samples/sec
+epoch 7, total_step 39700, loss is 20.191324, training accuracy is 0.000000, time 332.480 samples/sec
+epoch 7, total_step 39750, loss is 20.116781, training accuracy is 0.000000, time 332.166 samples/sec
+epoch 7, total_step 39800, loss is 20.746447, training accuracy is 0.000000, time 340.661 samples/sec
+epoch 7, total_step 39850, loss is 19.114094, training accuracy is 0.000000, time 335.017 samples/sec
+epoch 7, total_step 39900, loss is 20.573288, training accuracy is 0.000000, time 332.071 samples/sec
+epoch 7, total_step 39950, loss is 20.016367, training accuracy is 0.000000, time 340.316 samples/sec
+epoch 7, total_step 40000, loss is 20.855095, training accuracy is 0.000000, time 338.645 samples/sec
+
+Iteration 40000 testing...
+thresholds max: 0.79 <=> min: 0.01
+total time 13.895s to evaluate 12000 images of lfw
+Accuracy: 0.926+-0.010
+Validation rate: 0.27300+-0.07343 @ FAR=0.00133
+fpr and tpr: 0.973 0.993
+Area Under Curve (AUC): 0.979
+Equal Error Rate (EER): 0.077
+
+epoch 7, total_step 40050, loss is 20.399990, training accuracy is 0.000000, time 329.871 samples/sec
+epoch 7, total_step 40100, loss is 20.255358, training accuracy is 0.000000, time 336.054 samples/sec
+epoch 7, total_step 40150, loss is 20.432573, training accuracy is 0.000000, time 340.181 samples/sec
+epoch 7, total_step 40200, loss is 20.529299, training accuracy is 0.000000, time 330.620 samples/sec
+epoch 7, total_step 40250, loss is 20.452084, training accuracy is 0.000000, time 339.939 samples/sec
+epoch 7, total_step 40300, loss is 19.570395, training accuracy is 0.000000, time 332.634 samples/sec
+epoch 7, total_step 40350, loss is 20.307568, training accuracy is 0.000000, time 338.775 samples/sec
+epoch 7, total_step 40400, loss is 20.069489, training accuracy is 0.000000, time 335.336 samples/sec
+epoch 7, total_step 40450, loss is 20.272738, training accuracy is 0.000000, time 340.036 samples/sec
+epoch 7, total_step 40500, loss is 20.375555, training accuracy is 0.000000, time 335.667 samples/sec
+epoch 7, total_step 40550, loss is 20.030455, training accuracy is 0.000000, time 338.613 samples/sec
+epoch 7, total_step 40600, loss is 20.260508, training accuracy is 0.000000, time 330.677 samples/sec
+epoch 7, total_step 40650, loss is 20.340065, training accuracy is 0.000000, time 339.029 samples/sec
+epoch 7, total_step 40700, loss is 20.935282, training accuracy is 0.000000, time 339.860 samples/sec
+epoch 7, total_step 40750, loss is 20.427940, training accuracy is 0.000000, time 331.987 samples/sec
+epoch 7, total_step 40800, loss is 20.158693, training accuracy is 0.000000, time 335.321 samples/sec
+epoch 7, total_step 40850, loss is 19.955175, training accuracy is 0.000000, time 332.434 samples/sec
+epoch 7, total_step 40900, loss is 19.572683, training accuracy is 0.000000, time 338.966 samples/sec
+epoch 7, total_step 40950, loss is 20.251333, training accuracy is 0.000000, time 339.622 samples/sec
+epoch 7, total_step 41000, loss is 19.590981, training accuracy is 0.000000, time 336.494 samples/sec
+epoch 7, total_step 41050, loss is 19.071304, training accuracy is 0.000000, time 335.132 samples/sec
+epoch 7, total_step 41100, loss is 20.191368, training accuracy is 0.000000, time 333.549 samples/sec
+epoch 7, total_step 41150, loss is 20.156622, training accuracy is 0.000000, time 340.188 samples/sec
+epoch 7, total_step 41200, loss is 20.220797, training accuracy is 0.000000, time 335.577 samples/sec
+epoch 7, total_step 41250, loss is 20.586737, training accuracy is 0.000000, time 332.482 samples/sec
+epoch 7, total_step 41300, loss is 19.954454, training accuracy is 0.000000, time 338.202 samples/sec
+epoch 7, total_step 41350, loss is 19.683840, training accuracy is 0.000000, time 329.111 samples/sec
+epoch 7, total_step 41400, loss is 20.534298, training accuracy is 0.000000, time 334.400 samples/sec
+epoch 7, total_step 41450, loss is 19.923183, training accuracy is 0.000000, time 340.357 samples/sec
+epoch 7, total_step 41500, loss is 20.354765, training accuracy is 0.000000, time 341.358 samples/sec
+epoch 7, total_step 41550, loss is 18.928179, training accuracy is 0.000000, time 337.544 samples/sec
+epoch 7, total_step 41600, loss is 20.106346, training accuracy is 0.000000, time 334.255 samples/sec
+epoch 7, total_step 41650, loss is 20.116880, training accuracy is 0.000000, time 334.807 samples/sec
+epoch 7, total_step 41700, loss is 20.531633, training accuracy is 0.000000, time 328.079 samples/sec
+epoch 7, total_step 41750, loss is 19.646835, training accuracy is 0.000000, time 339.055 samples/sec
+epoch 7, total_step 41800, loss is 19.077772, training accuracy is 0.000000, time 329.330 samples/sec
+epoch 7, total_step 41850, loss is 19.653200, training accuracy is 0.000000, time 333.093 samples/sec
+epoch 7, total_step 41900, loss is 19.951080, training accuracy is 0.000000, time 340.685 samples/sec
+epoch 7, total_step 41950, loss is 19.256733, training accuracy is 0.000000, time 341.501 samples/sec
+epoch 7, total_step 42000, loss is 19.377579, training accuracy is 0.000000, time 336.958 samples/sec
+
+Iteration 42000 testing...
+thresholds max: 0.79 <=> min: 0.01
+total time 14.077s to evaluate 12000 images of lfw
+Accuracy: 0.927+-0.011
+Validation rate: 0.24233+-0.07677 @ FAR=0.00100
+fpr and tpr: 0.972 0.993
+Area Under Curve (AUC): 0.980
+Equal Error Rate (EER): 0.074
+
+epoch 7, total_step 42050, loss is 20.042013, training accuracy is 0.000000, time 335.461 samples/sec
+epoch 7, total_step 42100, loss is 19.314684, training accuracy is 0.000000, time 336.211 samples/sec
+epoch 7, total_step 42150, loss is 19.740643, training accuracy is 0.000000, time 332.418 samples/sec
+epoch 7, total_step 42200, loss is 19.976959, training accuracy is 0.000000, time 333.375 samples/sec
+epoch 7, total_step 42250, loss is 20.208130, training accuracy is 0.000000, time 332.692 samples/sec
+epoch 7, total_step 42300, loss is 19.285320, training accuracy is 0.000000, time 335.602 samples/sec
+epoch 7, total_step 42350, loss is 20.265268, training accuracy is 0.000000, time 339.807 samples/sec
+epoch 7, total_step 42400, loss is 20.226332, training accuracy is 0.000000, time 342.584 samples/sec
+epoch 7, total_step 42450, loss is 19.730465, training accuracy is 0.000000, time 330.206 samples/sec
+epoch 7, total_step 42500, loss is 19.630560, training accuracy is 0.000000, time 338.270 samples/sec
+epoch 7, total_step 42550, loss is 19.862778, training accuracy is 0.000000, time 336.766 samples/sec
+epoch 7, total_step 42600, loss is 19.777023, training accuracy is 0.000000, time 336.272 samples/sec
+epoch 7, total_step 42650, loss is 19.937160, training accuracy is 0.000000, time 338.905 samples/sec
+epoch 7, total_step 42700, loss is 20.150562, training accuracy is 0.000000, time 340.133 samples/sec
+epoch 7, total_step 42750, loss is 19.350626, training accuracy is 0.000000, time 334.737 samples/sec
+epoch 7, total_step 42800, loss is 19.375046, training accuracy is 0.000000, time 338.842 samples/sec
+epoch 7, total_step 42850, loss is 20.064034, training accuracy is 0.000000, time 336.337 samples/sec
+epoch 7, total_step 42900, loss is 20.462059, training accuracy is 0.000000, time 340.027 samples/sec
+epoch 7, total_step 42950, loss is 20.888906, training accuracy is 0.000000, time 341.190 samples/sec
+epoch 7, total_step 43000, loss is 20.345119, training accuracy is 0.000000, time 333.204 samples/sec
+epoch 7, total_step 43050, loss is 20.907694, training accuracy is 0.000000, time 334.518 samples/sec
+epoch 7, total_step 43100, loss is 20.134251, training accuracy is 0.000000, time 338.417 samples/sec
+epoch 7, total_step 43150, loss is 19.836128, training accuracy is 0.000000, time 337.935 samples/sec
+epoch 7, total_step 43200, loss is 19.527439, training accuracy is 0.000000, time 336.627 samples/sec
+epoch 7, total_step 43250, loss is 19.719473, training accuracy is 0.000000, time 343.065 samples/sec
+epoch 7, total_step 43300, loss is 19.699432, training accuracy is 0.000000, time 339.683 samples/sec
+epoch 7, total_step 43350, loss is 19.146175, training accuracy is 0.000000, time 337.441 samples/sec
+epoch 7, total_step 43400, loss is 20.065268, training accuracy is 0.000000, time 334.976 samples/sec
+epoch 7, total_step 43450, loss is 19.560347, training accuracy is 0.000000, time 332.688 samples/sec
+epoch 7, total_step 43500, loss is 20.313587, training accuracy is 0.000000, time 337.410 samples/sec
+epoch 7, total_step 43550, loss is 20.214474, training accuracy is 0.000000, time 338.596 samples/sec
+epoch 7, total_step 43600, loss is 20.256210, training accuracy is 0.000000, time 339.241 samples/sec
+End of epoch 7
+epoch:8, lr:0.001
+epoch 8, total_step 43650, loss is 19.520788, training accuracy is 0.000000, time 333.237 samples/sec
+epoch 8, total_step 43700, loss is 20.641237, training accuracy is 0.000000, time 340.547 samples/sec
+epoch 8, total_step 43750, loss is 20.364321, training accuracy is 0.000000, time 333.270 samples/sec
+epoch 8, total_step 43800, loss is 20.294699, training accuracy is 0.000000, time 332.778 samples/sec
+epoch 8, total_step 43850, loss is 19.641941, training accuracy is 0.000000, time 332.880 samples/sec
+epoch 8, total_step 43900, loss is 21.071163, training accuracy is 0.000000, time 334.139 samples/sec
+epoch 8, total_step 43950, loss is 19.635994, training accuracy is 0.000000, time 332.663 samples/sec
+epoch 8, total_step 44000, loss is 19.832560, training accuracy is 0.000000, time 339.442 samples/sec
+
+Iteration 44000 testing...
+thresholds max: 0.79 <=> min: 0.01
+total time 13.903s to evaluate 12000 images of lfw
+Accuracy: 0.927+-0.011
+Validation rate: 0.23667+-0.09043 @ FAR=0.00100
+fpr and tpr: 0.971 0.993
+Area Under Curve (AUC): 0.981
+Equal Error Rate (EER): 0.073
+
+epoch 8, total_step 44050, loss is 19.923384, training accuracy is 0.000000, time 340.884 samples/sec
+epoch 8, total_step 44100, loss is 19.905693, training accuracy is 0.000000, time 331.237 samples/sec
+epoch 8, total_step 44150, loss is 19.355801, training accuracy is 0.000000, time 339.893 samples/sec
+epoch 8, total_step 44200, loss is 20.748226, training accuracy is 0.000000, time 334.438 samples/sec
+epoch 8, total_step 44250, loss is 19.930201, training accuracy is 0.000000, time 337.875 samples/sec
+epoch 8, total_step 44300, loss is 20.178198, training accuracy is 0.000000, time 338.932 samples/sec
+epoch 8, total_step 44350, loss is 20.339298, training accuracy is 0.000000, time 333.112 samples/sec
+epoch 8, total_step 44400, loss is 20.646568, training accuracy is 0.000000, time 341.219 samples/sec
+epoch 8, total_step 44450, loss is 20.058542, training accuracy is 0.000000, time 339.938 samples/sec
+epoch 8, total_step 44500, loss is 20.493591, training accuracy is 0.000000, time 333.180 samples/sec
+epoch 8, total_step 44550, loss is 19.572107, training accuracy is 0.000000, time 342.346 samples/sec
+epoch 8, total_step 44600, loss is 20.121214, training accuracy is 0.000000, time 337.594 samples/sec
+epoch 8, total_step 44650, loss is 20.622200, training accuracy is 0.000000, time 333.188 samples/sec
+epoch 8, total_step 44700, loss is 20.262243, training accuracy is 0.000000, time 339.590 samples/sec
+epoch 8, total_step 44750, loss is 20.214275, training accuracy is 0.000000, time 334.451 samples/sec
+epoch 8, total_step 44800, loss is 19.758135, training accuracy is 0.000000, time 339.037 samples/sec
+epoch 8, total_step 44850, loss is 18.375019, training accuracy is 0.000000, time 336.741 samples/sec
+epoch 8, total_step 44900, loss is 20.657766, training accuracy is 0.000000, time 329.847 samples/sec
+epoch 8, total_step 44950, loss is 20.196121, training accuracy is 0.000000, time 339.529 samples/sec
+epoch 8, total_step 45000, loss is 19.699432, training accuracy is 0.000000, time 342.908 samples/sec
+epoch 8, total_step 45050, loss is 19.720778, training accuracy is 0.000000, time 340.931 samples/sec
+epoch 8, total_step 45100, loss is 18.817694, training accuracy is 0.000000, time 330.758 samples/sec
+epoch 8, total_step 45150, loss is 19.355299, training accuracy is 0.000000, time 336.530 samples/sec
+epoch 8, total_step 45200, loss is 20.950401, training accuracy is 0.000000, time 336.874 samples/sec
+epoch 8, total_step 45250, loss is 19.848349, training accuracy is 0.000000, time 336.022 samples/sec
+epoch 8, total_step 45300, loss is 20.217728, training accuracy is 0.000000, time 331.774 samples/sec
+epoch 8, total_step 45350, loss is 20.257366, training accuracy is 0.000000, time 341.004 samples/sec
+epoch 8, total_step 45400, loss is 20.925341, training accuracy is 0.000000, time 331.976 samples/sec
+epoch 8, total_step 45450, loss is 19.089785, training accuracy is 0.000000, time 332.442 samples/sec
+epoch 8, total_step 45500, loss is 20.028368, training accuracy is 0.000000, time 344.428 samples/sec
+epoch 8, total_step 45550, loss is 19.765972, training accuracy is 0.000000, time 340.978 samples/sec
+epoch 8, total_step 45600, loss is 20.054003, training accuracy is 0.000000, time 337.927 samples/sec
+epoch 8, total_step 45650, loss is 20.223816, training accuracy is 0.000000, time 334.971 samples/sec
+epoch 8, total_step 45700, loss is 19.410152, training accuracy is 0.000000, time 337.119 samples/sec
+epoch 8, total_step 45750, loss is 19.584293, training accuracy is 0.000000, time 338.743 samples/sec
+epoch 8, total_step 45800, loss is 19.913754, training accuracy is 0.000000, time 332.681 samples/sec
+epoch 8, total_step 45850, loss is 19.379669, training accuracy is 0.000000, time 337.348 samples/sec
+epoch 8, total_step 45900, loss is 20.235313, training accuracy is 0.000000, time 335.199 samples/sec
+epoch 8, total_step 45950, loss is 18.930395, training accuracy is 0.000000, time 338.221 samples/sec
+epoch 8, total_step 46000, loss is 19.517010, training accuracy is 0.000000, time 343.030 samples/sec
+
+Iteration 46000 testing...
+thresholds max: 0.79 <=> min: 0.01
+total time 13.952s to evaluate 12000 images of lfw
+Accuracy: 0.926+-0.010
+Validation rate: 0.28200+-0.08380 @ FAR=0.00133
+fpr and tpr: 0.971 0.993
+Area Under Curve (AUC): 0.982
+Equal Error Rate (EER): 0.071
+
+epoch 8, total_step 46050, loss is 20.526392, training accuracy is 0.000000, time 337.432 samples/sec
+epoch 8, total_step 46100, loss is 18.584167, training accuracy is 0.000000, time 332.067 samples/sec
+epoch 8, total_step 46150, loss is 19.753847, training accuracy is 0.000000, time 331.169 samples/sec
+epoch 8, total_step 46200, loss is 21.184820, training accuracy is 0.000000, time 330.430 samples/sec
+epoch 8, total_step 46250, loss is 20.081018, training accuracy is 0.000000, time 337.144 samples/sec
+epoch 8, total_step 46300, loss is 20.211346, training accuracy is 0.000000, time 338.745 samples/sec
+epoch 8, total_step 46350, loss is 20.050182, training accuracy is 0.000000, time 335.167 samples/sec
+epoch 8, total_step 46400, loss is 19.688658, training accuracy is 0.000000, time 333.199 samples/sec
+epoch 8, total_step 46450, loss is 20.279669, training accuracy is 0.000000, time 337.204 samples/sec
+epoch 8, total_step 46500, loss is 20.055004, training accuracy is 0.000000, time 338.924 samples/sec
+epoch 8, total_step 46550, loss is 20.057945, training accuracy is 0.000000, time 345.216 samples/sec
+epoch 8, total_step 46600, loss is 19.501869, training accuracy is 0.000000, time 333.717 samples/sec
+epoch 8, total_step 46650, loss is 21.140512, training accuracy is 0.000000, time 330.625 samples/sec
+epoch 8, total_step 46700, loss is 20.585945, training accuracy is 0.000000, time 332.835 samples/sec
+epoch 8, total_step 46750, loss is 19.172432, training accuracy is 0.000000, time 338.877 samples/sec
+epoch 8, total_step 46800, loss is 20.411623, training accuracy is 0.000000, time 339.698 samples/sec
+epoch 8, total_step 46850, loss is 20.140024, training accuracy is 0.000000, time 336.004 samples/sec
+epoch 8, total_step 46900, loss is 19.815348, training accuracy is 0.000000, time 329.047 samples/sec
+epoch 8, total_step 46950, loss is 20.265884, training accuracy is 0.000000, time 340.516 samples/sec
+epoch 8, total_step 47000, loss is 20.328743, training accuracy is 0.000000, time 336.667 samples/sec
+epoch 8, total_step 47050, loss is 20.855640, training accuracy is 0.000000, time 333.629 samples/sec
+epoch 8, total_step 47100, loss is 19.423679, training accuracy is 0.000000, time 335.663 samples/sec
+epoch 8, total_step 47150, loss is 19.907322, training accuracy is 0.000000, time 336.567 samples/sec
+epoch 8, total_step 47200, loss is 19.919250, training accuracy is 0.000000, time 329.618 samples/sec
+epoch 8, total_step 47250, loss is 19.552687, training accuracy is 0.000000, time 340.556 samples/sec
+epoch 8, total_step 47300, loss is 20.250856, training accuracy is 0.000000, time 339.125 samples/sec
+epoch 8, total_step 47350, loss is 19.311689, training accuracy is 0.000000, time 337.789 samples/sec
+epoch 8, total_step 47400, loss is 19.587141, training accuracy is 0.000000, time 339.680 samples/sec
+epoch 8, total_step 47450, loss is 20.119539, training accuracy is 0.000000, time 338.659 samples/sec
+epoch 8, total_step 47500, loss is 20.467268, training accuracy is 0.000000, time 333.231 samples/sec
+epoch 8, total_step 47550, loss is 19.960283, training accuracy is 0.000000, time 338.117 samples/sec
+epoch 8, total_step 47600, loss is 19.958736, training accuracy is 0.000000, time 325.820 samples/sec
+epoch 8, total_step 47650, loss is 20.047127, training accuracy is 0.000000, time 337.470 samples/sec
+epoch 8, total_step 47700, loss is 19.372746, training accuracy is 0.000000, time 334.316 samples/sec
+epoch 8, total_step 47750, loss is 20.245762, training accuracy is 0.000000, time 334.133 samples/sec
+epoch 8, total_step 47800, loss is 19.577715, training accuracy is 0.000000, time 329.374 samples/sec
+epoch 8, total_step 47850, loss is 20.652180, training accuracy is 0.000000, time 334.047 samples/sec
+epoch 8, total_step 47900, loss is 20.654907, training accuracy is 0.000000, time 333.249 samples/sec
+epoch 8, total_step 47950, loss is 21.103811, training accuracy is 0.000000, time 336.870 samples/sec
+epoch 8, total_step 48000, loss is 20.034224, training accuracy is 0.000000, time 341.949 samples/sec
+
+Iteration 48000 testing...
+thresholds max: 0.79 <=> min: 0.01
+total time 13.939s to evaluate 12000 images of lfw
+Accuracy: 0.932+-0.010
+Validation rate: 0.29400+-0.09582 @ FAR=0.00133
+fpr and tpr: 0.971 0.993
+Area Under Curve (AUC): 0.983
+Equal Error Rate (EER): 0.069
+
+epoch 8, total_step 48050, loss is 19.391508, training accuracy is 0.000000, time 334.942 samples/sec
+epoch 8, total_step 48100, loss is 20.286411, training accuracy is 0.000000, time 337.904 samples/sec
+epoch 8, total_step 48150, loss is 20.143007, training accuracy is 0.000000, time 339.687 samples/sec
+epoch 8, total_step 48200, loss is 20.470768, training accuracy is 0.000000, time 338.440 samples/sec
+epoch 8, total_step 48250, loss is 19.806786, training accuracy is 0.000000, time 335.950 samples/sec
+epoch 8, total_step 48300, loss is 19.918308, training accuracy is 0.000000, time 339.799 samples/sec
+epoch 8, total_step 48350, loss is 20.280622, training accuracy is 0.000000, time 328.224 samples/sec
+epoch 8, total_step 48400, loss is 19.729446, training accuracy is 0.000000, time 333.711 samples/sec
+epoch 8, total_step 48450, loss is 19.511457, training accuracy is 0.000000, time 339.602 samples/sec
+epoch 8, total_step 48500, loss is 20.523582, training accuracy is 0.000000, time 334.550 samples/sec
+epoch 8, total_step 48550, loss is 19.973429, training accuracy is 0.000000, time 337.168 samples/sec
+epoch 8, total_step 48600, loss is 20.232391, training accuracy is 0.000000, time 339.723 samples/sec
+epoch 8, total_step 48650, loss is 20.270813, training accuracy is 0.000000, time 337.849 samples/sec
+epoch 8, total_step 48700, loss is 20.063787, training accuracy is 0.000000, time 341.256 samples/sec
+epoch 8, total_step 48750, loss is 19.959236, training accuracy is 0.000000, time 339.382 samples/sec
+epoch 8, total_step 48800, loss is 19.375555, training accuracy is 0.000000, time 338.852 samples/sec
+epoch 8, total_step 48850, loss is 20.100796, training accuracy is 0.000000, time 339.343 samples/sec
+epoch 8, total_step 48900, loss is 20.607723, training accuracy is 0.000000, time 341.739 samples/sec
+epoch 8, total_step 48950, loss is 19.492373, training accuracy is 0.000000, time 334.644 samples/sec
+epoch 8, total_step 49000, loss is 20.175652, training accuracy is 0.000000, time 338.995 samples/sec
+epoch 8, total_step 49050, loss is 20.055817, training accuracy is 0.000000, time 340.175 samples/sec
+End of epoch 8
+epoch:9, lr:0.001
+epoch 9, total_step 49100, loss is 20.762341, training accuracy is 0.000000, time 333.692 samples/sec
+epoch 9, total_step 49150, loss is 19.649689, training accuracy is 0.000000, time 338.797 samples/sec
+epoch 9, total_step 49200, loss is 20.050177, training accuracy is 0.000000, time 330.609 samples/sec
+epoch 9, total_step 49250, loss is 20.091707, training accuracy is 0.000000, time 335.651 samples/sec
+epoch 9, total_step 49300, loss is 20.172199, training accuracy is 0.000000, time 333.147 samples/sec
+epoch 9, total_step 49350, loss is 19.866051, training accuracy is 0.000000, time 335.982 samples/sec
+epoch 9, total_step 49400, loss is 19.629347, training accuracy is 0.000000, time 337.000 samples/sec
+epoch 9, total_step 49450, loss is 20.586014, training accuracy is 0.000000, time 338.337 samples/sec
+epoch 9, total_step 49500, loss is 20.055140, training accuracy is 0.000000, time 336.357 samples/sec
+epoch 9, total_step 49550, loss is 19.967506, training accuracy is 0.000000, time 334.713 samples/sec
+epoch 9, total_step 49600, loss is 20.306511, training accuracy is 0.000000, time 329.681 samples/sec
+epoch 9, total_step 49650, loss is 19.785837, training accuracy is 0.000000, time 339.039 samples/sec
+epoch 9, total_step 49700, loss is 21.093927, training accuracy is 0.000000, time 342.359 samples/sec
+epoch 9, total_step 49750, loss is 19.616093, training accuracy is 0.000000, time 325.394 samples/sec
+epoch 9, total_step 49800, loss is 20.341078, training accuracy is 0.000000, time 339.837 samples/sec
+epoch 9, total_step 49850, loss is 20.330645, training accuracy is 0.000000, time 336.332 samples/sec
+epoch 9, total_step 49900, loss is 20.571663, training accuracy is 0.000000, time 339.998 samples/sec
+epoch 9, total_step 49950, loss is 20.653406, training accuracy is 0.000000, time 337.447 samples/sec
+epoch 9, total_step 50000, loss is 19.997274, training accuracy is 0.000000, time 337.124 samples/sec
+
+Iteration 50000 testing...
+thresholds max: 0.79 <=> min: 0.01
+total time 13.930s to evaluate 12000 images of lfw
+Accuracy: 0.935+-0.010
+Validation rate: 0.32467+-0.07210 @ FAR=0.00133
+fpr and tpr: 0.970 0.993
+Area Under Curve (AUC): 0.983
+Equal Error Rate (EER): 0.067
+
+epoch 9, total_step 50050, loss is 19.931280, training accuracy is 0.000000, time 336.015 samples/sec
+epoch 9, total_step 50100, loss is 20.183361, training accuracy is 0.000000, time 338.084 samples/sec
+epoch 9, total_step 50150, loss is 19.142052, training accuracy is 0.000000, time 339.335 samples/sec
+epoch 9, total_step 50200, loss is 19.435038, training accuracy is 0.000000, time 329.973 samples/sec
+epoch 9, total_step 50250, loss is 19.642891, training accuracy is 0.000000, time 333.182 samples/sec
+epoch 9, total_step 50300, loss is 19.304749, training accuracy is 0.000000, time 334.292 samples/sec
+epoch 9, total_step 50350, loss is 19.439440, training accuracy is 0.000000, time 330.524 samples/sec
+epoch 9, total_step 50400, loss is 20.288387, training accuracy is 0.000000, time 339.221 samples/sec
+epoch 9, total_step 50450, loss is 19.786528, training accuracy is 0.000000, time 338.256 samples/sec
+epoch 9, total_step 50500, loss is 19.072010, training accuracy is 0.000000, time 339.271 samples/sec
+epoch 9, total_step 50550, loss is 20.274597, training accuracy is 0.000000, time 336.718 samples/sec
+epoch 9, total_step 50600, loss is 19.691847, training accuracy is 0.000000, time 337.924 samples/sec
+epoch 9, total_step 50650, loss is 20.168596, training accuracy is 0.000000, time 336.455 samples/sec
+epoch 9, total_step 50700, loss is 20.099592, training accuracy is 0.000000, time 335.600 samples/sec
+epoch 9, total_step 50750, loss is 19.395000, training accuracy is 0.000000, time 330.594 samples/sec
+epoch 9, total_step 50800, loss is 20.602198, training accuracy is 0.000000, time 333.409 samples/sec
+epoch 9, total_step 50850, loss is 20.352524, training accuracy is 0.000000, time 338.562 samples/sec
+epoch 9, total_step 50900, loss is 19.298656, training accuracy is 0.000000, time 337.709 samples/sec
+epoch 9, total_step 50950, loss is 19.505005, training accuracy is 0.000000, time 334.813 samples/sec
+epoch 9, total_step 51000, loss is 20.041586, training accuracy is 0.000000, time 333.941 samples/sec
+epoch 9, total_step 51050, loss is 20.756153, training accuracy is 0.000000, time 336.650 samples/sec
+epoch 9, total_step 51100, loss is 19.689606, training accuracy is 0.000000, time 329.164 samples/sec
+epoch 9, total_step 51150, loss is 20.815403, training accuracy is 0.000000, time 338.419 samples/sec
+epoch 9, total_step 51200, loss is 19.666063, training accuracy is 0.000000, time 339.185 samples/sec
+epoch 9, total_step 51250, loss is 20.098196, training accuracy is 1.000000, time 326.692 samples/sec
+epoch 9, total_step 51300, loss is 19.358374, training accuracy is 0.000000, time 339.019 samples/sec
+epoch 9, total_step 51350, loss is 19.974295, training accuracy is 0.000000, time 332.702 samples/sec
+epoch 9, total_step 51400, loss is 19.457645, training accuracy is 0.000000, time 339.262 samples/sec
+epoch 9, total_step 51450, loss is 20.592369, training accuracy is 0.000000, time 340.948 samples/sec
+epoch 9, total_step 51500, loss is 20.171997, training accuracy is 0.000000, time 337.721 samples/sec
+epoch 9, total_step 51550, loss is 18.944963, training accuracy is 0.000000, time 336.453 samples/sec
+epoch 9, total_step 51600, loss is 20.056971, training accuracy is 0.000000, time 344.286 samples/sec
+epoch 9, total_step 51650, loss is 19.436676, training accuracy is 0.000000, time 336.345 samples/sec
+epoch 9, total_step 51700, loss is 19.135160, training accuracy is 0.000000, time 339.261 samples/sec
+epoch 9, total_step 51750, loss is 20.008732, training accuracy is 0.000000, time 341.250 samples/sec
+epoch 9, total_step 51800, loss is 20.184072, training accuracy is 0.000000, time 333.270 samples/sec
+epoch 9, total_step 51850, loss is 20.226713, training accuracy is 0.000000, time 339.763 samples/sec
+epoch 9, total_step 51900, loss is 19.811106, training accuracy is 0.000000, time 341.186 samples/sec
+epoch 9, total_step 51950, loss is 20.007477, training accuracy is 0.000000, time 334.121 samples/sec
+epoch 9, total_step 52000, loss is 20.878023, training accuracy is 0.000000, time 331.788 samples/sec
+
+Iteration 52000 testing...
+thresholds max: 0.79 <=> min: 0.01
+total time 13.946s to evaluate 12000 images of lfw
+Accuracy: 0.935+-0.011
+Validation rate: 0.31800+-0.07165 @ FAR=0.00133
+fpr and tpr: 0.970 0.992
+Area Under Curve (AUC): 0.983
+Equal Error Rate (EER): 0.066
+
+epoch 9, total_step 52050, loss is 19.389626, training accuracy is 0.000000, time 335.504 samples/sec
+epoch 9, total_step 52100, loss is 20.179150, training accuracy is 0.000000, time 337.553 samples/sec
+epoch 9, total_step 52150, loss is 19.781599, training accuracy is 0.000000, time 336.404 samples/sec
+epoch 9, total_step 52200, loss is 20.012989, training accuracy is 0.000000, time 334.946 samples/sec
+epoch 9, total_step 52250, loss is 19.214287, training accuracy is 0.000000, time 341.789 samples/sec
+epoch 9, total_step 52300, loss is 19.971189, training accuracy is 0.000000, time 338.837 samples/sec
+epoch 9, total_step 52350, loss is 20.332205, training accuracy is 0.000000, time 339.190 samples/sec
+epoch 9, total_step 52400, loss is 20.843140, training accuracy is 0.000000, time 338.671 samples/sec
+epoch 9, total_step 52450, loss is 19.338898, training accuracy is 0.000000, time 337.109 samples/sec
+epoch 9, total_step 52500, loss is 19.530188, training accuracy is 0.000000, time 335.314 samples/sec
+epoch 9, total_step 52550, loss is 19.623884, training accuracy is 0.000000, time 337.239 samples/sec
+epoch 9, total_step 52600, loss is 19.848886, training accuracy is 0.000000, time 337.417 samples/sec
+epoch 9, total_step 52650, loss is 19.402630, training accuracy is 0.000000, time 331.986 samples/sec
+epoch 9, total_step 52700, loss is 19.325653, training accuracy is 0.000000, time 344.573 samples/sec
+epoch 9, total_step 52750, loss is 19.948261, training accuracy is 0.000000, time 332.050 samples/sec
+epoch 9, total_step 52800, loss is 20.531998, training accuracy is 0.000000, time 337.448 samples/sec
+epoch 9, total_step 52850, loss is 21.048393, training accuracy is 0.000000, time 334.409 samples/sec
+epoch 9, total_step 52900, loss is 19.932220, training accuracy is 0.000000, time 334.326 samples/sec
+epoch 9, total_step 52950, loss is 19.790583, training accuracy is 0.000000, time 335.431 samples/sec
+epoch 9, total_step 53000, loss is 20.259794, training accuracy is 0.000000, time 333.259 samples/sec
+epoch 9, total_step 53050, loss is 19.948311, training accuracy is 0.000000, time 332.572 samples/sec
+epoch 9, total_step 53100, loss is 20.008102, training accuracy is 0.000000, time 340.117 samples/sec
+epoch 9, total_step 53150, loss is 19.748871, training accuracy is 0.000000, time 329.049 samples/sec
+epoch 9, total_step 53200, loss is 20.411161, training accuracy is 0.000000, time 338.278 samples/sec
+epoch 9, total_step 53250, loss is 20.045137, training accuracy is 0.000000, time 337.733 samples/sec
+epoch 9, total_step 53300, loss is 19.869797, training accuracy is 0.000000, time 335.837 samples/sec
+epoch 9, total_step 53350, loss is 18.282343, training accuracy is 0.000000, time 342.156 samples/sec
+epoch 9, total_step 53400, loss is 19.499022, training accuracy is 0.000000, time 325.701 samples/sec
+epoch 9, total_step 53450, loss is 19.675501, training accuracy is 0.000000, time 341.200 samples/sec
+epoch 9, total_step 53500, loss is 20.206039, training accuracy is 0.000000, time 337.457 samples/sec
+epoch 9, total_step 53550, loss is 19.801378, training accuracy is 0.000000, time 331.970 samples/sec
+epoch 9, total_step 53600, loss is 19.281292, training accuracy is 0.000000, time 331.464 samples/sec
+epoch 9, total_step 53650, loss is 20.529119, training accuracy is 0.000000, time 338.737 samples/sec
+epoch 9, total_step 53700, loss is 19.216009, training accuracy is 0.000000, time 340.776 samples/sec
+epoch 9, total_step 53750, loss is 19.780903, training accuracy is 0.000000, time 336.969 samples/sec
+epoch 9, total_step 53800, loss is 19.902128, training accuracy is 0.000000, time 335.777 samples/sec
+epoch 9, total_step 53850, loss is 18.482925, training accuracy is 0.000000, time 328.785 samples/sec
+epoch 9, total_step 53900, loss is 20.357210, training accuracy is 0.000000, time 339.689 samples/sec
+epoch 9, total_step 53950, loss is 18.854345, training accuracy is 0.000000, time 331.232 samples/sec
+epoch 9, total_step 54000, loss is 19.859026, training accuracy is 0.000000, time 336.217 samples/sec
+
+Iteration 54000 testing...
+thresholds max: 0.79 <=> min: 0.01
+total time 13.871s to evaluate 12000 images of lfw
+Accuracy: 0.936+-0.009
+Validation rate: 0.35467+-0.05307 @ FAR=0.00133
+fpr and tpr: 0.970 0.992
+Area Under Curve (AUC): 0.984
+Equal Error Rate (EER): 0.065
+
+epoch 9, total_step 54050, loss is 18.825615, training accuracy is 0.000000, time 336.355 samples/sec
+epoch 9, total_step 54100, loss is 20.004892, training accuracy is 0.000000, time 335.083 samples/sec
+epoch 9, total_step 54150, loss is 19.262089, training accuracy is 0.000000, time 334.624 samples/sec
+epoch 9, total_step 54200, loss is 19.429203, training accuracy is 0.000000, time 339.988 samples/sec
+epoch 9, total_step 54250, loss is 20.093079, training accuracy is 0.000000, time 337.722 samples/sec
+epoch 9, total_step 54300, loss is 19.828981, training accuracy is 0.000000, time 341.623 samples/sec
+epoch 9, total_step 54350, loss is 20.162935, training accuracy is 0.000000, time 332.779 samples/sec
+epoch 9, total_step 54400, loss is 19.292501, training accuracy is 0.000000, time 335.566 samples/sec
+epoch 9, total_step 54450, loss is 19.208544, training accuracy is 0.000000, time 343.135 samples/sec
+epoch 9, total_step 54500, loss is 19.723021, training accuracy is 0.000000, time 336.510 samples/sec
+End of epoch 9
+epoch:10, lr:0.0001
+epoch 10, total_step 54550, loss is 19.238274, training accuracy is 0.000000, time 333.458 samples/sec
+epoch 10, total_step 54600, loss is 19.329935, training accuracy is 0.000000, time 334.414 samples/sec
+epoch 10, total_step 54650, loss is 19.387999, training accuracy is 0.000000, time 336.558 samples/sec
+epoch 10, total_step 54700, loss is 19.686192, training accuracy is 0.000000, time 332.662 samples/sec
+epoch 10, total_step 54750, loss is 18.920706, training accuracy is 0.000000, time 336.824 samples/sec
+epoch 10, total_step 54800, loss is 19.921059, training accuracy is 0.000000, time 329.208 samples/sec
+epoch 10, total_step 54850, loss is 20.756742, training accuracy is 0.000000, time 336.831 samples/sec
+epoch 10, total_step 54900, loss is 20.317045, training accuracy is 0.000000, time 333.781 samples/sec
+epoch 10, total_step 54950, loss is 19.085251, training accuracy is 0.000000, time 340.705 samples/sec
+epoch 10, total_step 55000, loss is 19.817804, training accuracy is 0.000000, time 336.460 samples/sec
+epoch 10, total_step 55050, loss is 20.427681, training accuracy is 0.000000, time 333.293 samples/sec
+epoch 10, total_step 55100, loss is 20.785686, training accuracy is 0.000000, time 339.111 samples/sec
+epoch 10, total_step 55150, loss is 20.071659, training accuracy is 0.000000, time 336.069 samples/sec
+epoch 10, total_step 55200, loss is 20.028158, training accuracy is 0.000000, time 331.567 samples/sec
+epoch 10, total_step 55250, loss is 20.055676, training accuracy is 0.000000, time 326.815 samples/sec
+epoch 10, total_step 55300, loss is 18.807594, training accuracy is 0.000000, time 333.208 samples/sec
+epoch 10, total_step 55350, loss is 20.965805, training accuracy is 0.000000, time 337.349 samples/sec
+epoch 10, total_step 55400, loss is 20.326902, training accuracy is 0.000000, time 321.614 samples/sec
+epoch 10, total_step 55450, loss is 20.079741, training accuracy is 0.000000, time 333.761 samples/sec
+epoch 10, total_step 55500, loss is 19.545074, training accuracy is 0.000000, time 338.363 samples/sec
+epoch 10, total_step 55550, loss is 19.925846, training accuracy is 0.000000, time 333.632 samples/sec
+epoch 10, total_step 55600, loss is 19.963161, training accuracy is 0.000000, time 341.957 samples/sec
+epoch 10, total_step 55650, loss is 19.969725, training accuracy is 0.000000, time 329.856 samples/sec
+epoch 10, total_step 55700, loss is 19.756382, training accuracy is 0.000000, time 340.445 samples/sec
+epoch 10, total_step 55750, loss is 19.718353, training accuracy is 0.000000, time 335.603 samples/sec
+epoch 10, total_step 55800, loss is 20.050341, training accuracy is 0.000000, time 333.088 samples/sec
+epoch 10, total_step 55850, loss is 19.732336, training accuracy is 0.000000, time 334.847 samples/sec
+epoch 10, total_step 55900, loss is 18.967035, training accuracy is 0.000000, time 336.172 samples/sec
+epoch 10, total_step 55950, loss is 19.813089, training accuracy is 0.000000, time 330.852 samples/sec
+epoch 10, total_step 56000, loss is 19.327244, training accuracy is 0.000000, time 340.664 samples/sec
+
+Iteration 56000 testing...
+thresholds max: 0.79 <=> min: 0.01
+total time 13.915s to evaluate 12000 images of lfw
+Accuracy: 0.933+-0.010
+Validation rate: 0.32533+-0.05029 @ FAR=0.00133
+fpr and tpr: 0.970 0.992
+Area Under Curve (AUC): 0.984
+Equal Error Rate (EER): 0.064
+
+epoch 10, total_step 56050, loss is 20.374140, training accuracy is 0.000000, time 333.716 samples/sec
+epoch 10, total_step 56100, loss is 19.394545, training accuracy is 0.000000, time 340.287 samples/sec
+epoch 10, total_step 56150, loss is 19.531565, training accuracy is 0.000000, time 335.219 samples/sec
+epoch 10, total_step 56200, loss is 19.887211, training accuracy is 0.000000, time 334.011 samples/sec
+epoch 10, total_step 56250, loss is 20.036041, training accuracy is 0.000000, time 336.705 samples/sec
+epoch 10, total_step 56300, loss is 19.062202, training accuracy is 0.000000, time 337.930 samples/sec
+epoch 10, total_step 56350, loss is 20.040302, training accuracy is 0.000000, time 328.398 samples/sec
+epoch 10, total_step 56400, loss is 18.642372, training accuracy is 0.000000, time 335.073 samples/sec
+epoch 10, total_step 56450, loss is 19.781321, training accuracy is 0.000000, time 329.036 samples/sec
+epoch 10, total_step 56500, loss is 19.633327, training accuracy is 0.000000, time 342.863 samples/sec
+epoch 10, total_step 56550, loss is 20.025930, training accuracy is 0.000000, time 339.030 samples/sec
+epoch 10, total_step 56600, loss is 19.761995, training accuracy is 0.000000, time 335.236 samples/sec
+epoch 10, total_step 56650, loss is 19.403353, training accuracy is 0.000000, time 339.658 samples/sec
+epoch 10, total_step 56700, loss is 19.501883, training accuracy is 0.000000, time 340.360 samples/sec
+epoch 10, total_step 56750, loss is 20.233929, training accuracy is 0.000000, time 328.842 samples/sec
+epoch 10, total_step 56800, loss is 20.325598, training accuracy is 0.000000, time 342.205 samples/sec
+epoch 10, total_step 56850, loss is 20.142189, training accuracy is 0.000000, time 339.206 samples/sec
+epoch 10, total_step 56900, loss is 20.998558, training accuracy is 0.000000, time 332.557 samples/sec
+epoch 10, total_step 56950, loss is 20.255947, training accuracy is 0.000000, time 338.986 samples/sec
+epoch 10, total_step 57000, loss is 20.093481, training accuracy is 0.000000, time 332.228 samples/sec
+epoch 10, total_step 57050, loss is 19.920900, training accuracy is 0.000000, time 341.056 samples/sec
+epoch 10, total_step 57100, loss is 19.186163, training accuracy is 0.000000, time 338.122 samples/sec
+epoch 10, total_step 57150, loss is 19.197889, training accuracy is 0.000000, time 334.981 samples/sec
+epoch 10, total_step 57200, loss is 20.632849, training accuracy is 0.000000, time 337.352 samples/sec
+epoch 10, total_step 57250, loss is 19.540195, training accuracy is 0.000000, time 337.505 samples/sec
+epoch 10, total_step 57300, loss is 20.027433, training accuracy is 0.000000, time 339.618 samples/sec
+epoch 10, total_step 57350, loss is 19.724764, training accuracy is 0.000000, time 340.037 samples/sec
+epoch 10, total_step 57400, loss is 20.015051, training accuracy is 0.000000, time 341.335 samples/sec
+epoch 10, total_step 57450, loss is 19.296957, training accuracy is 0.000000, time 338.901 samples/sec
+epoch 10, total_step 57500, loss is 20.252628, training accuracy is 0.000000, time 339.138 samples/sec
+epoch 10, total_step 57550, loss is 19.265215, training accuracy is 0.000000, time 335.642 samples/sec
+epoch 10, total_step 57600, loss is 19.631229, training accuracy is 0.000000, time 339.455 samples/sec
+epoch 10, total_step 57650, loss is 20.573643, training accuracy is 0.000000, time 341.820 samples/sec
+epoch 10, total_step 57700, loss is 19.495447, training accuracy is 0.000000, time 338.541 samples/sec
+epoch 10, total_step 57750, loss is 19.864290, training accuracy is 0.000000, time 332.120 samples/sec
+epoch 10, total_step 57800, loss is 20.412466, training accuracy is 0.000000, time 336.509 samples/sec
+epoch 10, total_step 57850, loss is 19.449080, training accuracy is 0.000000, time 334.764 samples/sec
+epoch 10, total_step 57900, loss is 19.316103, training accuracy is 0.000000, time 334.575 samples/sec
+epoch 10, total_step 57950, loss is 20.060274, training accuracy is 0.000000, time 337.824 samples/sec
+epoch 10, total_step 58000, loss is 20.407621, training accuracy is 0.000000, time 332.634 samples/sec
+
+Iteration 58000 testing...
+thresholds max: 0.79 <=> min: 0.01
+total time 14.131s to evaluate 12000 images of lfw
+Accuracy: 0.937+-0.010
+Validation rate: 0.31900+-0.04831 @ FAR=0.00133
+fpr and tpr: 0.970 0.992
+Area Under Curve (AUC): 0.984
+Equal Error Rate (EER): 0.064
+
+epoch 10, total_step 58050, loss is 19.748005, training accuracy is 0.000000, time 338.569 samples/sec
+epoch 10, total_step 58100, loss is 19.528303, training accuracy is 0.000000, time 337.114 samples/sec
+epoch 10, total_step 58150, loss is 19.728144, training accuracy is 0.000000, time 331.216 samples/sec
+epoch 10, total_step 58200, loss is 20.224005, training accuracy is 0.000000, time 331.803 samples/sec
+epoch 10, total_step 58250, loss is 20.049734, training accuracy is 0.000000, time 338.063 samples/sec
+epoch 10, total_step 58300, loss is 20.706650, training accuracy is 0.000000, time 337.106 samples/sec
+epoch 10, total_step 58350, loss is 19.764940, training accuracy is 0.000000, time 329.909 samples/sec
+epoch 10, total_step 58400, loss is 19.888702, training accuracy is 0.000000, time 331.065 samples/sec
+epoch 10, total_step 58450, loss is 19.287998, training accuracy is 0.000000, time 332.423 samples/sec
+epoch 10, total_step 58500, loss is 19.787977, training accuracy is 0.000000, time 342.034 samples/sec
+epoch 10, total_step 58550, loss is 20.419168, training accuracy is 0.000000, time 333.885 samples/sec
+epoch 10, total_step 58600, loss is 20.313591, training accuracy is 0.000000, time 336.647 samples/sec
+epoch 10, total_step 58650, loss is 20.094154, training accuracy is 0.000000, time 338.063 samples/sec
+epoch 10, total_step 58700, loss is 19.040155, training accuracy is 0.000000, time 337.865 samples/sec
+epoch 10, total_step 58750, loss is 19.357166, training accuracy is 0.000000, time 338.861 samples/sec
+epoch 10, total_step 58800, loss is 20.202044, training accuracy is 0.000000, time 338.699 samples/sec
+epoch 10, total_step 58850, loss is 20.203655, training accuracy is 0.000000, time 332.380 samples/sec
+epoch 10, total_step 58900, loss is 20.060812, training accuracy is 0.000000, time 338.975 samples/sec
+epoch 10, total_step 58950, loss is 19.935720, training accuracy is 0.000000, time 338.343 samples/sec
+epoch 10, total_step 59000, loss is 19.145979, training accuracy is 0.000000, time 339.911 samples/sec
+epoch 10, total_step 59050, loss is 20.496252, training accuracy is 0.000000, time 333.668 samples/sec
+epoch 10, total_step 59100, loss is 20.078438, training accuracy is 0.000000, time 331.303 samples/sec
+epoch 10, total_step 59150, loss is 20.471037, training accuracy is 0.000000, time 341.212 samples/sec
+epoch 10, total_step 59200, loss is 19.125477, training accuracy is 0.000000, time 329.484 samples/sec
+epoch 10, total_step 59250, loss is 19.791058, training accuracy is 0.000000, time 336.674 samples/sec
+epoch 10, total_step 59300, loss is 18.650684, training accuracy is 0.000000, time 340.722 samples/sec
+epoch 10, total_step 59350, loss is 19.591772, training accuracy is 0.000000, time 339.150 samples/sec
+epoch 10, total_step 59400, loss is 19.018217, training accuracy is 0.000000, time 336.886 samples/sec
+epoch 10, total_step 59450, loss is 20.702909, training accuracy is 0.000000, time 338.823 samples/sec
+epoch 10, total_step 59500, loss is 19.460117, training accuracy is 0.000000, time 338.321 samples/sec
+epoch 10, total_step 59550, loss is 19.611645, training accuracy is 0.000000, time 339.270 samples/sec
+epoch 10, total_step 59600, loss is 19.836210, training accuracy is 0.000000, time 340.214 samples/sec
+epoch 10, total_step 59650, loss is 19.994045, training accuracy is 0.000000, time 336.968 samples/sec
+epoch 10, total_step 59700, loss is 20.270803, training accuracy is 0.000000, time 333.674 samples/sec
+epoch 10, total_step 59750, loss is 19.924393, training accuracy is 0.000000, time 340.014 samples/sec
+epoch 10, total_step 59800, loss is 20.965490, training accuracy is 0.000000, time 342.123 samples/sec
+epoch 10, total_step 59850, loss is 19.176138, training accuracy is 0.000000, time 333.637 samples/sec
+epoch 10, total_step 59900, loss is 19.083878, training accuracy is 0.000000, time 333.776 samples/sec
+epoch 10, total_step 59950, loss is 19.306858, training accuracy is 0.000000, time 333.889 samples/sec
+End of epoch 10
+epoch:11, lr:0.0001
+epoch 11, total_step 60000, loss is 20.321537, training accuracy is 0.000000, time 335.942 samples/sec
+
+Iteration 60000 testing...
+thresholds max: 0.79 <=> min: 0.01
+total time 13.862s to evaluate 12000 images of lfw
+Accuracy: 0.936+-0.010
+Validation rate: 0.31600+-0.05026 @ FAR=0.00133
+fpr and tpr: 0.971 0.992
+Area Under Curve (AUC): 0.984
+Equal Error Rate (EER): 0.064
+
+epoch 11, total_step 60050, loss is 19.780882, training accuracy is 0.000000, time 338.586 samples/sec
+epoch 11, total_step 60100, loss is 20.645706, training accuracy is 0.000000, time 341.910 samples/sec
+epoch 11, total_step 60150, loss is 20.035181, training accuracy is 0.000000, time 334.323 samples/sec
+epoch 11, total_step 60200, loss is 20.100105, training accuracy is 0.000000, time 332.258 samples/sec
+epoch 11, total_step 60250, loss is 19.689663, training accuracy is 0.000000, time 333.178 samples/sec
+epoch 11, total_step 60300, loss is 20.062305, training accuracy is 0.000000, time 331.430 samples/sec
+epoch 11, total_step 60350, loss is 20.237787, training accuracy is 0.000000, time 334.749 samples/sec
+epoch 11, total_step 60400, loss is 19.913965, training accuracy is 0.000000, time 341.507 samples/sec
+epoch 11, total_step 60450, loss is 19.803030, training accuracy is 0.000000, time 340.311 samples/sec
+epoch 11, total_step 60500, loss is 19.161201, training accuracy is 0.000000, time 330.683 samples/sec
+epoch 11, total_step 60550, loss is 19.796143, training accuracy is 0.000000, time 332.784 samples/sec
+epoch 11, total_step 60600, loss is 18.942991, training accuracy is 0.000000, time 340.075 samples/sec
+epoch 11, total_step 60650, loss is 20.131907, training accuracy is 0.000000, time 334.400 samples/sec
+epoch 11, total_step 60700, loss is 19.337393, training accuracy is 0.000000, time 333.185 samples/sec
+epoch 11, total_step 60750, loss is 19.730467, training accuracy is 0.000000, time 333.480 samples/sec
+epoch 11, total_step 60800, loss is 20.085461, training accuracy is 0.000000, time 334.561 samples/sec
+epoch 11, total_step 60850, loss is 19.878056, training accuracy is 0.000000, time 334.647 samples/sec
+epoch 11, total_step 60900, loss is 19.985556, training accuracy is 0.000000, time 338.018 samples/sec
+epoch 11, total_step 60950, loss is 20.018314, training accuracy is 0.000000, time 338.575 samples/sec
+epoch 11, total_step 61000, loss is 19.137964, training accuracy is 0.000000, time 329.527 samples/sec
+epoch 11, total_step 61050, loss is 19.451668, training accuracy is 0.000000, time 336.271 samples/sec
+epoch 11, total_step 61100, loss is 19.928772, training accuracy is 0.000000, time 339.035 samples/sec
+epoch 11, total_step 61150, loss is 19.380894, training accuracy is 0.000000, time 339.366 samples/sec
+epoch 11, total_step 61200, loss is 19.098957, training accuracy is 0.000000, time 341.876 samples/sec
+epoch 11, total_step 61250, loss is 19.946571, training accuracy is 0.000000, time 329.894 samples/sec
+epoch 11, total_step 61300, loss is 19.931305, training accuracy is 0.000000, time 331.634 samples/sec
+epoch 11, total_step 61350, loss is 19.901125, training accuracy is 0.000000, time 336.911 samples/sec
+epoch 11, total_step 61400, loss is 19.405594, training accuracy is 0.000000, time 336.180 samples/sec
+epoch 11, total_step 61450, loss is 20.292223, training accuracy is 0.000000, time 336.182 samples/sec
+epoch 11, total_step 61500, loss is 20.268669, training accuracy is 0.000000, time 338.905 samples/sec
+epoch 11, total_step 61550, loss is 20.310541, training accuracy is 1.000000, time 329.879 samples/sec
+epoch 11, total_step 61600, loss is 20.298338, training accuracy is 0.000000, time 338.746 samples/sec
+epoch 11, total_step 61650, loss is 18.997789, training accuracy is 0.000000, time 332.881 samples/sec
+epoch 11, total_step 61700, loss is 20.101170, training accuracy is 0.000000, time 335.731 samples/sec
+epoch 11, total_step 61750, loss is 19.125168, training accuracy is 0.000000, time 336.805 samples/sec
+epoch 11, total_step 61800, loss is 19.079157, training accuracy is 0.000000, time 335.909 samples/sec
+epoch 11, total_step 61850, loss is 20.389364, training accuracy is 0.000000, time 334.638 samples/sec
+epoch 11, total_step 61900, loss is 18.864876, training accuracy is 0.000000, time 336.371 samples/sec
+epoch 11, total_step 61950, loss is 19.396608, training accuracy is 0.000000, time 332.407 samples/sec
+epoch 11, total_step 62000, loss is 20.329523, training accuracy is 0.000000, time 339.856 samples/sec
+
+Iteration 62000 testing...
+thresholds max: 0.79 <=> min: 0.01
+total time 13.902s to evaluate 12000 images of lfw
+Accuracy: 0.936+-0.009
+Validation rate: 0.31800+-0.05492 @ FAR=0.00133
+fpr and tpr: 0.971 0.992
+Area Under Curve (AUC): 0.984
+Equal Error Rate (EER): 0.065
+
+epoch 11, total_step 62050, loss is 20.108181, training accuracy is 0.000000, time 329.787 samples/sec
+epoch 11, total_step 62100, loss is 19.994223, training accuracy is 0.000000, time 336.859 samples/sec
+epoch 11, total_step 62150, loss is 19.681555, training accuracy is 0.000000, time 339.422 samples/sec
+epoch 11, total_step 62200, loss is 20.499338, training accuracy is 0.000000, time 335.351 samples/sec
+epoch 11, total_step 62250, loss is 20.417673, training accuracy is 0.000000, time 333.297 samples/sec
+epoch 11, total_step 62300, loss is 19.742762, training accuracy is 0.000000, time 330.599 samples/sec
+epoch 11, total_step 62350, loss is 19.349075, training accuracy is 0.000000, time 338.579 samples/sec
+epoch 11, total_step 62400, loss is 20.103146, training accuracy is 0.000000, time 344.373 samples/sec
+epoch 11, total_step 62450, loss is 18.717873, training accuracy is 0.000000, time 332.566 samples/sec
+epoch 11, total_step 62500, loss is 18.892303, training accuracy is 0.000000, time 337.412 samples/sec
+epoch 11, total_step 62550, loss is 19.717529, training accuracy is 0.000000, time 341.702 samples/sec
+epoch 11, total_step 62600, loss is 20.357830, training accuracy is 0.000000, time 338.478 samples/sec
+epoch 11, total_step 62650, loss is 19.411608, training accuracy is 0.000000, time 330.823 samples/sec
+epoch 11, total_step 62700, loss is 21.108877, training accuracy is 0.000000, time 328.415 samples/sec
+epoch 11, total_step 62750, loss is 20.139259, training accuracy is 0.000000, time 338.422 samples/sec
+epoch 11, total_step 62800, loss is 20.079947, training accuracy is 0.000000, time 328.186 samples/sec
+epoch 11, total_step 62850, loss is 21.179182, training accuracy is 0.000000, time 326.737 samples/sec
+epoch 11, total_step 62900, loss is 19.255554, training accuracy is 0.000000, time 339.751 samples/sec
+epoch 11, total_step 62950, loss is 19.862963, training accuracy is 0.000000, time 339.097 samples/sec
+epoch 11, total_step 63000, loss is 19.042816, training accuracy is 0.000000, time 331.471 samples/sec
+epoch 11, total_step 63050, loss is 20.216892, training accuracy is 0.000000, time 337.071 samples/sec
+epoch 11, total_step 63100, loss is 20.619860, training accuracy is 0.000000, time 336.688 samples/sec
+epoch 11, total_step 63150, loss is 20.717556, training accuracy is 0.000000, time 340.009 samples/sec
+epoch 11, total_step 63200, loss is 18.963118, training accuracy is 0.000000, time 332.298 samples/sec
+epoch 11, total_step 63250, loss is 20.981833, training accuracy is 0.000000, time 333.710 samples/sec
+epoch 11, total_step 63300, loss is 19.461210, training accuracy is 0.000000, time 338.186 samples/sec
+epoch 11, total_step 63350, loss is 19.940598, training accuracy is 0.000000, time 337.069 samples/sec
+epoch 11, total_step 63400, loss is 20.442053, training accuracy is 0.000000, time 331.280 samples/sec
+epoch 11, total_step 63450, loss is 19.823826, training accuracy is 0.000000, time 334.521 samples/sec
+epoch 11, total_step 63500, loss is 19.986116, training accuracy is 0.000000, time 330.681 samples/sec
+epoch 11, total_step 63550, loss is 18.910183, training accuracy is 0.000000, time 339.571 samples/sec
+epoch 11, total_step 63600, loss is 18.922688, training accuracy is 0.000000, time 337.580 samples/sec
+epoch 11, total_step 63650, loss is 19.918497, training accuracy is 0.000000, time 330.795 samples/sec
+epoch 11, total_step 63700, loss is 19.806772, training accuracy is 0.000000, time 343.807 samples/sec
+epoch 11, total_step 63750, loss is 19.575975, training accuracy is 0.000000, time 340.234 samples/sec
+epoch 11, total_step 63800, loss is 19.835873, training accuracy is 0.000000, time 342.444 samples/sec
+epoch 11, total_step 63850, loss is 19.908525, training accuracy is 0.000000, time 337.957 samples/sec
+epoch 11, total_step 63900, loss is 20.107460, training accuracy is 0.000000, time 338.013 samples/sec
+epoch 11, total_step 63950, loss is 20.304161, training accuracy is 0.000000, time 336.342 samples/sec
+epoch 11, total_step 64000, loss is 20.046373, training accuracy is 0.000000, time 326.078 samples/sec
+
+Iteration 64000 testing...
+thresholds max: 0.79 <=> min: 0.01
+total time 13.877s to evaluate 12000 images of lfw
+Accuracy: 0.937+-0.010
+Validation rate: 0.31067+-0.04816 @ FAR=0.00133
+fpr and tpr: 0.971 0.992
+Area Under Curve (AUC): 0.984
+Equal Error Rate (EER): 0.064
+
+epoch 11, total_step 64050, loss is 19.208256, training accuracy is 0.000000, time 329.023 samples/sec
+epoch 11, total_step 64100, loss is 19.982964, training accuracy is 0.000000, time 337.504 samples/sec
+epoch 11, total_step 64150, loss is 20.906199, training accuracy is 0.000000, time 333.863 samples/sec
+epoch 11, total_step 64200, loss is 18.692081, training accuracy is 0.000000, time 333.769 samples/sec
+epoch 11, total_step 64250, loss is 18.980633, training accuracy is 0.000000, time 328.942 samples/sec
+epoch 11, total_step 64300, loss is 20.228367, training accuracy is 0.000000, time 334.189 samples/sec
+epoch 11, total_step 64350, loss is 19.327776, training accuracy is 0.000000, time 333.557 samples/sec
+epoch 11, total_step 64400, loss is 19.567276, training accuracy is 0.000000, time 337.951 samples/sec
+epoch 11, total_step 64450, loss is 19.779251, training accuracy is 0.000000, time 330.314 samples/sec
+epoch 11, total_step 64500, loss is 19.743382, training accuracy is 0.000000, time 333.361 samples/sec
+epoch 11, total_step 64550, loss is 19.537806, training accuracy is 0.000000, time 333.355 samples/sec
+epoch 11, total_step 64600, loss is 19.720324, training accuracy is 0.000000, time 334.853 samples/sec
+epoch 11, total_step 64650, loss is 19.517420, training accuracy is 0.000000, time 335.991 samples/sec
+epoch 11, total_step 64700, loss is 19.253349, training accuracy is 0.000000, time 333.009 samples/sec
+epoch 11, total_step 64750, loss is 19.790121, training accuracy is 0.000000, time 332.478 samples/sec
+epoch 11, total_step 64800, loss is 19.505180, training accuracy is 0.000000, time 333.085 samples/sec
+epoch 11, total_step 64850, loss is 19.446703, training accuracy is 0.000000, time 330.678 samples/sec
+epoch 11, total_step 64900, loss is 19.761414, training accuracy is 0.000000, time 338.409 samples/sec
+epoch 11, total_step 64950, loss is 18.830793, training accuracy is 0.000000, time 337.747 samples/sec
+epoch 11, total_step 65000, loss is 19.638035, training accuracy is 0.000000, time 332.427 samples/sec
+epoch 11, total_step 65050, loss is 20.357695, training accuracy is 0.000000, time 335.323 samples/sec
+epoch 11, total_step 65100, loss is 18.041698, training accuracy is 0.000000, time 340.372 samples/sec
+epoch 11, total_step 65150, loss is 19.947844, training accuracy is 0.000000, time 327.136 samples/sec
+epoch 11, total_step 65200, loss is 20.485611, training accuracy is 0.000000, time 340.402 samples/sec
+epoch 11, total_step 65250, loss is 19.112223, training accuracy is 0.000000, time 331.774 samples/sec
+epoch 11, total_step 65300, loss is 19.316534, training accuracy is 0.000000, time 337.408 samples/sec
+epoch 11, total_step 65350, loss is 19.601742, training accuracy is 0.000000, time 340.270 samples/sec
+epoch 11, total_step 65400, loss is 20.158897, training accuracy is 0.000000, time 335.832 samples/sec
+End of epoch 11
