@@ -3,6 +3,7 @@ from __future__ import division
 from __future__ import print_function
 
 import tensorflow as tf
+import os
 
 def _add_loss_summaries(total_loss, summaries):
     """Add summaries for losses.
@@ -79,3 +80,9 @@ def train(total_loss, global_step, optimizer, learning_rate, moving_average_deca
     with tf.control_dependencies([apply_gradient_op] + update_ops):
         train_op = tf.no_op(name='train')
     return train_op
+
+
+def check_path(paths):
+    for path in paths:
+        if not os.path.exists(path):
+            os.makedirs(path)

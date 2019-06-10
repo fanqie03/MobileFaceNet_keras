@@ -6,25 +6,44 @@ Tensorflow implementation for MobileFaceNet.
 Author: aiboy.wei@outlook.com .
 '''
 
-from utils.data_process import parse_function, load_data
-from losses.face_losses import arcface_loss
-from nets.MobileFaceNet import inference
-# from losses.face_losses import cos_loss
-from verification import evaluate
-from scipy.optimize import brentq
-from utils.common import train
-from scipy import interpolate
-from datetime import datetime
-from sklearn import metrics
-import tensorflow as tf
-import numpy as np
 import argparse
-import time
 import os
+import time
+from datetime import datetime
 
-slim = tf.contrib.slim
+import keras
+import keras.backend as K
+import math
+import numpy as np
+import tensorflow as tf
+from keras import regularizers
+from keras.layers import Input, Layer
+from keras.models import Model
+from scipy import interpolate
+from scipy.optimize import brentq
+from sklearn import metrics
+
+from nets.net import MobileFaceNet
+from utils.common import check_path
+from utils.data_process import load_data
+from verification import evaluate
+
 
 def get_parser():
+    """
+    use demo
+
+    ```shell
+    python train_nets_keras.py \
+    --class_number 10572 \
+    --eval_db_path /workspace/dataset/faces_webface_112x112 \
+    --tfrecords_file_path /workspace/dataset/faces_webface_112x112/tfrecords/tran.tfrecords \
+    --h5_path /workspace/output/h5 \
+    --tflite_path /workspace/tflite \
+    --h5_best_path /workspace/output/h5_best \
+    ```
+    :return:
+    """
     parser = argparse.ArgumentParser(description='parameters to train net')
     parser.add_argument('--max_epoch', default=12, help='epoch to train the network')
     parser.add_argument('--image_size', default=[112, 112], help='the image size')
@@ -34,6 +53,7 @@ def get_parser():
                         help='Dimensionality of the embedding.', default=128)
     parser.add_argument('--weight_decay', default=5e-5, help='L2 weight regularization.')
     parser.add_argument('--lr_schedule', help='Number of epochs for learning rate piecewise.', default=[4, 7, 9, 11])
+    parser.add_argument('--values', default=[0.1, 0.01, 0.001, 0.0001, 0.00001], help='learning rate schedule degree')
     parser.add_argument('--train_batch_size', default=90, help='batch size to train network')
     parser.add_argument('--test_batch_size', type=int,
                         help='Number of images to process in a batch in the test set.', default=100)
@@ -45,17 +65,17 @@ def get_parser():
     parser.add_argument('--tfrecords_file_path', default='./datasets/faces_ms1m_112x112/tfrecords', type=str,
                         help='path to the output of tfrecords file path')
     parser.add_argument('--summary_path', default='./output/summary', help='the summary file save path')
-    parser.add_argument('--ckpt_path', default='./output/ckpt', help='the ckpt file save path')
-    parser.add_argument('--ckpt_best_path', default='./output/ckpt_best', help='the best ckpt file save path')
+    parser.add_argument('--h5_path', default='./output/h5', help='the h5 file save path')
+    parser.add_argument('--h5_best_path', default='./output/ckpt_best', help='the best ckpt file save path')
+    parser.add_argument('--tflite_path', default='./output/tflite', help='the tflite file save path')
     parser.add_argument('--log_file_path', default='./output/logs', help='the ckpt file save path')
-    parser.add_argument('--graph_def_path', default='./output/graph_def', help='the graph_def save path')
-    parser.add_argument('--saver_maxkeep', default=50, help='tf.train.Saver max keep ckpt files')
-    #parser.add_argument('--buffer_size', default=10000, help='tf dataset api buffer size')
+    parser.add_argument('--saver_maxkeep', default=50, help='tf.train.Saver max keep h5 files')
     parser.add_argument('--summary_interval', default=400, help='interval to save summary')
-    parser.add_argument('--ckpt_interval', default=2000, type=int, help='intervals to save ckpt file')
+    parser.add_argument('--h5_interval', default=2000, type=int, help='intervals to save h5 file')
     parser.add_argument('--validate_interval', default=2000, type=int, help='intervals to save ckpt file')
     parser.add_argument('--show_info_interval', default=50, help='intervals to save ckpt file')
-    parser.add_argument('--pretrained_model', type=str, default='', help='Load a pretrained model before training starts.')
+    parser.add_argument('--pretrained_model', type=str, default='',
+                        help='Load a pretrained model before training starts.')
     parser.add_argument('--optimizer', type=str, choices=['ADAGRAD', 'ADADELTA', 'ADAM', 'RMSPROP', 'MOM'],
                         help='The optimization algorithm to use', default='ADAM')
     parser.add_argument('--log_device_mapping', default=False, help='show device placement log')
@@ -71,195 +91,289 @@ def get_parser():
     args = parser.parse_args()
     return args
 
+
+def my_generator(tfrecord_path, batch_size):
+    """自定义generator
+
+    # Argument
+        tfrecord_path:
+        batch_size
+        out_num: 类别数量，用于生成onehot
+
+    # Return
+
+    """
+
+    def parse_function(example_proto):
+        features = {'image_raw': tf.FixedLenFeature([], tf.string),
+                    'label': tf.FixedLenFeature([], tf.int64)}
+        features = tf.parse_single_example(example_proto, features)
+        # You can do more image distortion here for training data
+        img = tf.image.decode_jpeg(features['image_raw'])
+        img = tf.reshape(img, shape=(112, 112, 3))
+
+        img = tf.cast(img, dtype=tf.float32)
+        img = tf.subtract(img, 127.5)
+        img = tf.multiply(img, 0.0078125)
+        img = tf.image.random_flip_left_right(img)
+        label = tf.cast(features['label'], tf.int64)
+        return (img, label)
+
+    config = tf.ConfigProto(allow_soft_placement=True)
+    sess = tf.Session(config=config)
+    # training datasets api config
+    tfrecords_f = os.path.join(tfrecord_path)
+    dataset = tf.data.TFRecordDataset(tfrecords_f)
+    dataset = dataset.map(parse_function)
+    dataset = dataset.batch(batch_size)
+    iterator = dataset.make_initializable_iterator()
+    next_element = iterator.get_next()
+    return iterator, next_element, sess
+
+
+def learning_rate_schedule(epoch, lr, boundaries, values):
+    """
+    # Argument:
+        epoch: now epoch
+        lr: learning rate to schedule
+        boundaries: Number of epochs for learning rate piecewise.
+        values: target value of learning rate
+    """
+    t = 1
+    if epoch <= boundaries[0]:
+        t = values[0]
+    for low, high, v in zip(boundaries[:-1], boundaries[1:], values[1:]):
+        if low < epoch <= high:
+            t = v
+    if epoch > boundaries[-1]:
+        t = values[-1]
+
+    K.get_session().run(lr.assign(t))
+    return epoch, t
+
+
+class ArcFace(Layer):
+    """改进的softmax，得出的结果再与真是结果之间求交叉熵"""
+
+    def __init__(self, n_classes=10, s=64.0, m=0.50, regularizer=None, **kwargs):
+        super(ArcFace, self).__init__(**kwargs)
+        self.n_classes = n_classes
+        self.s = s
+        self.m = m
+        self.regularizer = regularizers.get(regularizer)
+
+    def build(self, input_shape):
+        super(ArcFace, self).build(input_shape[0])
+        self.W = self.add_weight(name='embedding_weights',
+                                 shape=(input_shape[0][-1], self.n_classes),
+                                 initializer='glorot_uniform',
+                                 trainable=True,
+                                 regularizer=self.regularizer)
+
+    def call(self, inputs, **kwargs):
+        embedding, labels = inputs
+        labels = tf.reshape(labels, shape=(-1,))
+        print('labels:', labels)
+
+        out_num = self.n_classes
+        w_init = None
+        s = 64.
+        m = 0.5
+
+        cos_m = tf.cos(m)
+        sin_m = tf.sin(m)
+        mm = sin_m * m  # issue 1
+        threshold = tf.cos(math.pi - m)
+        with tf.variable_scope('arcface_loss'):
+            # inputs and weights norm
+            embedding_norm = tf.norm(embedding, axis=1, keepdims=True)
+            embedding = tf.div(embedding, embedding_norm, name='norm_embedding')
+            weights = self.W
+            weights_norm = tf.norm(weights, axis=0, keepdims=True)
+            weights = tf.div(weights, weights_norm, name='norm_weights')
+
+            cos_t = tf.matmul(embedding, weights, name='cos_t')
+            cos_t2 = tf.square(cos_t, name='cos_2')
+            sin_t2 = tf.subtract(1., cos_t2, name='sin_2')
+            sin_t = tf.sqrt(sin_t2, name='sin_t')
+            cos_mt = s * tf.subtract(tf.multiply(cos_t, cos_m), tf.multiply(sin_t, sin_m), name='cos_mt')
+
+            cond_v = cos_t - threshold
+            cond = tf.cast(tf.nn.relu(cond_v, name='if_else'), dtype=tf.bool)
+
+            keep_val = s * (cos_t - mm)
+            cos_mt_temp = tf.where(cond, cos_mt, keep_val)
+            mask = tf.one_hot(labels, depth=out_num, name='one_hot_mask')
+            inv_mask = tf.subtract(1., mask, name='inverse_mask')
+            s_cos_t = tf.multiply(s, cos_t, name='scalar_cos_t')
+            logit = tf.add(tf.multiply(s_cos_t, inv_mask), tf.multiply(cos_mt_temp, mask), name='arcface_loss_output')
+            inference_loss = tf.nn.sparse_softmax_cross_entropy_with_logits(logits=logit, labels=labels)
+
+        return inference_loss
+
+    def compute_output_shape(self, input_shape):
+        return (None, self.n_classes)
+
+
+class ExponentialMovingAverage:
+    """对模型权重进行指数滑动平均。
+    用法：在model.compile之后、第一次训练之前使用；
+    先初始化对象，然后执行inject方法。
+    """
+
+    def __init__(self, model, momentum=0.9999):
+        self.momentum = momentum
+        self.model = model
+        self.ema_weights = [K.zeros(K.shape(w)) for w in model.weights]
+
+    def inject(self):
+        """添加更新算子到model.metrics_updates。
+        """
+        self.initialize()
+        for w1, w2 in zip(self.ema_weights, self.model.weights):
+            op = K.moving_average_update(w1, w2, self.momentum)
+            self.model.metrics_updates.append(op)
+
+    def initialize(self):
+        """ema_weights初始化跟原模型初始化一致。
+        """
+        self.old_weights = K.batch_get_value(self.model.weights)
+        K.batch_set_value(zip(self.ema_weights, self.old_weights))
+
+    def apply_ema_weights(self):
+        """备份原模型权重，然后将平均权重应用到模型上去。
+        """
+        self.old_weights = K.batch_get_value(self.model.weights)
+        ema_weights = K.batch_get_value(self.ema_weights)
+        K.batch_set_value(zip(self.model.weights, ema_weights))
+
+    def reset_old_weights(self):
+        """恢复模型到旧权重。
+        """
+        K.batch_set_value(zip(self.model.weights, self.old_weights))
+
+
+def MobileFaceNets(input_shape=(112, 112, 3), n_classes=10, k=128):
+    """MobileFaceNets"""
+    inputs = Input(shape=input_shape)  # 112x112，(img-127.5)/128
+    y = Input(shape=(1,), dtype=tf.int32)
+    m = MobileFaceNet()
+    x = m.inference(inputs, k)
+    epsilon = 1e-10
+    x = keras.layers.Lambda(lambda o: tf.nn.l2_normalize(o, 1, epsilon, name='embeddings'))(x)
+    output = ArcFace(n_classes=n_classes, regularizer=None)([x, y])
+
+    model = Model([inputs, y], output)
+    print(model.input, model.output)
+    return model
+
+
+def my_loss(y_true, y_pred):
+    """只要预测值即可，预测值包含batch个损失，求均值
+    """
+    return tf.reduce_mean(y_pred)
+
+
 if __name__ == '__main__':
     with tf.Graph().as_default():
-        os.environ["CUDA_VISIBLE_DEVICES"] = "0"
         args = get_parser()
 
+        ver_list = []
+        ver_name_list = []
+        for db in args.eval_datasets:
+            print('begin db %s convert.' % db)
+            data_set = load_data(db, args.image_size, args.eval_db_path)
+            ver_list.append(data_set)
+            ver_name_list.append(db)
+
+        # output file path
+        check_path([args.log_file_path,
+                    args.h5_best_path,
+                    args.h5_path,
+                    args.tflite_path,
+                    args.summary_path])
         # create log dir
         subdir = datetime.strftime(datetime.now(), '%Y%m%d-%H%M%S')
         log_dir = os.path.join(os.path.expanduser(args.log_file_path), subdir)
         if not os.path.isdir(log_dir):  # Create the log directory if it doesn't exist
             os.makedirs(log_dir)
 
-        # define global parameters
-        global_step = tf.Variable(name='global_step', initial_value=0, trainable=False)
-        epoch = tf.Variable(name='epoch', initial_value=-1, trainable=False)
-        # define placeholder
-        inputs = tf.placeholder(name='img_inputs', shape=[None, *args.image_size, 3], dtype=tf.float32)
-        labels = tf.placeholder(name='img_labels', shape=[None, ], dtype=tf.int64)
-        phase_train_placeholder = tf.placeholder_with_default(tf.constant(False, dtype=tf.bool), shape=None, name='phase_train')
+        # g = my_generator_wrapper()
+        iterator, next_element, g_sess = my_generator(args.tfrecords_file_path, args.train_batch_size)
 
-        # prepare train dataset
-        # the image is substracted 127.5 and multiplied 1/128.
-        # random flip left right
-        tfrecords_f = os.path.join(args.tfrecords_file_path, 'tran.tfrecords')
-        dataset = tf.data.TFRecordDataset(tfrecords_f)
-        dataset = dataset.map(parse_function)
-        #dataset = dataset.shuffle(buffer_size=args.buffer_size)
-        dataset = dataset.batch(args.train_batch_size)
-        iterator = dataset.make_initializable_iterator()
-        next_element = iterator.get_next()
+        model = MobileFaceNets(n_classes=args.class_number)
+        model.compile(optimizer=keras.optimizers.Adam(0.1, beta_1=0.9, beta_2=0.999, epsilon=0.1),
+                      loss=my_loss,
+                      metrics=['accuracy'])
 
-        # prepare validate datasets
-        ver_list = []
-        ver_name_list = []
-        for db in args.eval_datasets:
-            print('begin db %s convert.' % db)
-            data_set = load_data(db, args.image_size, args)
-            ver_list.append(data_set)
-            ver_name_list.append(db)
+        EMAer = ExponentialMovingAverage(model)  # 在模型compile之后执行
+        EMAer.inject()  # 在模型compile之后执行
 
-        # pretrained model path
-        pretrained_model = None
-        if args.pretrained_model:
-            pretrained_model = os.path.expanduser(args.pretrained_model)
-            print('Pre-trained model: %s' % pretrained_model)
-
-        # identity the input, for inference
-        inputs = tf.identity(inputs, 'input')
-
-        prelogits, net_points = inference(inputs, bottleneck_layer_size=args.embedding_size, phase_train=phase_train_placeholder, weight_decay=args.weight_decay)
-
-        # record the network architecture
-        hd = open("./arch/txt/MobileFaceNet_Arch.txt", 'w')
-        for key in net_points.keys():
-            info = '{}:{}\n'.format(key, net_points[key].get_shape().as_list())
-            hd.write(info)
-        hd.close()
-
-        embeddings = tf.nn.l2_normalize(prelogits, 1, 1e-10, name='embeddings')
-
-        # Norm for the prelogits
-        eps = 1e-5
-        prelogits_norm = tf.reduce_mean(tf.norm(tf.abs(prelogits) + eps, ord=args.prelogits_norm_p, axis=1))
-        tf.add_to_collection(tf.GraphKeys.REGULARIZATION_LOSSES, prelogits_norm * args.prelogits_norm_loss_factor)
-
-        # inference_loss, logit = cos_loss(prelogits, labels, args.class_number)
-        w_init_method = slim.initializers.xavier_initializer()
-        inference_loss, logit = arcface_loss(embedding=embeddings, labels=labels, w_init=w_init_method, out_num=args.class_number)
-        tf.add_to_collection('losses', inference_loss)
-
-        # total losses
-        regularization_losses = tf.get_collection(tf.GraphKeys.REGULARIZATION_LOSSES)
-        total_loss = tf.add_n([inference_loss] + regularization_losses, name='total_loss')
-
-        # define the learning rate schedule
-        learning_rate = tf.train.piecewise_constant(epoch, boundaries=args.lr_schedule, values=[0.1, 0.01, 0.001, 0.0001, 0.00001],
-                                         name='lr_schedule')
-        
-        # define sess
-        gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.9)
-        config = tf.ConfigProto(allow_soft_placement=True, log_device_placement=args.log_device_mapping, gpu_options=gpu_options)
-        config.gpu_options.allow_growth = True
-        sess = tf.Session(config=config)
-
-        # calculate accuracy
-        pred = tf.nn.softmax(logit)
-        correct_prediction = tf.cast(tf.equal(tf.argmax(pred, 1), tf.cast(labels, tf.int64)), tf.float32)
-        Accuracy_Op = tf.reduce_mean(correct_prediction)
-
-        # summary writer
-        summary = tf.summary.FileWriter(args.summary_path, sess.graph)
-        summaries = []
-        # add train info to tensorboard summary
-        summaries.append(tf.summary.scalar('inference_loss', inference_loss))
-        summaries.append(tf.summary.scalar('total_loss', total_loss))
-        summaries.append(tf.summary.scalar('leraning_rate', learning_rate))
-        summary_op = tf.summary.merge(summaries)
-
-        # train op
-        train_op = train(total_loss, global_step, args.optimizer, learning_rate, args.moving_average_decay,
-                         tf.global_variables(), summaries, args.log_histograms)
-        inc_global_step_op = tf.assign_add(global_step, 1, name='increment_global_step')
-        inc_epoch_op = tf.assign_add(epoch, 1, name='increment_epoch')
-
-        # record trainable variable
-        hd = open("./arch/txt/trainable_var.txt", "w")
-        for var in tf.trainable_variables():
-            hd.write(str(var))
-            hd.write('\n')
-        hd.close()
-
-        # saver to load pretrained model or save model
-        # MobileFaceNet_vars = [v for v in tf.trainable_variables() if v.name.startswith('MobileFaceNet')]
-        saver = tf.train.Saver(max_to_keep=args.saver_maxkeep)
-
-        # init all variables
-        sess.run(tf.global_variables_initializer())
-        sess.run(tf.local_variables_initializer())
-
-        tf.train.write_graph(sess.graph_def,args.graph_def_path,'MobileFaceNet_graph_def.pb')
-
-
-
-        # load pretrained model
-        if pretrained_model:
-            print('Restoring pretrained model: %s' % pretrained_model)
-            ckpt = tf.train.get_checkpoint_state(pretrained_model)
-            print(ckpt)
-            saver.restore(sess, ckpt.model_checkpoint_path)
-
-        # output file path
-        if not os.path.exists(args.log_file_path):
-            os.makedirs(args.log_file_path)
-        if not os.path.exists(args.ckpt_best_path):
-            os.makedirs(args.ckpt_best_path)
+        val_model = keras.models.Model(inputs=model.inputs[0], outputs=model.layers[-3].output)
 
         count = 0
         total_accuracy = {}
         for i in range(args.max_epoch):
-            sess.run(iterator.initializer)
-            _ = sess.run(inc_epoch_op)
+            # 调整学习率
+            _, lr = learning_rate_schedule(i, model.optimizer.lr, args.lr_schedule, args.values)
+            print('epoch:{}, lr:{}'.format(i, lr))
+            # 初始化迭代器
+            g_sess.run(iterator.initializer)
+
             while True:
                 try:
-                    images_train, labels_train = sess.run(next_element)
 
-                    feed_dict = {inputs: images_train, labels: labels_train, phase_train_placeholder: True}
+                    x, y = g_sess.run(next_element)
+
+                    images_train, labels_train = ([x, y], y)
+
                     start = time.time()
-                    _, total_loss_val, inference_loss_val, reg_loss_val, _, acc_val = \
-                    sess.run([train_op, total_loss, inference_loss, regularization_losses, inc_global_step_op, Accuracy_Op],
-                             feed_dict=feed_dict)
+                    loss, accuracy = model.train_on_batch(images_train, labels_train)
+
                     end = time.time()
-                    pre_sec = args.train_batch_size/(end - start)
+                    pre_sec = args.train_batch_size / (end - start)
 
                     count += 1
                     # print training information
                     if count > 0 and count % args.show_info_interval == 0:
-                        print('epoch %d, total_step %d, total loss is %.2f , inference loss is %.2f, reg_loss is %.2f, training accuracy is %.6f, time %.3f samples/sec' %
-                              (i, count, total_loss_val, inference_loss_val, np.sum(reg_loss_val), acc_val, pre_sec))
+                        print(
+                            'epoch %d, total_step %d, loss is %.6f, training accuracy is %.6f, time %.3f samples/sec' %
+                            (i, count, loss, np.mean(accuracy), pre_sec))
 
-                    # save summary
-                    if count > 0 and count % args.summary_interval == 0:
-                        feed_dict = {inputs: images_train, labels: labels_train, phase_train_placeholder: True}
-                        summary_op_val = sess.run(summary_op, feed_dict=feed_dict)
-                        summary.add_summary(summary_op_val, count)
+                    # save h5 files
+                    if count > 0 and count % args.h5_interval == 0:
+                        #                 filename = 'MobileFaceNet_iter_{:d}'.format(count) + '.ckpt'
+                        EMAer.apply_ema_weights()
+                        filename = 'MobileFaceNet_iter_{:d}'.format(count) + '.h5'
+                        filename = os.path.join(args.h5_path, filename)
+                        val_model.save(filename)
 
-                    # save ckpt files
-                    if count > 0 and count % args.ckpt_interval == 0:
-                        filename = 'MobileFaceNet_iter_{:d}'.format(count) + '.ckpt'
-                        filename = os.path.join(args.ckpt_path, filename)
-                        saver.save(sess, filename)
+                        EMAer.reset_old_weights()
 
                     # validate
                     if count > 0 and count % args.validate_interval == 0:
                         print('\nIteration', count, 'testing...')
+
+                        EMAer.apply_ema_weights()
+
                         for db_index in range(len(ver_list)):
                             start_time = time.time()
                             data_sets, issame_list = ver_list[db_index]
                             emb_array = np.zeros((data_sets.shape[0], args.embedding_size))
                             nrof_batches = data_sets.shape[0] // args.test_batch_size
-                            for index in range(nrof_batches): # actual is same multiply 2, test data total
+                            for index in range(nrof_batches):  # actual is same multiply 2, test data total
                                 start_index = index * args.test_batch_size
                                 end_index = min((index + 1) * args.test_batch_size, data_sets.shape[0])
 
-                                feed_dict = {inputs: data_sets[start_index:end_index, ...], phase_train_placeholder: False}
-                                emb_array[start_index:end_index, :] = sess.run(embeddings, feed_dict=feed_dict)
+                                emb_array[start_index:end_index, :] = val_model.predict(
+                                    data_sets[start_index:end_index, ...])
 
-                            tpr, fpr, accuracy, val, val_std, far = evaluate(emb_array, issame_list, nrof_folds=args.eval_nrof_folds)
+                            tpr, fpr, accuracy, val, val_std, far = evaluate(emb_array, issame_list,
+                                                                             nrof_folds=args.eval_nrof_folds)
                             duration = time.time() - start_time
 
-                            print("total time %.3fs to evaluate %d images of %s" % (duration, data_sets.shape[0], ver_name_list[db_index]))
+                            print("total time %.3fs to evaluate %d images of %s" % (
+                                duration, data_sets.shape[0], ver_name_list[db_index]))
                             print('Accuracy: %1.3f+-%1.3f' % (np.mean(accuracy), np.std(accuracy)))
                             print('Validation rate: %2.5f+-%2.5f @ FAR=%2.5f' % (val, val_std, far))
                             print('fpr and tpr: %1.3f %1.3f' % (np.mean(fpr, 0), np.mean(tpr, 0)))
@@ -269,14 +383,16 @@ if __name__ == '__main__':
                             eer = brentq(lambda x: 1. - x - interpolate.interp1d(fpr, tpr)(x), 0., 1.)
                             print('Equal Error Rate (EER): %1.3f\n' % eer)
 
-                            with open(os.path.join(log_dir, '{}_result.txt'.format(ver_name_list[db_index])), 'at') as f:
+                            with open(os.path.join(log_dir, '{}_result.txt'.format(ver_name_list[db_index])),
+                                      'at') as f:
                                 f.write('%d\t%.5f\t%.5f\n' % (count, np.mean(accuracy), val))
 
                             if ver_name_list == 'lfw' and np.mean(accuracy) > 0.992:
-                                print('best accuracy is %.5f' % np.mean(accuracy))
-                                filename = 'MobileFaceNet_iter_best_{:d}'.format(count) + '.ckpt'
-                                filename = os.path.join(args.ckpt_best_path, filename)
-                                saver.save(sess, filename)
+                                filename = 'MobileFaceNet_iter_best_{:d}'.format(count) + '.h5'
+                                filename = os.path.join(args.h5_best_path, filename)
+                                val_model.save(filename)
+
+                        EMAer.reset_old_weights()
 
                 except tf.errors.OutOfRangeError:
                     print("End of epoch %d" % i)

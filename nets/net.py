@@ -64,14 +64,6 @@ class prelu(keras.layers.Layer):
         neg = self.alphas * (x - tf.abs(x)) * 0.5
         return pos + neg
 
-    # def prelu(self, input, name=''):
-    #     with tf.variable_scope(name, reuse=False):
-    #         alphas = tf.get_variable(name='prelu_alphas',
-    #                                  initializer=tf.constant(0.25, dtype=tf.float32, shape=[input.get_shape()[-1]]))
-    #         pos = tf.nn.relu(input)
-    #         neg = alphas * (input - tf.abs(input)) * 0.5
-    #         keras.layers.Lambda()
-    #         return pos + neg
 
 class MobileFaceNet(object):
 
