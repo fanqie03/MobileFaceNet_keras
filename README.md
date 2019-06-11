@@ -23,13 +23,21 @@ keras implementation for MobileFaceNet
 
 |  size  | LFW(%) | Val@1e-3(%) | inference@xxx(ms) |
 | ------ | ------ | ----------- | --------------------- |
-|  4.8M  | 99.1+ |        |                   |
+|  4.8M  | 99.1+  |     97.0    |                   |
 
 ## 训练
 
+1. 运行[data_process.py](utils/data_process.py)将insightface中的预处理数据集转为`tfrecode`格式
+2. 运行[train_nets.py](train_nets.py)训练出一个.h5模型
+3. 运行[convert_tflite.py](convert_tflite.py)将.h5格式转为.tflite格式
+
 ## 微调
 
+TODO
+
 ## 测试
+
+TODO
 
 ### h5 compare log
 
@@ -87,6 +95,8 @@ Distance matrix
 ```
 
 ## 使用
+
+more detail in [compare.py](compare.py)
 
 ### 加载h5
 
