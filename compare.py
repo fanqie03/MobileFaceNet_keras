@@ -87,9 +87,9 @@ def main(args):
 def load_images(args):
     imgs = np.empty((len(args.image_files), args.image_size, args.image_size, 3), np.float32)
     for i, image in enumerate(args.image_files):
-        img = cv2.imread(image)
+        # img = cv2.imread(image)
         # img = np.asarray(Image.open(image))
-        # img = misc.imread(image)
+        img = misc.imread(image)
         img = misc.imresize(img, (args.image_size, args.image_size))
         img = (img - 127.5) * 0.0078125
         imgs[i, ...] = img
@@ -103,7 +103,7 @@ def parse_arguments(argv):
                         help='Could be either a directory containing the meta_file and ckpt_file or a model protobuf (.pb) file')
     parser.add_argument('image_files', type=str, nargs='+', help='Images to compare')
     parser.add_argument('--image_size', type=int,
-                        help='Image size (height, width) in pixels.', default=160)
+                        help='Image size (height, width) in pixels.', default=112)
 
     return parser.parse_args(argv)
 
