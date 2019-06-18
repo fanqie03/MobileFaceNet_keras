@@ -35,8 +35,12 @@ from nets.net import prelu
 from PIL import Image
 import cv2
 import tensorflow as tf
+from pathlib import Path
 
 def main(args):
+    base_dir = Path(args.base_dir).expanduser()
+    image_files = list(base_dir.glob('*/*'))
+    setattr(args, 'image_files', image_files)
     images = load_images(args)
     nrof_images = len(args.image_files)
     # Load the model
@@ -101,7 +105,7 @@ def parse_arguments(argv):
 
     parser.add_argument('model', type=str,
                         help='Could be either a directory containing the meta_file and ckpt_file or a model protobuf (.pb) file')
-    parser.add_argument('image_files', type=str, nargs='+', help='Images to compare')
+    parser.add_argument('--base_dir', type=str)
     parser.add_argument('--image_size', type=int,
                         help='Image size (height, width) in pixels.', default=112)
 
