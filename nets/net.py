@@ -34,15 +34,15 @@ from __future__ import print_function
 
 # os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 
-import keras
-import tensorflow as tf
-from keras import backend as K
-from keras.initializers import Constant
-from keras.layers import BatchNormalization, add, Reshape, DepthwiseConv2D
-from keras.layers import Input, Conv2D
-from keras.models import Model
-from keras.regularizers import l2
 
+import tensorflow as tf
+
+keras = tf.keras
+K = tf.keras.backend
+Constant = tf.keras.initializers.Constant
+l2 = tf.keras.regularizers.l2
+Model = tf.keras.models.Model
+layers = tf.keras.layers
 
 # Conv and InvResBlock namedtuple define layers of the MobileNet architecture
 # Conv defines 3x3 convolution layers
@@ -74,12 +74,18 @@ class MobileFaceNet(object):
         self.weight_decay = 5e-5  # l2正则化decay常量
 
         self.batch_norm_params = {
+            # 'is_training': True,
             'center': True,
             'scale': True,
+            'fused': True,
             'momentum': 0.995,
             'epsilon': 2e-5,
             'axis': self.channel_axis,
             # 'name': 'BatchNorm',
+            # force in-place updates of mean and variance estimates
+            # 'updates_collections': None,
+            # Moving averages ends up in the trainable variables collection
+            # 'variables_collections': [tf.GraphKeys.TRAINABLE_VARIABLES],
         }
 
         self.separable_conv2d_params = {
@@ -131,9 +137,9 @@ class MobileFaceNet(object):
         """
         name = self.calc_count('Conv')
         with tf.name_scope(name):
-            x = Conv2D(filters=filters, kernel_size=kernel_size, strides=strides, padding=padding, use_bias=use_bias,
+            x = layers.Conv2D(filters=filters, kernel_size=kernel_size, strides=strides, padding=padding, use_bias=use_bias,
                        kernel_initializer=kernel_initializer, name=None, kernel_regularizer=kernel_regularizer)(x)
-            x = BatchNormalization(**self.batch_norm_params)(x)
+            x = layers.BatchNormalization(**self.batch_norm_params)(x)
             if activation:
                 x = prelu()(x)
         return x
@@ -153,12 +159,12 @@ class MobileFaceNet(object):
         """
         name = self.calc_count('SeparableConv2d')
         with tf.name_scope(name):
-            x = DepthwiseConv2D(kernel_size=kernel_size, strides=strides,
+            x = layers.DepthwiseConv2D(kernel_size=kernel_size, strides=strides,
                                 padding=padding, use_bias=use_bias,
                                 depthwise_initializer=depthwise_initializer,
                                 depthwise_regularizer=depthwise_regularizer,
                                 kernel_regularizer=kernel_regularizer)(x)
-            x = BatchNormalization(**self.batch_norm_params)(x)
+            x = layers.BatchNormalization(**self.batch_norm_params)(x)
             if activation:
                 x = prelu()(x)
             # print(x)
@@ -185,14 +191,14 @@ class MobileFaceNet(object):
         channel_axis = 1 if K.image_data_format() == 'channels_first' else -1
         tchannel = K.int_shape(inputs)[channel_axis] * t
 
-        x = self._conv(inputs, tchannel, (1, 1), (1, 1))
+        x = self._conv(inputs, tchannel, (1, 1), (1, 1), )
         x = self._separable_conv2d(x, kernel_size=kernel, strides=(s, s))
 
         x = self._conv(x, filters=filters, kernel_size=(1, 1), strides=(1, 1), kernel_regularizer=l2(self.weight_decay),
                        activation=False)
 
         if r:
-            x = add([x, inputs])
+            x = layers.add([x, inputs])
         return x
 
     def _inverted_residual_block(self, inputs, filters, kernel, t, strides, n):
@@ -228,8 +234,8 @@ class MobileFaceNet(object):
         """
         with tf.name_scope('MobileFaceNet'):
             with tf.name_scope('Conv2d_0'):
-                x = Conv2D(filters=64, kernel_size=(3, 3), strides=(2, 2), padding='same', use_bias=False)(x)
-                x = BatchNormalization(**self.batch_norm_params)(x)
+                x = layers.Conv2D(filters=64, kernel_size=(3, 3), strides=(2, 2), padding='same', use_bias=False)(x)
+                x = layers.BatchNormalization(**self.batch_norm_params)(x)
                 x = prelu()(x)
             self._separable_conv2d(x, (3, 3), (1, 1))
             self._conv(x, 64, (1, 1), (1, 1), activation=False)
@@ -251,7 +257,7 @@ class MobileFaceNet(object):
                 #     x = Dropout(0.3, name='Dropout')(x)
                 with tf.name_scope('LinearConv1x1'):
                     x = self._conv(x, k, (1, 1), strides=(1, 1), kernel_regularizer=l2(1e-10), activation=False)
-                    x = Reshape((k,))(x)
+                    x = layers.Reshape((k,))(x)
 
         return x
 
@@ -272,7 +278,7 @@ class MobileFaceNet(object):
 
 if __name__ == '__main__':
 
-    inputs = Input((112, 112, 3))
+    inputs = layers.Input((112, 112, 3))
     m = MobileFaceNet()
     print(m.__dict__)
     x = m.inference(inputs, 512)
@@ -281,4 +287,5 @@ if __name__ == '__main__':
     # model.summary()
     for v in tf.trainable_variables():
         print(v)
+    model.save('../output/model.h5')
     # MobileFaceNet._CONV_DEFS
