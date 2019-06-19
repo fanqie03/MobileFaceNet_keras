@@ -1,8 +1,8 @@
 import argparse
 
-import keras
-import keras.backend as K
 import tensorflow as tf
+keras = tf.keras
+K = tf.keras.backend
 
 from nets.net import prelu
 
@@ -26,10 +26,11 @@ def _main(args):
     :param args: arguments with --h5_file and --tflite_file
     :return:
     """
-    model = keras.models.load_model(args.h5_file, custom_objects={'prelu': prelu})
-    converter = tf.lite.TFLiteConverter.from_session(K.get_session(), model.inputs, model.outputs)
-    tflite_file = converter.convert()
-    open(args.tflite_file, 'wb').write(tflite_file)
+    # model = keras.models.load_model(args.h5_file, custom_objects={'prelu': prelu})
+    with tf.keras.utils.custom_object_scope({'prelu': prelu}):
+        converter = tf.lite.TFLiteConverter.from_keras_model_file(args.h5_file)
+        tflite_file = converter.convert()
+        open(args.tflite_file, 'wb').write(tflite_file)
     print('='*30)
     print('tffile file save in {}.'.format(args.tflite_file))
 

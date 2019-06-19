@@ -44,6 +44,8 @@ l2 = tf.keras.regularizers.l2
 Model = tf.keras.models.Model
 layers = tf.keras.layers
 
+conv2d_weight_decay = 0.00005
+
 # Conv and InvResBlock namedtuple define layers of the MobileNet architecture
 # Conv defines 3x3 convolution layers
 # InvResBlock defines 3x3 depthwise convolution followed by 1x1 convolution.
@@ -234,7 +236,8 @@ class MobileFaceNet(object):
         """
         with tf.name_scope('MobileFaceNet'):
             with tf.name_scope('Conv2d_0'):
-                x = layers.Conv2D(filters=64, kernel_size=(3, 3), strides=(2, 2), padding='same', use_bias=False)(x)
+                x = layers.Conv2D(filters=64, kernel_size=(3, 3), strides=(2, 2),
+                                  padding='same', use_bias=False, kernel_regularizer=l2(conv2d_weight_decay))(x)
                 x = layers.BatchNormalization(**self.batch_norm_params)(x)
                 x = prelu()(x)
             self._separable_conv2d(x, (3, 3), (1, 1))

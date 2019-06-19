@@ -221,7 +221,7 @@ class ExponentialMovingAverage:
     先初始化对象，然后执行inject方法。
     """
 
-    def __init__(self, model, momentum=0.9999):
+    def __init__(self, model, momentum=0.999):
         self.momentum = momentum
         self.model = model
         self.ema_weights = [K.zeros(K.shape(w)) for w in model.weights]
@@ -306,8 +306,8 @@ if __name__ == '__main__':
                       loss=my_loss,
                       metrics=['accuracy'])
 
-        EMAer = ExponentialMovingAverage(model)  # 在模型compile之后执行
-        EMAer.inject()  # 在模型compile之后执行
+        # EMAer = ExponentialMovingAverage(model)  # 在模型compile之后执行
+        # EMAer.inject()  # 在模型compile之后执行
 
         val_model = keras.models.Model(inputs=model.inputs[0], outputs=model.layers[-3].output)
 
@@ -343,18 +343,18 @@ if __name__ == '__main__':
                     # save h5 files
                     if count > 0 and count % args.h5_interval == 0:
                         #                 filename = 'MobileFaceNet_iter_{:d}'.format(count) + '.ckpt'
-                        EMAer.apply_ema_weights()
+                        # EMAer.apply_ema_weights()
                         filename = 'MobileFaceNet_iter_{:d}'.format(count) + '.h5'
                         filename = os.path.join(args.h5_path, filename)
                         val_model.save(filename)
 
-                        EMAer.reset_old_weights()
+                        # EMAer.reset_old_weights()
 
                     # validate
                     if count > 0 and count % args.validate_interval == 0:
                         print('\nIteration', count, 'testing...')
 
-                        EMAer.apply_ema_weights()
+                        # EMAer.apply_ema_weights()
 
                         for db_index in range(len(ver_list)):
                             start_time = time.time()
@@ -392,7 +392,7 @@ if __name__ == '__main__':
                                 filename = os.path.join(args.h5_best_path, filename)
                                 val_model.save(filename)
 
-                        EMAer.reset_old_weights()
+                        # EMAer.reset_old_weights()
 
                 except tf.errors.OutOfRangeError:
                     print("End of epoch %d" % i)
