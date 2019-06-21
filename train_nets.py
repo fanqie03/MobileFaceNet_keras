@@ -10,15 +10,20 @@ import argparse
 import os
 import time
 from datetime import datetime
+import sys
 
-import keras
-import keras.backend as K
+f = open('a.txt', 'w')
+old = sys.stdout
+sys.stdout = f
+
 import math
 import numpy as np
 import tensorflow as tf
-from keras import regularizers
-from keras.layers import Input, Layer
-from keras.models import Model
+
+layers = tf.keras.layers
+K = tf.keras.backend
+keras = tf.keras
+
 from scipy import interpolate
 from scipy.optimize import brentq
 from sklearn import metrics
@@ -152,7 +157,7 @@ def learning_rate_schedule(epoch, lr, boundaries, values):
     return epoch, t
 
 
-class ArcFace(Layer):
+class ArcFace(layers.Layer):
     """改进的softmax，得出的结果再与真是结果之间求交叉熵"""
 
     def __init__(self, n_classes=10, s=64.0, m=0.50, regularizer=None, **kwargs):
@@ -160,7 +165,7 @@ class ArcFace(Layer):
         self.n_classes = n_classes
         self.s = s
         self.m = m
-        self.regularizer = regularizers.get(regularizer)
+        self.regularizer = keras.regularizers.get(regularizer)
 
     def build(self, input_shape):
         super(ArcFace, self).build(input_shape[0])
@@ -255,15 +260,15 @@ class ExponentialMovingAverage:
 
 def MobileFaceNets(input_shape=(112, 112, 3), n_classes=10, k=128):
     """MobileFaceNets"""
-    inputs = Input(shape=input_shape)  # 112x112，(img-127.5)/128
-    y = Input(shape=(1,), dtype=tf.int32)
+    inputs = layers.Input(shape=input_shape, dtype=tf.float32)  # 112x112，(img-127.5)/128
+    y = layers.Input(shape=(1,), dtype=tf.int32)
     m = MobileFaceNet()
     x = m.inference(inputs, k)
     epsilon = 1e-10
     x = keras.layers.Lambda(lambda o: tf.nn.l2_normalize(o, 1, epsilon, name='embeddings'))(x)
     output = ArcFace(n_classes=n_classes, regularizer=None)([x, y])
 
-    model = Model([inputs, y], output)
+    model = keras.models.Model([inputs, y], output)
     print(model.input, model.output)
     return model
 
